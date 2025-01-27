@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* --color-mint-500: oklch(0.72 0.11 178); */
+  --color-primary:oklch(72.8% 0.1847 50.12);
+  --color-secondary:#EA9841;
+  --color-acent:#4DB6AC;
+
+  
+ 
+}
