@@ -4,13 +4,12 @@ const app = express()
 
 const user = require('../Modals/User')
 
-
-import { signup, signin, logout } from '../controllers/authController.js';
-
+// const signup = require("../Controllers/authControllers.js")
+const { signup, signin, logout } =require('../Controllers/authControllers')
 const router = express.Router();
 
 router.post('/signup', signup);
-router.post('/signin', signin);
-router.post('/logout', logout);
+// router.post('/signin', signin);
+// router.post('/logout', logout);
 
-
+module.exports = router;

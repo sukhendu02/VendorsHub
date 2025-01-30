@@ -3,22 +3,28 @@ const app = express()
 const cors = require("cors")
 
 // const router = require("./Routes/userRoutes")
+const userRoutes = require("./Routes/userRoutes")
 
-// app.use('/api/auth', authRoutes);
+// app.use('/api/auth', );
+app.use(cors())
+app.use(express.json())
+
+app.use('/api/auth', userRoutes)
+
 const mongoose = require('mongoose')
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
-// const { MongoClient, ServerApiVersion } = require("mongodb");
-// const uri = process.env.MONGODBURL;
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const uri = process.env.MONGODBURL;
 
-// const { EFAULT } = require("constants");
-// const { error, Console } = require("console");
+const { EFAULT } = require("constants");
+const { error, Console } = require("console");
 
-// mongoose
-//   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => console.log("successful"))
-//   .catch((err) => console.log(err));
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("successful"))
+  .catch((err) => console.log(err));
 
 
 
