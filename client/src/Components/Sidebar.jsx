@@ -9,14 +9,18 @@ import {
   ChevronLeft,
   ShieldPlus,
   MessageCircleQuestion,
+  LayoutGrid,
+  Megaphone,
   Menu
 } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 
 const menuItems = [
+  { icon: LayoutGrid, label: 'Getting Started', path: '/start' },
   { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
   { icon: ShoppingCart, label: 'Orders', path: '/orders' },
   { icon: Users, label: 'Users', path: '/users' },
+  { icon: Megaphone, label: 'Marketing', path: '/marketing' },
   { icon: Settings, label: 'Settings', path: '/settings' },
 ];
 const menuItems2 = [
@@ -57,8 +61,13 @@ export default function Sidebar() {
           <NavLink
             key={item.label}
             to={item.path}
-            className="flex items-center px-4 py-3 text-slate-800 hover:bg-gray-800  hover:text-white transition-colors rounded-xl"
-          >
+            // hover:bg-gray-800  hover:text-white 
+            className={({ isActive }) =>`flex items-center px-4 py-3 my-0.5 text-slate-800
+             
+             hover:bg-slate-200  hover:text-slate-800 
+             transition-colors rounded-xl
+            ${isActive?"bg-slate-200":""}
+            }`} >
             <item.icon className='text-primary' size={20} />
             <span className={`ml-4 ${collapsed ? 'hidden' : 'block'} text-sm font-medium`}>
               {item.label}
@@ -71,7 +80,13 @@ export default function Sidebar() {
           <NavLink
             key={item.label}
             to={item.path}
-            className="flex items-center px-4 py-3 text-slate-800 hover:bg-gray-800  hover:text-white transition-colors rounded-xl"
+            className={({ isActive }) =>`flex items-center px-4 py-3 my-0.5 text-slate-800
+            hover:bg-gray-800  hover:text-white 
+            transition-colors rounded-xl
+           ${isActive?"bg-gray-800":""}
+           ${isActive?"text-white":""}
+           }`}
+
           >
             <item.icon className='text-primary' size={20} />
             <span className={`ml-4 ${collapsed ? 'hidden' : 'block'} text-sm font-medium`}>
