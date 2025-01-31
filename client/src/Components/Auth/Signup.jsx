@@ -6,6 +6,7 @@ import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 
 
+
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Signup() {
@@ -75,20 +76,25 @@ export default function Signup() {
         
           
           const response = await axios.post('http://localhost:3000/api/auth/signup', formData);
-          
-          alert(response.data.message);
-           // Clear form data
-      setFormData({
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
+          toast.success(response.data.message)
+          // alert(response.data.message);
+         
+    
           window.location.href = '/signin';
         } catch (error) {
           console.error(error.response?.data || error.message);
+          // console.log(error)
+          
+          // Add toast to backend error
+          toast.error( 'Signup Failed! Please try again later')
         }
         finally{
+          setFormData({
+            username: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+          });
           setLoading(false)
         }
       };
@@ -114,7 +120,7 @@ export default function Signup() {
                 type="text"
                 placeholder="Username or Bussiness Name"
                 name='username'
-                // value={formData.username}
+                value={formData.username}
                 className="w-full m-1 px-4 py-3 border-2 shadow-sm border-slate-300  rounded-lg focus:outline-none focus:ring focus:ring-primary focus:border-white text-slate-700"
                 onChange={handleChange}
               />
@@ -125,6 +131,7 @@ export default function Signup() {
                 type="email"
                 placeholder="Email"
                 name='email'
+                value={formData.email}
                 className="w-full m-1 px-4 py-3 border-2 shadow-sm border-slate-300  rounded-lg focus:outline-none focus:ring focus:ring-primary focus:border-white text-slate-700"
                 onChange={handleChange}
               />
@@ -135,6 +142,7 @@ export default function Signup() {
                 type="password"
                 placeholder="Password"
                 name='password'
+                value={formData.password}
                 className="w-full m-1 px-4 py-3 border-2 shadow-sm border-slate-300  rounded-lg focus:outline-none focus:ring focus:ring-primary focus:border-white text-slate-700"
                 onChange={handleChange}
               />
@@ -145,6 +153,7 @@ export default function Signup() {
                 type="password"
                 placeholder="Cofirm Password"
                 name='confirmPassword'
+                value={formData.confirmPassword}
                 className="w-full m-1 px-4 py-3 border-2 shadow-sm border-slate-300  rounded-lg focus:outline-none focus:ring focus:ring-primary focus:border-white text-slate-700"
                 onChange={handleChange}
               />
