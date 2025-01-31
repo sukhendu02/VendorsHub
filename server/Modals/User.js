@@ -6,9 +6,9 @@ const bodyParser = require("body-parser");
 
 
 // const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
-// const dotenv = require('dotenv')
-// dotenv.config({path:'./config.env'})
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv')
+dotenv.config({path:'./config.env'})
 // const cookieParser = require('cookie-parser')
 // app.use(cookieParser());
 
@@ -59,7 +59,8 @@ const userSchema = new mongoose.Schema({
 //        await this.save();
 //        return token;
 //     }
-//     catch{
+//     catch(err){
+//         console.log(err)
 //         res.send('error')
 //     }
 // }
