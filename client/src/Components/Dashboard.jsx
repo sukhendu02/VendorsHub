@@ -1,6 +1,8 @@
 import React from 'react';
-import { DollarSign, ShoppingBag, Users, TrendingUp } from 'lucide-react';
-
+import { DollarSign, ShoppingBag, Users, TrendingUp, LogOut } from 'lucide-react';
+import UserProfile from './Auth/Profile';
+import Logout from './Auth/Logout';
+import {useAuth} from "../Context/AuthContext"
 const stats = [
   {
     title: 'Total Revenue',
@@ -33,7 +35,10 @@ const stats = [
 ];
 
 export default function DashboardStats() {
+  const { user } = useAuth();
   return (
+    <>
+  
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       {stats.map((stat) => (
         <div key={stat.title} className="bg-white p-6 rounded-xl shadow-sm">
@@ -47,10 +52,19 @@ export default function DashboardStats() {
           </div>
           <h3 className="text-gray-500 text-sm mb-1">{stat.title}</h3>
           <p className="text-2xl font-bold">{stat.value}</p>
+
+        
         </div>
       ))}
 
       
     </div>
+
+    <div>
+      {/* <UserProfile/> */}
+      <Logout/>
+    </div>
+
+    </>
   );
 }
