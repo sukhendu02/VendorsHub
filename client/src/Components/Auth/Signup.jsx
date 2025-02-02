@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
@@ -13,6 +13,7 @@ export default function Signup() {
    
     const [loading, setLoading] = useState(false);
 
+    const navigate= useNavigate()
  
     const [formData, setFormData] = useState({
       username: '',
@@ -38,22 +39,22 @@ export default function Signup() {
             toast.error("Password must be at least 8 characters");
             return false;
             }
-            if (!/^[A-Z]/.test(password)) {
+            if (!/[A-Z]/.test(password)) {
               toast.error("Password must contain at least one uppercase letter");
               return false;
               }
-              // if (!/^[a-z]/.test(password)) {
-              //   toast.error("Password must contain at least one lowercase letter");
-              //   return false;
-              //   }
-                // if (!/^[0-9]/.test(password)) {
-                //   toast.error("Password must contain at least one digit");
-                //   return false;
-                //   }
-                  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    toast.error('Invalid email address');
-                    return false;
+              if (!/[a-z]/.test(password)) {
+                toast.error("Password must contain at least one lowercase letter");
+                return false;
+                }
+                if (!/[0-9]/.test(password)) {
+                  toast.error("Password must contain at least one digit");
+                  return false;
                   }
+                  // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                  //   toast.error('Invalid email address');
+                  //   return false;
+                  // }
                   return true;
       }
 
@@ -76,17 +77,19 @@ export default function Signup() {
         
           
           const response = await axios.post('http://localhost:3000/api/auth/signup', formData);
-          toast.success(response.data.message)
-          // alert(response.data.message);
+        
+
+          // Redirect to login page with success message
+      navigate('/signin', { state: { message: 'Signup successful! Please log in.' } });
+
          
     
-          window.location.href = '/signin';
         } catch (error) {
           console.error(error.response?.data || error.message);
           // console.log(error)
           
           // Add toast to backend error
-          toast.error( 'Signup Failed! Please try again later')
+          toast.error( error.response?.data?.message||'Signup Failed! Please try again later')
         }
         finally{
           setFormData({

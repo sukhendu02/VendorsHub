@@ -1,11 +1,13 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link , useNavigate ,useLocation} from 'react-router-dom'
 import { useState } from 'react';
+import { useEffect } from 'react';
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 
 import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 export default function Signin() {
@@ -16,6 +18,22 @@ export default function Signin() {
       email:'',
       password:'',
     })
+
+
+    const navigate = useNavigate();
+  const location = useLocation();
+
+
+  // {{ ---  NOTIFICATION 2 TIMES FIX   ----}}
+   // Check for success message in location state
+   useEffect(() => {
+    if (location.state?.message) {
+      toast.success(location.state.message);
+      // Clear the state to avoid showing the toast again on page refresh
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
 
  
     const handleChange = (e) => {
@@ -45,17 +63,18 @@ export default function Signin() {
       }
       try {
 
-        const response = await axios.post('http://localhost:3000/api/auth/signin',fromData)
-        toast.success(response.data.message)
-        
+        const response = await axios.post('http://localhost:3000/api/auth/signin',fromData,{withCredentials:true})
+        // console.log('Login Successful:', token);
+        toast.success(response.data.message || "Login Success")
         // redirect to dashboard
+      navigate("/users")
 
 
       } catch (error) {
-        console.error(error.response?.data||error.message)
+        // console.error(error.response?.data||error.message)
         
         // Add toast for backend error
-        toast.error('Failed to Login! Please try again later.')
+        toast.error(error.response?.data?.message ||'Failed to Login! Please try again later.')
       }
       finally{
         setfromData({
@@ -78,6 +97,7 @@ export default function Signin() {
 
         <p className='text-gray-500 text-center mb-4'>
         Sign in to your existing account!
+        
         </p>
 
       

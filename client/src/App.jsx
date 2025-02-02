@@ -7,6 +7,8 @@ import Sidebar from './Components/Sidebar'
 import Topbar from './Components/Topbar';
 import Signup from './Components/Auth/Signup';
 import Signin from './Components/Auth/Signin';
+import Logout from './Components/Auth/Logout';
+import Profile from './Components/Auth/Profile';
 import DashboardStats from './Components/Dashboard';
 import GettingStart from './Components/GettingStart';
 
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Router>
+    
       <Toaster position="top-center" reverseOrder={false} />
       {/* <div className="flex h-screen bg-gray-100">
         <Sidebar/>
@@ -40,6 +42,8 @@ function App() {
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/logout" element={<Logout />} />
          
           <Route
             path="/documentation"
@@ -76,7 +80,7 @@ function App() {
         </Routes>
       </div>
       
-    </Router>
+  
   
     </>
   )

@@ -35,6 +35,7 @@ const menuItems2 = [
   { icon: ShieldPlus, label: 'SOPs', path: '/SOPs' },
   { icon: MessageCircleQuestion, label: 'Support', path: '/Support' },
   { icon: Settings, label: 'Settings', path: '/settings' },
+  { icon: Settings, label: 'Logout', path: '/Logout' },
 ];
 export default function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
