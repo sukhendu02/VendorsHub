@@ -44,13 +44,102 @@ export default function GettingStart() {
             <TabPanels>
               <TabPanel>
                 {/* Onboarding form for Registerd */}
-                Panel 1
-                <form action="">
+
+                <form action="" className='p-3 m-2 sm:p-5 w-5/6 m-auto'>
+
+                <div className="mb-8">
+      <div className="flex justify-between items-center">
+        {[1, 2, 3].map((item) => (
+          <div
+            key={item}
+            className={`flex items-center ${item !== 3 ? "flex-1" : ""}`}
+          >
+            {/* Step Circle */}
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                step >= item ? "bg-primary text-white" : "bg-gray-200 text-gray-600"
+              }`}
+            >
+              {item}
+            </div>
+
+            {/* Connector Line */}
+            {item !== 3 && (
+              <div
+                className={`flex-1 h-1 mx-4 ${
+                  step >= item + 1 ? "bg-primary" : "bg-gray-200"
+                }`}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
                   {step ===1 &&(
                     <>
-                    <input type="text" name="" id="" placeholder='something'/>
-                    <input type="text" name="" id="" placeholder='something'/>
-                    <input type="text" name="" id="" placeholder='something'/>
+                  
+<div className="flex justify-between">
+
+
+<div className="relative my-4  w-1/2 m-3">
+      <input
+        type="text"
+        required
+        autoComplete="off"
+        className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer"
+      />
+      <label
+        className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white  text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white"
+      >
+        First Name
+      </label>
+    </div>
+<div className="relative my-4  w-1/2 m-3">
+      <input
+        type="text"
+        required
+        autoComplete="off"
+        className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer text-slate-500"
+      />
+      <label
+        className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white"
+      >
+        Last Name
+      </label>
+    </div>
+
+    </div>
+<div className="flex justify-between">
+
+
+<div className="relative my-4  w-1/2 m-3">
+      <input
+        type="text"
+        required
+        autoComplete="off"
+        className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer"
+      />
+      <label
+        className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white"
+      >
+        First Name
+      </label>
+    </div>
+<div className="relative my-4  w-1/2 m-3">
+      <input
+        type="text"
+        required
+        autoComplete="off"
+        className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer text-slate-500"
+      />
+      <label
+        className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white"
+      >
+        Last Name
+      </label>
+    </div>
+
+    </div>
                     </>
                   )}
                   {step ===2 &&(
