@@ -6,8 +6,8 @@ dotenv.config({path:'./config.env'})
 
 const authMiddleware = (req, res, next) => {
 
-    console.log("hi I am trigged")
-    console.log(req.cookies.jwt)
+    // console.log("hi I am trigged")
+    // console.log(req.cookies.jwt)
     
     const token = req.cookies.jwt || req.headers['authorization']?.split(' ')[1];;
     console.log(token)
