@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function GettingStart() {
   const [step, setStep] = useState(1);
+  const [step2, setStep2] = useState(1);
   return (
     <>
       <div className="section-1 grid bg-white p-3 rounded shadow-sm">
@@ -86,76 +87,97 @@ export default function GettingStart() {
                     </div>
                     {step === 1 && (
                       <>
-                        <div className="flex justify-between">
+                          <div className="flex justify-between">
                           <div className="relative my-4  w-1/2 m-3">
-                            <input
-                              type="text"
-                              required
-                              autoComplete="off"
-                              className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer"
-                            />
-                            <label className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white  text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white">
-                              First Name
-                            </label>
+                            <div>
+                              <label className="text-slate-500">First Name*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                placeholder="John"
+                              />
+                            </div>
                           </div>
                           <div className="relative my-4  w-1/2 m-3">
-                            <input
-                              type="text"
-                              required
-                              autoComplete="off"
-                              className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer text-slate-500"
-                            />
-                            <label className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white">
-                              Last Name
-                            </label>
-                          </div>
-                        </div>
-                        <div className="flex justify-between">
-                          <div className="relative my-4  w-1/2 m-3">
-                            <input
-                              type="text"
-                              required
-                              autoComplete="off"
-                              className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer"
-                            />
-                            <label className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white">
-                              Business Name
-                            </label>
-                          </div>
-                          <div className="relative my-4  w-1/2 m-3">
-                            <input
-                              type="text"
-                              required
-                              autoComplete="off"
-                              className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer text-slate-500"
-                            />
-                            <label className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white">
-                              Store Name
-                            </label>
+                            <div>
+                              <label className="text-slate-500">
+                                Last Name
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder="Doe"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
                           </div>
                         </div>
                         <div className="flex justify-between">
                           <div className="relative my-4  w-1/2 m-3">
-                            <input
-                              type="text"
-                              required
-                              autoComplete="off"
-                              className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer"
-                            />
-                            <label className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white">
-                              Business Email
-                            </label>
+                            <div>
+                              <label className="text-slate-500">Store Name*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                placeholder="The Gifiting Box"
+                              />
+                            </div>
                           </div>
                           <div className="relative my-4  w-1/2 m-3">
-                            <input
-                              type="text"
-                              required
-                              autoComplete="off"
-                              className="w-full p-3.5 border-2 border-gray-300 bg-transparent rounded-2xl outline-none focus:border-slate-400 peer text-slate-500"
-                            />
-                            <label className="absolute left-0 p-3 ml-2 text-slate-00 transition-all peer-focus:-translate-y-1/2 peer-focus:scale-90 peer-focus:ml-5 peer-focus:px-2 peer-focus:bg-white text-slate-500 peer-valid:-translate-y-1/2 peer-valid:scale-90 peer-valid:ml-5 peer-valid:px-2 peer-valid:bg-white">
-                              Phone
-                            </label>
+                            <div>
+                              <label className="text-slate-500">
+                                Store Url
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder="/the-gifting-box"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">Phone*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="number"
+                                name="noname"
+                                id="noname"
+                                placeholder="9893XXXXXX"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Social Media Link/bestseller product 
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder=""
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
                           </div>
                         </div>
 
@@ -415,9 +437,397 @@ export default function GettingStart() {
                   </form>
                 </TabPanel>
                 <TabPanel>
-                  {/* Onboarding form for Registerd
+                  {/* Onboarding form for NON Registerd
                    */}
-                  Panel 2
+                 
+                 <form
+                    action=""
+                    className="p-3 m-2 sm:p-5 w-5/6 m-auto text-left"
+                  >
+                    <div className="mb-8">
+                      <div className="flex justify-between items-center">
+                        {[1, 2, 3].map((item) => (
+                          <div
+                            key={item}
+                            className={`flex items-center ${
+                              item !== 3 ? "flex-1" : ""
+                            }`}
+                          >
+                            {/* Step Circle */}
+                            <div
+                              className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                                step2 >= item
+                                  ? "bg-primary text-white"
+                                  : "bg-gray-200 text-gray-600"
+                              }`}
+                            >
+                              {item}
+                            </div>
+
+                            {/* Connector Line */}
+                            {item !== 3 && (
+                              <div
+                                className={`flex-1 h-1 mx-4 ${
+                                  step2 >= item + 1
+                                    ? "bg-primary"
+                                    : "bg-gray-200"
+                                }`}
+                              />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {step2 === 1 && (
+                      <>
+                          <div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">First Name*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                placeholder="John"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Last Name
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder="Doe"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">Store Name*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                placeholder="The Gifiting Box"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Store Url
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder="/the-gifting-box"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">Phone*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="number"
+                                name="noname"
+                                id="noname"
+                                placeholder="9893XXXXXX"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Social Media Link/bestseller product 
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder=""
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex justify-end m-3">
+                          <button
+                            type="button"
+                            onClick={() => setStep2(2)}
+                            className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
+                          >
+                            Next
+                          </button>
+                        </div>
+                      </>
+                    )}
+                    {step2 === 2 && (
+                      <>
+                       <div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Name as per PAN
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                PAN Number (Individaul)
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                               
+                                type="text"
+                                name="noname"
+                                id="noname"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">Address*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                placeholder="Address Line 1"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder="Address Line 2"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="relative my-4  w-1/3 m-3">
+                            <div>
+                             
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                                placeholder="City"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/3 m-3">
+                            <div>
+                           <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder="Pincode"
+                                type="number"
+                                name="noname"
+                                id="noname"
+                                
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/3 m-3">
+                            <div>
+                            <select className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500">
+        <option value="" disabled selected>
+          Select a state
+        </option>
+        <option value="AP">Andhra Pradesh</option>
+        <option value="AR">Arunachal Pradesh</option>
+        <option value="AS">Assam</option>
+        <option value="BR">Bihar</option>
+        <option value="CG">Chhattisgarh</option>
+        <option value="GA">Goa</option>
+        <option value="GJ">Gujarat</option>
+        <option value="HR">Haryana</option>
+        <option value="HP">Himachal Pradesh</option>
+        <option value="JH">Jharkhand</option>
+        <option value="KA">Karnataka</option>
+        <option value="KL">Kerala</option>
+        <option value="MP">Madhya Pradesh</option>
+        <option value="MH">Maharashtra</option>
+        <option value="MN">Manipur</option>
+        <option value="ML">Meghalaya</option>
+        <option value="MZ">Mizoram</option>
+        <option value="NL">Nagaland</option>
+        <option value="OR">Odisha</option>
+        <option value="PB">Punjab</option>
+        <option value="RJ">Rajasthan</option>
+        <option value="SK">Sikkim</option>
+        <option value="TN">Tamil Nadu</option>
+        <option value="TG">Telangana</option>
+        <option value="TR">Tripura</option>
+        <option value="UP">Uttar Pradesh</option>
+        <option value="UK">Uttarakhand</option>
+        <option value="WB">West Bengal</option>
+        <optgroup label="Union Territories">
+          <option value="AN">Andaman and Nicobar Islands</option>
+          <option value="CH">Chandigarh</option>
+          <option value="DN">Dadra and Nagar Haveli & Daman and Diu</option>
+          <option value="DL">Delhi</option>
+          <option value="JK">Jammu and Kashmir</option>
+          <option value="LA">Ladakh</option>
+          <option value="LD">Lakshadweep</option>
+          <option value="PY">Puducherry</option>
+        </optgroup>
+      </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex justify-between my-5">
+                          <button
+                            type="button"
+                            onClick={() => setStep2(1)}
+                            className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
+                          >
+                            Prev
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setStep2(3)}
+                            className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
+                          >
+                            Next
+                          </button>
+                        </div>
+                      </>
+                    )}
+                    {step2 === 3 && (
+                      <>
+
+<div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Monthly Revenue 
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="number"
+                                name="noname"
+                                id="noname"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Bank Name
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                               
+                                type="text"
+                                name="noname"
+                                id="noname"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+<div className="flex justify-between">
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Bank Account Number
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="text"
+                                name="noname"
+                                id="noname"
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                IFSC Code
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                               
+                                type="text"
+                                name="noname"
+                                id="noname"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div className="flex justify-between m-3">
+                          <button
+                            type="button"
+                            onClick={() => setStep2(2)}
+                            className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
+                          >
+                            Prev
+                          </button>
+                          <button
+                            type="submit"
+                            // onClick={() => setStep(2)}
+                            className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </form>
                 </TabPanel>
               </TabPanels>
             </TabGroup>
