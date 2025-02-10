@@ -4,9 +4,58 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
 import { useState } from "react";
 
+import CircularProgress from '@mui/material/CircularProgress';
+import toast from "react-hot-toast";
+
 export default function GettingStart() {
+
+  const [loading,setLoading] = useState(false)
   const [step, setStep] = useState(1);
   const [step2, setStep2] = useState(1);
+
+// FOR REGISTERED ONES 
+  const [formData, setFormData] = useState({
+      firstName: '',
+      lastName: '',
+      storeName: '',
+      storeURL: '',
+      phone: '',
+      extLinks: '',
+      B_name: '',
+      add_line1:'',
+      add_line2:'',
+      city:'',
+      pincode:'',
+      state:'',
+      gstn:'',
+      pan:'',
+      bank_ac_Number:'',
+      ifsc:'',
+      });
+      const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
+
+      const validateform=()=>{
+        const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstn,pan,bank_ac_Number,ifsc }=formData
+
+        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||pincode||state||gstn||pan){
+          toast.error("Please fill all the required fields")
+          return false;
+        }
+      }
+      const registerdForm = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        
+        if(!validateform()){
+          setLoading(false)
+          return;
+        }
+      }
+
+
   return (
     <>
       <div className="section-1 grid bg-white p-3 rounded shadow-sm">
@@ -48,7 +97,9 @@ export default function GettingStart() {
                   {/* Onboarding form for Registerd */}
 
                   <form
-                    action=""
+                    // action=""
+                    onSubmit={registerdForm}
+                    methond="post"
                     className="p-3 m-2 sm:p-5 w-5/6 m-auto text-left"
                   >
                     <div className="mb-8">
@@ -95,9 +146,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="firstName"
+                                id="firstName"
                                 placeholder="John"
+                                onChange={handleChange}
+                                value={formData.firstName}
                               />
                             </div>
                           </div>
@@ -111,8 +164,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Doe"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="lastName"
+                                id="lastName"
+                                onChange={handleChange}
+                                value={formData.lastName}
                                 
                               />
                             </div>
@@ -126,24 +181,29 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="storeName"
+                                id="storeName"
                                 placeholder="The Gifiting Box"
+                                onChange={handleChange}
+                                value={formData.storeName}
                               />
                             </div>
                           </div>
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                Store Url
+                                Store Url*
                               </label>
                               <br />
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="/the-gifting-box"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="storeURL"
+                                id="storeURL"
+                                onChange={handleChange}
+                                value={formData.storeURL}
+                                
                                 
                               />
                             </div>
@@ -157,24 +217,28 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="number"
-                                name="noname"
-                                id="noname"
+                                name="phone"
+                                id="phone"
                                 placeholder="9893XXXXXX"
+                                onChange={handleChange}
+                                value={formData.phone}
                               />
                             </div>
                           </div>
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                Social Media Link/bestseller product 
+                                Social Media Link/ Any Product Link
                               </label>
                               <br />
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder=""
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="extLinks"
+                                id="extLinks"
+                                onChange={handleChange}
+                                value={formData.extLinks}
                                 
                               />
                             </div>
@@ -204,8 +268,8 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="B_name"
+                                id="B_name"
                               />
                             </div>
                           </div>
@@ -233,9 +297,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="add_line1"
+                                id="add_line1"
                                 placeholder="Address Line 1"
+                                value={formData.add_line1}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
@@ -249,8 +315,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Address Line 2"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="add_line_2"
+                                id="add_line_2"
+                                value={formData.add_line2}
+                                onChange={handleChange}
                                 
                               />
                             </div>
@@ -263,9 +331,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="city"
+                                id="city"
                                 placeholder="City"
+                                value={formData.city}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
@@ -275,15 +345,17 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Pincode"
                                 type="number"
-                                name="noname"
-                                id="noname"
+                                name="pincode"
+                                id="pincode"
+                                value={formData.pincode}
+                                onChange={handleChange}
                                 
                               />
                             </div>
                           </div>
                           <div className="relative my-4  w-1/3 m-3">
                             <div>
-                            <select className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500">
+                            <select className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500" name="state">
         <option value="" disabled selected>
           Select a state
         </option>
@@ -361,8 +433,10 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="gstn"
+                                id="gstn"
+                                value={formData.gstn}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
@@ -376,8 +450,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="pan"
+                                id="pan"
+                                value={formData.pan}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
@@ -393,8 +469,10 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="bank_ac_number"
+                                id="bank_ac_number"
+                                value={formData.bank_ac_Number}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
@@ -408,8 +486,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="ifsc"
+                                id="ifsc"
+                                value={formData.ifsc}
+                                onChange={handleChange}
                               />
                             </div>
                           </div>
@@ -426,10 +506,10 @@ export default function GettingStart() {
                           </button>
                           <button
                             type="submit"
-                            // onClick={() => setStep(2)}
+                            disabled={loading}
                             className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
                           >
-                            Submit
+                             {loading ?  (<CircularProgress className='text-white' size={16} style={{color:"white"}}/>) : "Submit"}
                           </button>
                         </div>
                       </>
