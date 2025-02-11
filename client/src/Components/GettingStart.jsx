@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import CircularProgress from '@mui/material/CircularProgress';
 import toast from "react-hot-toast";
+// import config from ""
 
 export default function GettingStart() {
 
@@ -39,21 +40,73 @@ export default function GettingStart() {
       const validateform=()=>{
         const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstn,pan,bank_ac_Number,ifsc }=formData
 
-        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||pincode||state||gstn||pan){
+        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!gstn||!pan){
+          toast.error("Please fill all the required fields")
+          return false;
+        }
+      }
+      const validatenrform=()=>{
+        const {firstName,lastName,name_doc,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,pan,bank_ac_Number,ifsc }=formData
+
+        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!pan){
           toast.error("Please fill all the required fields")
           return false;
         }
       }
       const registerdForm = async (e) => {
         e.preventDefault();
-        setLoading(true);
-
-        
+        setLoading(true); 
         if(!validateform()){
           setLoading(false)
           return;
         }
+        try {
+          const resp=await axios.post(`${process.env.MYDOMAIN}/Onboard/registerd`,formData);
+          console.log(resp)
+          toast.success("Wohoo! You are one step ahed!")
+
+        } catch (error) {
+          console.error(error.resp?.data || error.message)
+          toast.error(error.resp?.data?.message || "Something went wrong!")
+        }
       }
+
+      // FOR NON REGISTERD ONES
+      const [nrformData, setnrformData] = useState({
+        firstname: '',
+        lastname: '',
+        storeName: '',
+        storeURL: '',
+        phone: '',
+        extLinks: '',
+        name_doc:'',
+        add_line1:'',
+        add_line2:'',
+        city:'',
+        pincode:'',
+        state:'',
+        revenue:'',
+        bank_name:'',
+        pan:'',
+        bank_ac_Number:'',
+        ifsc:'',
+        });
+        const handlenrChange = (e) => {
+          setnrformData({ ...nrformData, [e.target.name]: e.target.value });
+        };
+        const handlenrForm =async(e)=>{
+          e.preventDefault()
+          setLoading(true)
+          if(!validateform()){
+            return 
+          }
+          try {
+            
+          } catch (error) {
+            
+          }
+
+        }
 
 
   return (
@@ -76,7 +129,7 @@ export default function GettingStart() {
     </div> */}
 
       <div className="bg-white rounded mt-2 p-3 text-sm shadow-sm">
-        <h4 className="text-center font-medium text-lg text-secondary my-2">
+        <h4 className="text-center font-medium text-lg text-slate-600 my-2">
           Register your business and Start Earing{" "}
         </h4>
         {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam veniam, neque explicabo ratione repudiandae vel dignissimos rem alias sed eum eaque aperiam? Unde asperiores quae consequuntur delectus animi tempore libero?</p> */}
@@ -522,6 +575,8 @@ export default function GettingStart() {
                  
                  <form
                     action=""
+                    method="post"
+                    onSubmit={handlenrForm}
                     className="p-3 m-2 sm:p-5 w-5/6 m-auto text-left"
                   >
                     <div className="mb-8">
@@ -568,9 +623,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="firstname"
+                                id="firstname"
                                 placeholder="John"
+                                onChange={handlenrChange}
+                                value={nrformData.firstname}
                               />
                             </div>
                           </div>
@@ -584,8 +641,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Doe"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="lastname"
+                                id="lastname"
+                                onChange={handlenrChange}
+                                value={nrformData.lastname}
                                 
                               />
                             </div>
@@ -599,9 +658,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="storeName"
+                                id="storeName"
                                 placeholder="The Gifiting Box"
+                                onChange={handlenrChange}
+                                value={nrformData.storeName}
                               />
                             </div>
                           </div>
@@ -615,8 +676,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="/the-gifting-box"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="storeURL"
+                                id="storeURL"
+                                onChange={handlenrChange}
+                                value={nrformData.storeURL}
                                 
                               />
                             </div>
@@ -630,9 +693,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="number"
-                                name="noname"
-                                id="noname"
+                                name="phone"
+                                id="phone"
                                 placeholder="9893XXXXXX"
+                                onChange={handlenrChange}
+                                value={nrformData.phone}
                               />
                             </div>
                           </div>
@@ -646,8 +711,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder=""
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="extLinks"
+                                id="extLinks"
+                                onChange={handlenrChange}
+                                value={nrformData.extLinks}
                                 
                               />
                             </div>
@@ -677,8 +744,10 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="name_doc"
+                                id="name_doc"
+                                onChange={handlenrChange}
+                                value={nrformData.name_doc}
                               />
                             </div>
                           </div>
@@ -692,8 +761,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="pan"
+                                id="pan"
+                                onChange={handlenrChange}
+                                value={nrformData.pan}
                               />
                             </div>
                           </div>
@@ -706,9 +777,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="add_line1"
+                                id="add_line1"
                                 placeholder="Address Line 1"
+                                onChange={handlenrChange}
+                                value={nrformData.add_line1}
                               />
                             </div>
                           </div>
@@ -722,8 +795,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Address Line 2"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="add_line2"
+                                id="add_line2"
+                                onChange={handlenrChange}
+                                value={nrformData.add_line2}
                                 
                               />
                             </div>
@@ -736,9 +811,11 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="city"
+                                id="city"
                                 placeholder="City"
+                                onChange={handlenrChange}
+                                value={nrformData.city}
                               />
                             </div>
                           </div>
@@ -748,19 +825,21 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Pincode"
                                 type="number"
-                                name="noname"
-                                id="noname"
+                                name="pincode"
+                                id="pincode"
+                                onChange={handlenrChange}
+                                value={nrformData.pincode}
                                 
                               />
                             </div>
                           </div>
                           <div className="relative my-4  w-1/3 m-3">
                             <div>
-                            <select className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500">
+                            <select name="state" value={handleChange} onChange={handlenrChange} className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500">
         <option value="" disabled selected>
           Select a state
         </option>
-        <option value="AP">Andhra Pradesh</option>
+        <option  value="AP">Andhra Pradesh</option>
         <option value="AR">Arunachal Pradesh</option>
         <option value="AS">Assam</option>
         <option value="BR">Bihar</option>
@@ -834,8 +913,10 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="number"
-                                name="noname"
-                                id="noname"
+                                name="revenue"
+                                id="revenue"
+                                onChange={handlenrChange}
+                                value={nrformData.revenue}
                               />
                             </div>
                           </div>
@@ -849,8 +930,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="bank_name"
+                                id="bank_name"
+                                onChange={handlenrChange}
+                                value={nrformData.bank_name}
                               />
                             </div>
                           </div>
@@ -866,8 +949,10 @@ export default function GettingStart() {
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="bank_ac_Number"
+                                id="bank_ac_Number"
+                                onChange={handlenrChange}
+                                value={nrformData.bank_ac_Number}
                               />
                             </div>
                           </div>
@@ -881,8 +966,10 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                
                                 type="text"
-                                name="noname"
-                                id="noname"
+                                name="ifsc"
+                                id="ifsc"
+                                onChange={handlenrChange}
+                                value={nrformData.ifsc}
                               />
                             </div>
                           </div>
