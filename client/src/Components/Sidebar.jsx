@@ -11,7 +11,9 @@ import {
   MessageCircleQuestion,
   LayoutGrid,
   Megaphone,
-  Menu
+  Menu,
+  
+  LogOut
 } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -19,9 +21,9 @@ const menuItems = [
   { icon: LayoutGrid, label: 'Getting Started', path: '/start' },
   { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
   { icon: ShoppingCart, label: 'Orders', path: '/orders' },
-  { icon: Users, label: 'Users', path: '/users' },
+  // { icon: Users, label: 'Users', path: '/users' },//products
   { icon: Megaphone, label: 'Marketing', path: '/marketing' },
-  { icon: Settings, label: 'Settings', path: '/settings' },
+  // { icon: Settings, label: 'Settings', path: '/settings' },
 ];
 const menuItems2 = [
   { icon: LayoutDashboard, label: 'Polices', 
@@ -35,7 +37,7 @@ const menuItems2 = [
   { icon: ShieldPlus, label: 'SOPs', path: '/SOPs' },
   { icon: MessageCircleQuestion, label: 'Support', path: '/Support' },
   { icon: Settings, label: 'Settings', path: '/settings' },
-  { icon: Settings, label: 'Logout', path: '/Logout' },
+  { icon: LogOut, label: 'Logout', path: '/Logout' },
 ];
 export default function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
