@@ -7,6 +7,7 @@ app.use(cookieParser())
 
 // const router = require("./Routes/userRoutes")
 const userRoutes = require("./Routes/userRoutes")
+const onboardRoutes = require("./Routes/onboardRoutes")
 
 // app.use('/api/auth', );
 
