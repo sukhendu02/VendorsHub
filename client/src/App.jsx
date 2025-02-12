@@ -12,6 +12,8 @@ import Profile from './Components/Auth/Profile';
 import DashboardStats from './Components/Dashboard';
 import GettingStart from './Components/GettingStart';
 import Settings from './Components/Settings';
+// import Policies from './Components/Policies';
+import Policies from './Components/Policies';
 
 import { Toaster } from 'react-hot-toast'; 
 
@@ -64,7 +66,7 @@ function App() {
                 <Sidebar />
                 <div className="flex-1 flex flex-col overflow-hidden">
                   <Topbar />
-                  <main className="flex-1 overflow-x-hidden overflow-y-auto m-2 p-2">
+                  <main className="flex-1 overflow-x-hidden overflow-y-auto m-1 p-2">
                     <Routes>
                       <Route path="/" element={<DashboardStats />} />
                       <Route path="/orders" element={<div className="p-6">Orders Page</div>} />
@@ -72,6 +74,7 @@ function App() {
                       <Route path="/settings" element={<Settings/>} />
                       {/* <Route path="/marketing" element={<Sign />} /> */}
                       <Route path="/start" element={<GettingStart />} />
+                      <Route path="/policies" element={<Policies />} />
                     </Routes>
                   </main>
                 </div>
