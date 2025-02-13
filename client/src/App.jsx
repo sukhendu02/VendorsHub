@@ -12,7 +12,7 @@ import Profile from './Components/Auth/Profile';
 import DashboardStats from './Components/Dashboard';
 import GettingStart from './Components/GettingStart';
 import Settings from './Components/Settings';
-// import Policies from './Components/Policies';
+import Support from './Components/Support';
 import Policies from './Components/Policies';
 
 import { Toaster } from 'react-hot-toast'; 
@@ -75,6 +75,7 @@ function App() {
                       {/* <Route path="/marketing" element={<Sign />} /> */}
                       <Route path="/start" element={<GettingStart />} />
                       <Route path="/policies" element={<Policies />} />
+                      <Route path="/Support" element={<Support />} />
                     </Routes>
                   </main>
                 </div>
