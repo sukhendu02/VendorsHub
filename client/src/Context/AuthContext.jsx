@@ -25,6 +25,7 @@ export const AuthProvider=({children})=> {
             toast.success("Logout Success")
             navigate("/signin")
         } catch (error) {
+          
             
             console.error(error.response?.data?.message||"Logout failed:", error);
         }

@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 import {useAuth} from "../../Context/AuthContext" 
+import {LogOut} from "lucide-react"
 
 
 export default function Logout() {
@@ -15,9 +16,9 @@ export default function Logout() {
     <>
     <button
       onClick={logout}
-      className=""
+      className="w-full justify-center bg-complimentory cursor-pointer text-slate-50 flex p-2 rounded-lg align-baseline" 
     >
-      Logout
+ <LogOut size={16} /> <span className='pl-2 align-middle'>Sign Out</span>
     </button>
     </>
   )

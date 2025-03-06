@@ -32,7 +32,7 @@ app.use(express.json())
 
 
 
-app.use('/api/auth', userRoutes)
+app.use('/api/auth', userRoutes,onboardRoutes)
 
 const mongoose = require('mongoose')
 const dotenv = require("dotenv");

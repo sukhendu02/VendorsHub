@@ -1,8 +1,9 @@
 import React from "react";
-
+import axios from "axios";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
 import { useState } from "react";
+import { TrendingUp, Users, Globe,Wallet } from 'lucide-react';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import toast from "react-hot-toast";
@@ -23,14 +24,15 @@ export default function GettingStart() {
       phone: '',
       extLinks: '',
       B_name: '',
+      // email: '',
       add_line1:'',
       add_line2:'',
       city:'',
       pincode:'',
       state:'',
-      gstn:'',
+      gstin:'',
       pan:'',
-      bank_ac_Number:'',
+      bank_ac_number:'',
       ifsc:'',
       });
       const handleChange = (e) => {
@@ -38,40 +40,48 @@ export default function GettingStart() {
       };
 
       const validateform=()=>{
-        const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstn,pan,bank_ac_Number,ifsc }=formData
-
-        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!gstn||!pan){
-          toast.error("Please fill all the required fields")
-          return false;
-        }
-      }
-      const validatenrform=()=>{
-        const {firstName,lastName,name_doc,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,pan,bank_ac_Number,ifsc }=formData
+        const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc }=formData
+        console.log(formData)
 
         if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!pan){
           toast.error("Please fill all the required fields")
           return false;
         }
+      
+        return true
       }
+
       const registerdForm = async (e) => {
+        
         e.preventDefault();
         setLoading(true); 
+      
+
         if(!validateform()){
           setLoading(false)
           return;
         }
         try {
-          const resp=await axios.post(`${process.env.MYDOMAIN}/Onboard/registerd`,formData);
+        
+          const resp=await axios.post(`http://localhost:3000/api/auth/onboard/registered`,formData);
           console.log(resp)
           toast.success("Wohoo! You are one step ahed!")
 
         } catch (error) {
           console.error(error.resp?.data || error.message)
-          toast.error(error.resp?.data?.message || "Something went wrong!")
+          toast.error(error.response?.data?.message || "Something went wrong!")
+        }
+        finally{
+          
+          setLoading(false)
         }
       }
 
       // FOR NON REGISTERD ONES
+
+ 
+
+
       const [nrformData, setnrformData] = useState({
         firstname: '',
         lastname: '',
@@ -85,25 +95,52 @@ export default function GettingStart() {
         city:'',
         pincode:'',
         state:'',
-        revenue:'',
         bank_name:'',
         pan:'',
-        bank_ac_Number:'',
+        bank_ac_number:'',
         ifsc:'',
         });
         const handlenrChange = (e) => {
           setnrformData({ ...nrformData, [e.target.name]: e.target.value });
         };
-        const handlenrForm =async(e)=>{
+
+
+        const validatenr=()=>{
+          const {firstname,lastname,storeName, storeURL,phone,name_doc,add_line1,add_line2,city,pincode,state,extLinks,pan,bank_name,bank_ac_number,ifsc }=nrformData
+          console.log(nrformData)
+  
+          if(!firstname||!storeName||!storeURL||!phone||!name_doc|| !add_line1||!add_line2||!city||!pincode||!state||!pan||!bank_name||!bank_ac_number||!ifsc){
+            toast.error("Please fill all the required fields")
+            
+            setLoading(false)
+            return false;
+          }
+        
+          return true
+        }
+
+
+        const nonregForm =async(e)=>{
           e.preventDefault()
           setLoading(true)
-          if(!validateform()){
+          if(!validatenr()){
+            setLoading(false)
             return 
           }
           try {
             
-          } catch (error) {
+            console.log("I ran")
+            const resp=await axios.post(`http://localhost:3000/api/auth/onboard/non-registered`,nrformData);
+            console.log(resp)
+            toast.success("Wohoo! You are one step ahed!")
+
             
+          } catch (error) {
+            console.error(error.resp?.data || error.message)
+            toast.error(error.response?.data?.message || "Something went wrong!")
+          }
+          finally{
+            setLoading(false)
           }
 
         }
@@ -111,22 +148,43 @@ export default function GettingStart() {
 
   return (
     <>
-      <div className="section-1 grid bg-white p-3 rounded shadow-sm">
-        Register - Sell - Earn
-      </div>
-      {/* <div className='grid grid-cols-2 gap-4 mt-2'>
-        <div className='bg-white p-3 rounded'>1</div>
-        <div className='bg-white p-5 rounded text-center'>
-            <p className='text-slate-500 my-3 font-semibold'>
-
-            Connet Your Store!
-            </p>
-            <div>
-
-            <button className='bg-primary text-slate-600 py-3 px-4 m-2 rounded-lg'>Connect</button>
-            </div>
+      <div className="section-1 grid bg-white shadow-sm bg-gradient-to-r from-blue-400 to-blue-700 dark:from-blue-800 dark:to-blue-900 rounded-xl p-8 text-white">
+     
+        <div className="max-w-6xl mx-auto p-8 text-center">
+             {/* Introduction Section */}
+             <h1 className="text-4xl font-bold mb-4">Start Selling on Our Marketplace</h1>
+          <p className="text-xl text-blue-100">Join thousands of successful vendors and grow your business with us</p>
         </div>
-    </div> */}
+        
+        <div className="grid md:grid-cols-3 gap-8">
+    
+              <div  className="text-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 p-2">
+                  <Users className="w-8 h-8" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Register </h3>
+                <p className="text-blue-100 text-sm">Complete your vendor registration in minutes.</p>
+              </div>
+              <div  className="text-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 p-2">
+                  <TrendingUp className="w-8 h-8" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Sell </h3>
+                <p className="text-blue-100 text-sm">List your products and start selling</p>
+              </div>
+              <div  className="text-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 p-2">
+                  <Wallet  className="w-8 h-8" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Earn </h3>
+                <p className="text-blue-100 text-sm">Grow your business with our marketplace</p>
+              </div>
+           
+        </div>
+      </div>
+
+      {/* </div> */}
+    
 
       <div className="bg-white rounded mt-2 p-3 text-sm shadow-sm">
         <h4 className="text-center font-medium text-lg text-slate-600 my-2">
@@ -226,6 +284,44 @@ export default function GettingStart() {
                             </div>
                           </div>
                         </div>
+                      
+                        <div className="flex justify-between">
+                        <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Email
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder=""
+                                type="text"
+                                name="email"
+                                id="email"
+                                // onChange={handleChange}
+                                // value={formData.email}
+                                
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">Phone*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="number"
+                                name="phone"
+                                id="phone"
+                                placeholder="9893XXXXXX"
+                                onChange={handleChange}
+                                value={formData.phone}
+                              />
+                            </div>
+                          </div>
+                         
+                        </div>
+
                         <div className="flex justify-between">
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
@@ -262,7 +358,7 @@ export default function GettingStart() {
                             </div>
                           </div>
                         </div>
-                        <div className="flex justify-between">
+                        {/* <div className="flex justify-between">
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">Phone*</label>
@@ -278,27 +374,10 @@ export default function GettingStart() {
                               />
                             </div>
                           </div>
-                          <div className="relative my-4  w-1/2 m-3">
-                            <div>
-                              <label className="text-slate-500">
-                                Social Media Link/ Any Product Link
-                              </label>
-                              <br />
-                              <input
-                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
-                                placeholder=""
-                                type="text"
-                                name="extLinks"
-                                id="extLinks"
-                                onChange={handleChange}
-                                value={formData.extLinks}
-                                
-                              />
-                            </div>
-                          </div>
-                        </div>
+                          
+                        </div> */}
 
-                        <div className="flex justify-end m-3">
+                        <div className="flex justify-end">
                           <button
                             type="button"
                             onClick={() => setStep(2)}
@@ -323,10 +402,12 @@ export default function GettingStart() {
                                 type="text"
                                 name="B_name"
                                 id="B_name"
+                                onChange={handleChange}
+                                value={formData.B_name}
                               />
                             </div>
                           </div>
-                          <div className="relative my-4  w-1/2 m-3">
+                          {/* <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
                                 Business Name 2
@@ -338,6 +419,26 @@ export default function GettingStart() {
                                 type="text"
                                 name="noname"
                                 id="noname"
+                                value={formData.noname}
+                                onChange={handleChange}
+                              />
+                            </div>
+                          </div> */}
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Social Media Link/ Any Product Link
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder=""
+                                type="text"
+                                name="extLinks"
+                                id="extLinks"
+                                onChange={handleChange}
+                                value={formData.extLinks}
+                                
                               />
                             </div>
                           </div>
@@ -368,8 +469,8 @@ export default function GettingStart() {
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 placeholder="Address Line 2"
                                 type="text"
-                                name="add_line_2"
-                                id="add_line_2"
+                                name="add_line2"
+                                id="add_line2"
                                 value={formData.add_line2}
                                 onChange={handleChange}
                                 
@@ -408,7 +509,7 @@ export default function GettingStart() {
                           </div>
                           <div className="relative my-4  w-1/3 m-3">
                             <div>
-                            <select className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500" name="state">
+                            <select value={formData.state} onChange={handleChange} className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500" name="state">
         <option value="" disabled selected>
           Select a state
         </option>
@@ -480,15 +581,15 @@ export default function GettingStart() {
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                GSTN Number
+                                GSTIN Number
                               </label>
                               <br />
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="gstn"
-                                id="gstn"
-                                value={formData.gstn}
+                                name="gstin"
+                                id="gstin"
+                                value={formData.gstin}
                                 onChange={handleChange}
                               />
                             </div>
@@ -496,7 +597,7 @@ export default function GettingStart() {
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                PAN Number
+                                PAN Number*
                               </label>
                               <br />
                               <input
@@ -524,7 +625,7 @@ export default function GettingStart() {
                                 type="text"
                                 name="bank_ac_number"
                                 id="bank_ac_number"
-                                value={formData.bank_ac_Number}
+                                value={formData.bank_ac_number}
                                 onChange={handleChange}
                               />
                             </div>
@@ -576,7 +677,7 @@ export default function GettingStart() {
                  <form
                     action=""
                     method="post"
-                    onSubmit={handlenrForm}
+                    onSubmit={nonregForm}
                     className="p-3 m-2 sm:p-5 w-5/6 m-auto text-left"
                   >
                     <div className="mb-8">
@@ -651,6 +752,43 @@ export default function GettingStart() {
                           </div>
                         </div>
                         <div className="flex justify-between">
+                        <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Email 
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder=""
+                                type="text"
+                                name="email"
+                                id="email"
+                                // onChange={handlenrChange}
+                                // value={nrformData.extLinks}
+                                
+                              />
+                            </div>
+                          </div>
+                          <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">Phone*</label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                type="number"
+                                name="phone"
+                                id="phone"
+                                placeholder="9893XXXXXX"
+                                onChange={handlenrChange}
+                                value={nrformData.phone}
+                              />
+                            </div>
+                          </div>
+                          
+                         
+                        </div>
+                        <div className="flex justify-between">
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">Store Name*</label>
@@ -669,7 +807,7 @@ export default function GettingStart() {
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                Store Url
+                                Store Url*
                               </label>
                               <br />
                               <input
@@ -685,43 +823,9 @@ export default function GettingStart() {
                             </div>
                           </div>
                         </div>
-                        <div className="flex justify-between">
-                          <div className="relative my-4  w-1/2 m-3">
-                            <div>
-                              <label className="text-slate-500">Phone*</label>
-                              <br />
-                              <input
-                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
-                                type="number"
-                                name="phone"
-                                id="phone"
-                                placeholder="9893XXXXXX"
-                                onChange={handlenrChange}
-                                value={nrformData.phone}
-                              />
-                            </div>
-                          </div>
-                          <div className="relative my-4  w-1/2 m-3">
-                            <div>
-                              <label className="text-slate-500">
-                                Social Media Link/bestseller product 
-                              </label>
-                              <br />
-                              <input
-                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
-                                placeholder=""
-                                type="text"
-                                name="extLinks"
-                                id="extLinks"
-                                onChange={handlenrChange}
-                                value={nrformData.extLinks}
-                                
-                              />
-                            </div>
-                          </div>
-                        </div>
+                       
 
-                        <div className="flex justify-end m-3">
+                        <div className="flex justify-end ">
                           <button
                             type="button"
                             onClick={() => setStep2(2)}
@@ -738,7 +842,7 @@ export default function GettingStart() {
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                Name as per PAN
+                                Name as per PAN*
                               </label>
                               <br />
                               <input
@@ -754,7 +858,7 @@ export default function GettingStart() {
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                PAN Number (Individaul)
+                                PAN Number (Individaul)*
                               </label>
                               <br />
                               <input
@@ -835,7 +939,7 @@ export default function GettingStart() {
                           </div>
                           <div className="relative my-4  w-1/3 m-3">
                             <div>
-                            <select name="state" value={handleChange} onChange={handlenrChange} className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500">
+                            <select name="state" value={nrformData.state} onChange={handlenrChange} className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500">
         <option value="" disabled selected>
           Select a state
         </option>
@@ -904,7 +1008,7 @@ export default function GettingStart() {
                       <>
 
 <div className="flex justify-between">
-                          <div className="relative my-4  w-1/2 m-3">
+                          {/* <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
                                 Monthly Revenue 
@@ -919,11 +1023,29 @@ export default function GettingStart() {
                                 value={nrformData.revenue}
                               />
                             </div>
+                          </div> */}
+                           <div className="relative my-4  w-1/2 m-3">
+                            <div>
+                              <label className="text-slate-500">
+                                Social Media Link/bestseller product
+                              </label>
+                              <br />
+                              <input
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                placeholder=""
+                                type="text"
+                                name="extLinks"
+                                id="extLinks"
+                                onChange={handlenrChange}
+                                value={nrformData.extLinks}
+                                
+                              />
+                            </div>
                           </div>
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                Bank Name
+                                Bank Name*
                               </label>
                               <br />
                               <input
@@ -943,23 +1065,23 @@ export default function GettingStart() {
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                Bank Account Number
+                                Bank Account Number*
                               </label>
                               <br />
                               <input
                                 className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                 type="text"
-                                name="bank_ac_Number"
-                                id="bank_ac_Number"
+                                name="bank_ac_number"
+                                id="bank_ac_number"
                                 onChange={handlenrChange}
-                                value={nrformData.bank_ac_Number}
+                                value={nrformData.bank_ac_number}
                               />
                             </div>
                           </div>
                           <div className="relative my-4  w-1/2 m-3">
                             <div>
                               <label className="text-slate-500">
-                                IFSC Code
+                                IFSC Code*
                               </label>
                               <br />
                               <input
@@ -986,10 +1108,10 @@ export default function GettingStart() {
                           </button>
                           <button
                             type="submit"
-                            // onClick={() => setStep(2)}
+                            disabled={loading}
                             className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary cursor-pointer"
                           >
-                            Submit
+                             {loading ?  (<CircularProgress className='text-white' size={16} style={{color:"white"}}/>) : "Submit"}
                           </button>
                         </div>
                       </>

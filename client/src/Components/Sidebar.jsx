@@ -12,10 +12,12 @@ import {
   LayoutGrid,
   Megaphone,
   Menu,
+  User ,
   
   LogOut
 } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
+import Logout from './Auth/Logout';
 
 const menuItems = [
   { icon: LayoutGrid, label: 'Getting Started', path: '/start' },
@@ -36,8 +38,9 @@ const menuItems2 = [
   },
   { icon: ShieldPlus, label: 'SOPs', path: '/SOPs' },
   { icon: MessageCircleQuestion, label: 'Support', path: '/Support' },
-  { icon: Settings, label: 'Settings', path: '/settings' },
-  { icon: LogOut, label: 'Logout', path: '/Logout' },
+  // { icon: Settings, label: 'Settings', path: '/settings' },
+  { icon: User , label: 'Profile', path: '/profile' },
+  // { icon: LogOut, label: <Logout/>, path: '/Logout' },
 ];
 export default function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
@@ -98,6 +101,7 @@ export default function Sidebar() {
           </NavLink>
           
         ))}
+        
       </nav>
     </div>
     </>

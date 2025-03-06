@@ -1,8 +1,9 @@
 import React from 'react';
 import { DollarSign, ShoppingBag, Users, TrendingUp, LogOut } from 'lucide-react';
 import UserProfile from './Auth/Profile';
+// import Logout from './Auth/Logout';
+import {useAuth} from "../Context/AuthContext";
 import Logout from './Auth/Logout';
-import {useAuth} from "../Context/AuthContext"
 const stats = [
   {
     title: 'Total Revenue',
@@ -39,7 +40,7 @@ export default function DashboardStats() {
   return (
     <>
   
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
       {stats.map((stat) => (
         <div key={stat.title} className="bg-white p-6 rounded-xl shadow-sm">
           <div className="flex items-center justify-between mb-4">
@@ -60,10 +61,13 @@ export default function DashboardStats() {
       
     </div>
 
-    <div>
-      {/* <UserProfile/> */}
-      <Logout/>
+    <div className='grid grid-cols-2 gap-4 '>
+      <div className='bg-white p-12 rounded-xl h-72 text-slate-400 text-sm flex justify-center items-center'>No Data to Show</div>
+      <div className='bg-white p-12 rounded-xl h-72 text-slate-400 text-sm flex justify-center items-center'>No Data to Show</div>
+      
     </div>
+
+    
 
     </>
   );
