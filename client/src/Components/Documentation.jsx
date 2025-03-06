@@ -1,138 +1,158 @@
-import React from 'react'
 import React, { useState, useEffect } from 'react';
 import { Search, ChevronRight, Book, Code, Lightbulb, Settings, ShoppingBag, Truck, FileCheck, AlertCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
-
-// interface DocSection {
-//     title: string;
-//     icon: React.ElementType;
-//     items: {
-//       id: string;
-//       title: string;
-//       content: string;
-//     }[];
-//   }
+   
 export default function Documentation() {
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const [activeSection, setActiveSection] = useState('introduction');
-    const location = useLocation();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeSection, setActiveSection] = useState('introduction');
+  const location = useLocation();
 
-    const sections =[
+  const sections = [
+    {
+      title: 'Getting Started',
+      icon: Book,
+      items: [
         {
-          title: 'Getting Started',
-          icon: Book,
-          items: [
-            {
-              id: 'introduction',
-              title: 'Introduction',
-              content: `
-                # Introduction to Vendor Platform
+          id: 'introduction',
+          title: 'Introduction',
+          content: `
+            # Introduction to Vendor Platform
+
+            Welcome to our comprehensive vendor platform documentation. This guide will help you understand how to effectively use our platform to grow your business.
+
+            ## What you'll learn
+
+            - Platform overview and key features
+            - Setting up your vendor account
+            - Best practices for success
+            - Technical requirements and specifications
+
+            ## Prerequisites
+
+            Before you begin, make sure you have:
+            - A valid business registration
+            - Product inventory ready for listing
+            - High-quality product images
+            - Accurate product descriptions
+          `
+        },
+        {
+          id: 'quick-start',
+          title: 'Quick Start Guide',
+          content: `
+            # Quick Start Guide
+
+            Get your store up and running in minutes with our quick start guide.
+
+            ## Steps to Launch
+
+            1. Create your account
+            2. Complete your profile
+            3. Add your first product
+            4. Set up shipping options
+            5. Configure payment methods
+
+            ## First Product Checklist
+
+            - [ ] High-resolution product images
+            - [ ] Detailed product description
+            - [ ] Accurate pricing information
+            - [ ] Shipping dimensions and weight
+            - [ ] Stock quantity
+          `
+        }
+      ]
+    },
+    {
+      title: 'Product Management',
+      icon: ShoppingBag,
+      items: [
+        {
+          id: 'adding-products',
+          title: 'Adding Products',
+          content: `
+            # Adding Products
+
+            Learn how to add and manage your product catalog effectively.
+
+            ## Product Requirements
+
+            - Minimum image resolution: 1000x1000px
+            - Maximum of 8 images per product
+            - Complete product specifications
+            - Accurate inventory count
+
+            ## Step-by-Step Guide
+
+            1. Navigate to Products section
+            2. Click "Add New Product"
+            3. Fill in product details
+            4. Upload product images
+            5. Set pricing and inventory
+            6. Publish your product
+          `
+        }
+      ]
+    },
+    {
+      title: 'Order Processing',
+      icon: Truck,
+      items: [
+        {
+          id: 'order-workflow',
+          title: 'Order Workflow',
+          content: `
+            # Order Processing Workflow
+
+            Understanding the complete order fulfillment process.
+
+            ## Order States
+
+            1. Pending
+            2. Confirmed
+            3. Processing
+            4. Shipped
+            5. Delivered
+
+            ## Processing Timeline
+
+            - Order confirmation: Within 12 hours
+            - Processing start: Within 24 hours
+            - Shipping: Within 48 hours
+            - Delivery tracking: Real-time updates
+          `
+        }
+      ]
+    }
+  ];
     
-                Welcome to our comprehensive vendor platform documentation. This guide will help you understand how to effectively use our platform to grow your business.
-    
-                ## What you'll learn
-    
-                - Platform overview and key features
-                - Setting up your vendor account
-                - Best practices for success
-                - Technical requirements and specifications
-    
-                ## Prerequisites
-    
-                Before you begin, make sure you have:
-                - A valid business registration
-                - Product inventory ready for listing
-                - High-quality product images
-                - Accurate product descriptions
-              `
-            
-            },
-            {
-                id: 'quick-start',
-                title: 'Quick Start Guide',
-                content: `
-                  # Quick Start Guide
-      
-                  Get your store up and running in minutes with our quick start guide.
-      
-                  ## Steps to Launch
-      
-                  1. Create your account
-                  2. Complete your profile
-                  3. Add your first product
-                  4. Set up shipping options
-                  5. Configure payment methods
-      
-                  ## First Product Checklist
-      
-                  - [ ] High-resolution product images
-                  - [ ] Detailed product description
-                  - [ ] Accurate pricing information
-                  - [ ] Shipping dimensions and weight
-                  - [ ] Stock quantity
-                `
-              }
-          ]
-          },
-        
-          {
-            title: 'Order Processing',
-            icon: Truck,
-            items: [
-              {
-                id: 'order-workflow',
-                title: 'Order Workflow',
-                content: `
-                  # Order Processing Workflow
-      
-                  Understanding the complete order fulfillment process.
-      
-                  ## Order States
-      
-                  1. Pending
-                  2. Confirmed
-                  3. Processing
-                  4. Shipped
-                  5. Delivered
-      
-                  ## Processing Timeline
-      
-                  - Order confirmation: Within 12 hours
-                  - Processing start: Within 24 hours
-                  - Shipping: Within 48 hours
-                  - Delivery tracking: Real-time updates
-                `
-              },
-            ]
-          }
-        ];
         useEffect(() => {
-            const hash = location.hash.replace('#', '');
-            if (hash) {
-              setActiveSection(hash);
-              const element = document.getElementById(hash);
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
+          const hash = location.hash.replace('#', '');
+          if (hash) {
+            setActiveSection(hash);
+            const element = document.getElementById(hash);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
             }
-          }, [location]);
+          }
+        }, [location]);
         
-          const getContent = () => {
-            for (const section of sections) {
-              const item = section.items.find(item => item.id === activeSection);
-              if (item) {
-                return item;
-              }
+        const getContent = () => {
+          for (const section of sections) {
+            const item = section.items.find(item => item.id === activeSection);
+            if (item) {
+              return item;
             }
-            return sections[0].items[0];
-          };
-        
-          const currentContent = getContent();      
+          }
+          return sections[0].items[0];
+        };
+      
+        const currentContent = getContent();      
   return (
     <>
-     <div className="min-h-screen">
+   <div className="min-h-screen">
       {/* Search Bar - Fixed at Top */}
       <div className="sticky top-0 z-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 py-4">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,9 +205,8 @@ export default function Documentation() {
               })}
             </nav>
           </div>
-
-           {/* Main Content */}
-           <main className="flex-1 py-6 lg:px-8">
+     {/* Main Content */}
+     <main className="flex-1 py-6 lg:px-8">
             <article className="prose dark:prose-invert max-w-none">
               <h1 className="text-3xl font-bold mb-8">{currentContent.title}</h1>
               <div className="space-y-4">
