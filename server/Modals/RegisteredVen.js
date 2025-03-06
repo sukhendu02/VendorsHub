@@ -5,26 +5,32 @@ const express = require("express");
 
 const registeredVenSchema = new mongoose.Schema({
    
-    firstName: String,
-    lastName: String,
+    firstname: String,
+    lastname: String,
     storeName:String,
     storeURL:String,
     phone:Number,
-    extLinks:String,
+    email:String,
     B_name:String,
+    extLinks:String,
     add_line1:String,
-    add_linl2:String,
+    add_line2:String,
     city:String,
     pincode:String,
     state:String,
-    gstn:String,
+    gstin:String,
     pan:String,
-    bank_ac_Number:String,
+    bank_ac_number:String,
     ifsc:String,
-    status:String,
+   
     
     Date:{ type:Date,
         default:Date.now},
+        applicationStatus: {
+            type: String,
+            enum: ["Pending", "Approved", "Rejected"],
+            default: "Pending",
+          },
 
     
 

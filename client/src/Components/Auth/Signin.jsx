@@ -67,7 +67,7 @@ export default function Signin() {
         // console.log('Login Successful:', token);
         toast.success(response.data.message || "Login Success")
         // redirect to dashboard
-      navigate("/users")
+      navigate("/dashboard")
 
 
       } catch (error) {
