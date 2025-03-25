@@ -4,16 +4,16 @@ const app = express()
 
 
 // const { signup, signin, logout ,userProfile} =require('../Controllers/authControllers');
-const {onboardReg,onboardNonReg} = require('../Controllers/onboardContollers')
+const {onboardReg,onboardNonReg,getVendorStatus,getVendorappData} = require('../Controllers/onboardContollers')
 const authMiddleware = require('../Middleware/authMiddleware');
 const router = express.Router();
 
-router.post('/onboard/registered',onboardReg );
-router.post('/onboard/non-registered',onboardNonReg );
-// router.post('/signin', signin);
-// router.post('/logout',authMiddleware, logout);
+router.get("/vendor/applicationstatus", authMiddleware, getVendorStatus);
+router.get("/vendor/appdata", authMiddleware, getVendorappData);
 
-// router.get('/profile',authMiddleware,userProfile)
+router.post('/onboard/registered',authMiddleware,onboardReg );
+router.post('/onboard/non-registered',authMiddleware,onboardNonReg );
+
 
 
 

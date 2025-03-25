@@ -2,14 +2,69 @@ import React from "react";
 import axios from "axios";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
-import { useState } from "react";
-import { TrendingUp, Users, Globe,Wallet } from 'lucide-react';
+import { useState,useEffect } from "react";
+import { TrendingUp, Users, Globe,Wallet,Info } from 'lucide-react';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import toast from "react-hot-toast";
-// import config from ""
+// import { useLoader } from "../Context/LoaderContext";
+
 
 export default function GettingStart() {
+
+  const [user, setUser] = useState({});
+  const [error, setError] = useState(null);
+  const [vendorStatus, setVendorStatus] = useState(null);
+  
+   const [load, setload] = useState(false);
+
+  useEffect(() => {
+  
+     const fetchProfile = async () => {
+       try {
+         const response = await axios.get('http://localhost:3000/api/auth/profile', { withCredentials: true });
+        //  console.log(response.data)
+         setUser(response.data);
+  //       // console.log(user)
+  // const vendorResponse = await axios.get("http://localhost:3000/api/auth/vendor/applicationstatus", { withCredentials: true });
+  // // console.log(vendorResponse.data)
+  //               setVendorStatus(vendorResponse.data.applicationStatus);
+
+              } catch (err) {
+        
+         setError(err.message || "Failed to load profile");
+       
+       }
+       
+     };
+     
+     
+     fetchProfile();
+   }, []);
+ 
+ useEffect(() => {
+    const fetchVendorStatus = async () => {
+      setload(true)
+      try {
+        
+       
+        const response = await axios.get("http://localhost:3000/api/auth/vendor/applicationstatus", { withCredentials: true });
+        // console.log("Vendor API Response:", response.data.status);  // Debugging
+
+        if (response.data && response.data.status) {
+          setVendorStatus(response.data.status);
+        } 
+        console.log(vendorStatus)
+      } catch (error) {
+        console.error("Error fetching vendor status:", error);
+        // toast.error("Failed to fetch vendor status");
+      } finally{
+        setload(false)
+      }
+    };
+
+    fetchVendorStatus();
+  }, []);
 
   const [loading,setLoading] = useState(false)
   const [step, setStep] = useState(1);
@@ -41,7 +96,7 @@ export default function GettingStart() {
 
       const validateform=()=>{
         const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc }=formData
-        console.log(formData)
+        // console.log(formData)
 
         if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!pan){
           toast.error("Please fill all the required fields")
@@ -63,9 +118,15 @@ export default function GettingStart() {
         }
         try {
         
-          const resp=await axios.post(`http://localhost:3000/api/auth/onboard/registered`,formData);
-          console.log(resp)
-          toast.success("Wohoo! You are one step ahed!")
+          const resp=await axios.post(`http://localhost:3000/api/auth/onboard/registered`,formData,{withCredentials:true});
+          // console.log(resp.code)
+          if (resp.status === 202) {
+            toast.success(resp.data.message);
+          }
+          else{
+
+            toast.success( "Wohoo! You are one step ahed!")
+          }
 
         } catch (error) {
           console.error(error.resp?.data || error.message)
@@ -130,10 +191,17 @@ export default function GettingStart() {
           try {
             
             console.log("I ran")
-            const resp=await axios.post(`http://localhost:3000/api/auth/onboard/non-registered`,nrformData);
+            const resp=await axios.post(`http://localhost:3000/api/auth/onboard/non-registered`,nrformData,{withCredentials:true});
             console.log(resp)
-            toast.success("Wohoo! You are one step ahed!")
+            // console.log("hey")
+            // toast.success("Wohoo! You are one step ahed!")
+  if (resp.status === 202) {
+            toast.success(resp.data.message);
+          }
+          else{
 
+            toast.success( "Wohoo! You are one step ahed!")
+          }
             
           } catch (error) {
             console.error(error.resp?.data || error.message)
@@ -148,6 +216,7 @@ export default function GettingStart() {
 
   return (
     <>
+    
       <div className="section-1 grid bg-white shadow-sm bg-gradient-to-r from-blue-400 to-blue-700 dark:from-blue-800 dark:to-blue-900 rounded-xl p-8 text-white">
      
         <div className="max-w-6xl mx-auto p-8 text-center">
@@ -184,13 +253,33 @@ export default function GettingStart() {
       </div>
 
       {/* </div> */}
+
+      <div className='bg-sky-100 text-complimentory border-l-6 text-xs p-2 px-4 m-4'>
+        <Info className='inline' size={12} /> By completing the vendor onboarding process, the vendor automatically agrees to all marketplace terms and policies and be bound by any future updates. Please read all the terms and policies in the policies tab. 
+        </div>
     
 
-      <div className="bg-white rounded mt-2 p-3 text-sm shadow-sm">
+{load? (<>
+  <CircularProgress className="text-center p-4"></CircularProgress>
+</>):(<>
+      {(vendorStatus === 'Pending' || vendorStatus === null) ? (
+        <>
+
+           <div className="bg-white rounded mt-2 p-3 text-sm shadow-sm">
+{vendorStatus==="Pending"?(
+  <>
+  <div className="text-sm bg-orange-300 p-3 my-4 text-slate-700 border-l-6 border-orange-400 rounded">Your last application was not approved. Please fill details carefully for fast approval.</div>
+  </>
+):(<></>)}
+
         <h4 className="text-center font-medium text-lg text-slate-600 my-2">
           Register your business and Start Earing{" "}
         </h4>
-        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam veniam, neque explicabo ratione repudiandae vel dignissimos rem alias sed eum eaque aperiam? Unde asperiores quae consequuntur delectus animi tempore libero?</p> */}
+
+
+        
+
+
 
         <div className="text-center ">
           <div>
@@ -293,13 +382,15 @@ export default function GettingStart() {
                               </label>
                               <br />
                               <input
-                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500 text-slate-600"
                                 placeholder=""
                                 type="text"
                                 name="email"
                                 id="email"
                                 // onChange={handleChange}
-                                // value={formData.email}
+                                disabled
+                                value={user.email}
+                                // value={user.id}
                                 
                               />
                             </div>
@@ -759,13 +850,14 @@ export default function GettingStart() {
                               </label>
                               <br />
                               <input
-                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
+                                className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500 text-slate-600"
                                 placeholder=""
                                 type="text"
                                 name="email"
                                 id="email"
+                                disabled
                                 // onChange={handlenrChange}
-                                // value={nrformData.extLinks}
+                                value={user.email}
                                 
                               />
                             </div>
@@ -1122,7 +1214,26 @@ export default function GettingStart() {
             </TabGroup>
           </div>
         </div>
-      </div>
+        </div>
+        </>
+        ):(<>
+        <div className="border-l-6  border-complimentory p-8 m-4 rounded bg-sky-100 font-semibold text-slate-600 ">
+          <h3 className="text-lg">
+          Your application is <span> {vendorStatus} </span> 
+
+          </h3>
+        
+        {vendorStatus==="Rejected"?(<>
+        
+  <div className="text-sm bg-orange-300 p-3 mt-3 text-slate-700 border-l-6 border-orange-400 rounded">
+    Your last application was Rejected. Please wait or Contact Support.</div>
+  
+
+        
+        </>):(<></>)}
+        </div>
+        </>)}
+        </>)}
     </>
   );
 }

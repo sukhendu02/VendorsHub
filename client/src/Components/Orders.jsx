@@ -2,54 +2,54 @@ import React, { useState, useEffect } from 'react';
 import { Filter, Search, Eye, X, Calendar, ChevronDown } from 'lucide-react';
 
 const orders = [
-    {
-        id: '1001',
-        customerName: 'John Doe',
-        total: 69.99,
-        status: 'pending',
-        date: '2024-03-15',
-        items: [
-            { name: 'Denim Jeans', quantity: 1, price: 69.99 }
-        ],
-        shippingAddress: '123 Main St, New York, NY 10001',
-        paymentMethod: 'Credit Card'
-    },
-    {
-        id: '1002',
-        customerName: 'Jane Smith',
-        total: 249.99,
-        status: 'processing',
-        date: '2024-03-14',
-        items: [
-            { name: 'Leather Jacket', quantity: 1, price: 249.99 }
-        ],
-        shippingAddress: '456 Oak Ave, Los Angeles, CA 90001',
-        paymentMethod: 'PayPal'
-    },
-    {
-        id: '1003',
-        customerName: 'Mike Johnson',
-        total: 89.99,
-        status: 'shipped',
-        date: '2024-03-13',
-        items: [
-            { name: 'Running Shoes', quantity: 1, price: 89.99 }
-        ],
-        shippingAddress: '789 Pine Rd, Chicago, IL 60601',
-        paymentMethod: 'Credit Card'
-    },
-    {
-        id: '1004',
-        customerName: 'Sarah Williams',
-        total: 199.99,
-        status: 'delivered',
-        date: '2024-03-12',
-        items: [
-            { name: 'Smartwatch', quantity: 1, price: 199.99 }
-        ],
-        shippingAddress: '321 Elm St, Houston, TX 77001',
-        paymentMethod: 'Debit Card'
-    }
+    // {
+    //     id: '1001',
+    //     customerName: 'John Doe',
+    //     total: 69.99,
+    //     status: 'pending',
+    //     date: '2024-03-15',
+    //     items: [
+    //         { name: 'Denim Jeans', quantity: 1, price: 69.99 }
+    //     ],
+    //     shippingAddress: '123 Main St, New York, NY 10001',
+    //     paymentMethod: 'Credit Card'
+    // },
+    // {
+    //     id: '1002',
+    //     customerName: 'Jane Smith',
+    //     total: 249.99,
+    //     status: 'processing',
+    //     date: '2024-03-14',
+    //     items: [
+    //         { name: 'Leather Jacket', quantity: 1, price: 249.99 }
+    //     ],
+    //     shippingAddress: '456 Oak Ave, Los Angeles, CA 90001',
+    //     paymentMethod: 'PayPal'
+    // },
+    // {
+    //     id: '1003',
+    //     customerName: 'Mike Johnson',
+    //     total: 89.99,
+    //     status: 'shipped',
+    //     date: '2024-03-13',
+    //     items: [
+    //         { name: 'Running Shoes', quantity: 1, price: 89.99 }
+    //     ],
+    //     shippingAddress: '789 Pine Rd, Chicago, IL 60601',
+    //     paymentMethod: 'Credit Card'
+    // },
+    // {
+    //     id: '1004',
+    //     customerName: 'Sarah Williams',
+    //     total: 199.99,
+    //     status: 'delivered',
+    //     date: '2024-03-12',
+    //     items: [
+    //         { name: 'Smartwatch', quantity: 1, price: 199.99 }
+    //     ],
+    //     shippingAddress: '321 Elm St, Houston, TX 77001',
+    //     paymentMethod: 'Debit Card'
+    // }
 ];
 
 const Orders = () => {

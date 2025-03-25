@@ -65,9 +65,14 @@ export default function Signin() {
 
         const response = await axios.post('http://localhost:3000/api/auth/signin',fromData,{withCredentials:true})
         // console.log('Login Successful:', token);
+
+        // const res = await axios.get("http://localhost:3000/api/auth/profile", { withCredentials: true });
+        // setUser(res.data);
+
+
         toast.success(response.data.message || "Login Success")
         // redirect to dashboard
-      navigate("/dashboard")
+      navigate("/")
 
 
       } catch (error) {
