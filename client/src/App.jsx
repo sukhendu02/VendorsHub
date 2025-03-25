@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import axios from 'axios';
 
 import './App.css'
 
@@ -20,9 +21,12 @@ import Orders from './Components/Orders';
 import { Toaster } from 'react-hot-toast'; 
 import Marketing from './Components/Marketing';
 import Documentation from './Components/Documentation';
+import { useAuth } from './Context/AuthContext';
 
 function App() {
   const [count, setCount] = useState(0)
+
+
 
   return (
     <>
@@ -57,7 +61,7 @@ function App() {
             element={
               <div className="flex w-full flex-col h-screen">
                 <Topbar />
-                <main className="flex-1 overflow-x-hidden overflow-y-auto m-3 p-2">
+                <main className="flex-1 w-full h-screen overflow-x-hidden overflow-y-auto p-2">
                   {/* <div className="p-6">Documentation Page</div> */}
                   <Documentation/>
                 </main>

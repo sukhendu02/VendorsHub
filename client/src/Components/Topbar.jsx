@@ -5,9 +5,11 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import Logout from './Auth/Logout';
-
-
+// import { useAuth } from '../Context/AuthContext';
+import {useAuth} from '../Context/AuthContext'
 export default function Topbar() {
+  const { user } = useAuth();
+  console.log(user)
   return (
     <>
       <div className="bg-white h-16  w-full px-4 flex items-center justify-between ">
@@ -20,7 +22,7 @@ export default function Topbar() {
       <div className="flex items-center gap-5">
         <Link className='text-sm text-slate-600 font-semibold sm:block hidden'>Blogs <span className='text-xs bg-slate-200 p-1 px-2 text-slate-500 rounded-xl'>Coming Soon</span></Link>
         <Link className='text-sm text-slate-600 font-semibold sm:block hidden' to="/documentation" target='_blank'>Docs</Link>
-        <Link className='text-sm text-slate-600 font-semibold sm:block hidden'>Plans</Link>
+        <Link className='text-sm text-slate-600 font-semibold sm:block hidden'>Plans <span className='badge text-xs'>Free</span> </Link>
         <Menu as="div" className="relative inline-block text-left sm:hidden">
       <div>
         <MenuButton className="inline-flex w-full justify-center gap-x-1.5  px-3 py-2">
@@ -44,7 +46,7 @@ export default function Topbar() {
         
           </MenuItem>
           <MenuItem>
-        <Link className='block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden'>Plans</Link>
+        <Link className='block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden'>Plans <span className='badge text-xs'>Free</span></Link>
       
        
           </MenuItem>
@@ -72,7 +74,7 @@ export default function Topbar() {
           >
             <div className="text-nowrap">
               <a className="block rounded-lg py-2  hover:bg-slate-50 p-2 px-6 pr-12  transition " href="#">
-                <p className="font-medium text-sm p-1  text-slate-700">Hi @StoreName</p>
+                {/* <p className="font-medium text-sm p-1  text-slate-700">Hi {user.username}</p> */}
                 {/* <p className="text-slate-700/50">Measure actions your users take</p> */}
               </a>
               <Link to="/profile" className="block rounded-lg py-2  hover:bg-slate-50 p-2  px-6 pr-12 transition " href="#">

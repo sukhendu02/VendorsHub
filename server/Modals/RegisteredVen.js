@@ -28,9 +28,13 @@ const registeredVenSchema = new mongoose.Schema({
         default:Date.now},
         applicationStatus: {
             type: String,
-            enum: ["Pending", "Approved", "Rejected"],
-            default: "Pending",
+            enum: ["Pending","InReview" ,"Approved", "Rejected"],
+            default: "InReview", 
           },
+          attempt:{
+            type:Number,
+            default:1,
+          }
 
     
 
