@@ -22,6 +22,7 @@ const NonRegisteredVenSchema = new mongoose.Schema({
     pan:String,
     bank_ac_number:String,
     ifsc:String,
+    enrollmentID:String,
    
     
     Date:{ type:Date,

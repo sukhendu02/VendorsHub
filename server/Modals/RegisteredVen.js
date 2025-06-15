@@ -3,6 +3,30 @@ const mongoose = require('mongoose')
 const express = require("express");
 
 
+const documentSchema = new mongoose.Schema({
+  fileName: {
+    type: String,
+    required: true,
+  },
+  fileUrl: {
+    type: String,
+    required: true,
+  },
+  fileType: {
+    type: String,
+    required: true,
+  },
+  s3Key: {
+    type: String,
+    required: true,
+  },
+  uploadedAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+
 const registeredVenSchema = new mongoose.Schema({
    
     firstname: String,
@@ -22,7 +46,8 @@ const registeredVenSchema = new mongoose.Schema({
     pan:String,
     bank_ac_number:String,
     ifsc:String,
-   
+    documents: [documentSchema], // Embedded subdocs array
+
     
     Date:{ type:Date,
         default:Date.now},

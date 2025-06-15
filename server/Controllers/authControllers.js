@@ -1,10 +1,13 @@
-const User = require("../Modals/User")
+const express = require('express')
 const bcrypt = require('bcryptjs');
 const jwt  = require("jsonwebtoken");
 var passwordValidator = require('password-validator');
 var schema = new passwordValidator();
 const dotenv = require('dotenv')
 dotenv.config({path:'./config.env'})
+const User = require("../Modals/User")
+
+
 
 
 const cookieParser = require('cookie-parser');
@@ -145,7 +148,7 @@ const userProfile = async (req,res)=>{
 
 const logout =async(req,res)=>{
     try {
-        console.log("hi from logout")
+        // console.log("hi from logout")
         // console.log(req.user)
         // res.clear('jwt',{
         //     httpOnly: true,
@@ -156,20 +159,97 @@ const logout =async(req,res)=>{
 
 
           //          OR JUST CLEAR COOKIES           //
-          console.log(req.cookies.jwt)
+        //   console.log(req.cookies.jwt)
           res.clearCookie("jwt",{
             // expires:new Date(Date.now()+604800000),
             expires: new Date(0),
             httpOnly:true,
             // loggedin:true
         });
-          console.log(req.cookies.jwt)
+        //   console.log(req.cookies.jwt)
           
-        console.log("After logout")
+        // console.log("After logout")
         res.status(200).json({message:"Logout Sucess"})
     } catch (error) {
         res.status(500).json({message:"Internal Server Error"})
     }
+
+
+
 }
 
-module.exports = { signup, signin ,userProfile,logout};
+const forgotPass = async(req,res)=>{
+    try {
+        const { email } = req.body;
+        
+        
+        if(!email){
+            return res.status(400).json({message:"Please fill the required details"})
+        }
+        const imuser = await User.findOne({ email });
+        // console.log(imuser)
+        if (!imuser) return res.status(404).json({ message: "User not found" });
+
+         const token = jwt.sign(
+    { id: imuser._id },
+    process.env.JWT_USER_KEY,
+    { expiresIn: process.env.JWT_EXPIRES_IN }
+  );
+
+  const resetLink = `${process.env.DOMAINNAME}/reset-password/${token}`;
+
+// console.log(resetLink)
+
+
+
+    } catch (error) {
+
+         res.status(500).json({message:"Internal Server Error"})
+        
+    }
+   
+
+
+}
+
+// 2. Reset Password
+ const resetPass = async (req, res) => {
+  const { token } = req.params;
+  const { newPassword } = req.body;
+
+//   console.log(token,newPassword)
+
+try {
+   // Backend Validation
+        if( !newPassword){
+            return res.status(400).json({message:"Please fill all the details."})
+        }
+
+    const decoded = jwt.verify(token, process.env.JWT_USER_KEY);
+    const imuser = await User.findById(decoded.id);
+    if (!imuser) return res.status(404).json({ message: 'User not found' });
+ 
+        schema
+        .is().min(8)                                    // Minimum length 8
+         .is().max(100)                                  // Maximum length 100
+         .has().uppercase()                              // Must have uppercase letters
+         .has().lowercase()                              // Must have lowercase letters
+         .has().digits(1)                                // Must have at least 2 digits
+         .has().not().spaces()                           // Should not have spaces
+         .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
+         // console.log(schema.validate(password));
+         if(schema.validate(newPassword)==false){
+             return res.status(400).json({message:"Invalid Password"})
+         }
+
+      // Hash and save password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    imuser.password = hashedPassword;
+    await imuser.save();
+
+    res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+    res.status(400).json({ message: 'Invalid or expired token' });
+  }
+};
+module.exports = { signup, signin ,userProfile,logout,forgotPass,resetPass};

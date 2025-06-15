@@ -8,7 +8,7 @@ app.use(cookieParser())
 // const router = require("./Routes/userRoutes")
 const userRoutes = require("./Routes/userRoutes")
 const onboardRoutes = require("./Routes/onboardRoutes")
-
+const uploadRoutes = require("./Routes/uploadRoutes")
 // app.use('/api/auth', );
 
 // const cors = require('cors');
@@ -23,14 +23,14 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST','DELETE'],
     credentials: true // Allow cookies
 }));
 
 app.use(express.json())
 
 
-
+app.use('/api/upload', uploadRoutes);
 
 app.use('/api/auth', userRoutes,onboardRoutes)
 

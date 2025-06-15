@@ -17,19 +17,34 @@ import Support from './Components/Support';
 import Policies from './Components/Policies';
 import SOP from './Components/SOP';
 import Orders from './Components/Orders';
+import Landing from './Components/Landing';
+import ProtectedRoute from './Components/ProtectedRoute';
+import Guest from './Components/Guest';
 
 import { Toaster } from 'react-hot-toast'; 
 import Marketing from './Components/Marketing';
 import Documentation from './Components/Documentation';
 import { useAuth } from './Context/AuthContext';
+import ErrorPage from './Components/ErrorPage';
+import ResetPass from './Components/Auth/ResetPass';
+import ForgotPass from './Components/Auth/ForgotPass';
 
 function App() {
   const [count, setCount] = useState(0)
 
 
+  const { authLoading } = useAuth(); // ✅ Check auth state before rendering
 
+  if (authLoading) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-gray-100">
+        <div className="text-2xl font-bold">Loading...</div>
+      </div>
+    );
+  }
   return (
     <>
+    
     
       <Toaster position="top-center" reverseOrder={false} />
       {/* <div className="flex h-screen bg-gray-100">
@@ -49,13 +64,18 @@ function App() {
       </div> */}
        <div className="flex h-screen bg-gray-100">
         <Routes>
-         
+        {/* <Route path="*" element={<ErrorPage />} /> */}
+          
+        <Route element={<Guest />}>
 
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/vendor/auth/signup" element={<Signup />} />
+        <Route path="/vendor/auth/signin" element={<Signin />} />
+        <Route path="/vendor/auth/forgot-password" element={<ForgotPass />} />
+        <Route path="/api/auth/reset-password/:token" element={<ResetPass />} />
+        </Route>
        
         {/* <Route path="/logout" element={<Logout />} /> */}
-         
+        
           <Route
             path="/documentation"
             element={
@@ -69,17 +89,27 @@ function App() {
             }
           />
           <Route
-            path="/*"
+            path="/"
+            element={
+
+                <Landing />
+              
+            }
+          />
+          <Route
+            path="/vendor/*"
             element={
               <div className="flex w-full h-screen bg-gray-100">
-                <Sidebar />
-                <div className="flex-1 flex flex-col overflow-hidden">
-                  <Topbar />
-                  <main className="flex-1 overflow-x-hidden overflow-y-auto m-1 p-2">
+                {/* <Sidebar /> */}
+                {/* <div className="flex-1 flex flex-col overflow-hidden"> */}
+                  {/* <Topbar /> */}
+                  {/* <main className="flex-1 overflow-x-hidden overflow-y-auto m-1 p-2"> */}
                     <Routes>
-                      <Route path="/" element={<DashboardStats />} />
+                      {/* Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+                      <Route path="/dashboard" element={<DashboardStats />} />
                       {/* <Route path="/orders" element={<div className="p-6">Orders Page</div>} /> */}
-                      <Route path="/users" element={<div className="p-6">Users Page</div>} />
+                      {/* <Route path="/users" element={<div className="p-6">Users Page</div>} /> */}
                       <Route path="/profile" element={<Profile/>} />
                       <Route path="/marketing" element={<Marketing />} />
                       <Route path="/start" element={<GettingStart />} />
@@ -88,12 +118,18 @@ function App() {
                       <Route path="/SOPs" element={<SOP />} />
                       <Route path="/orders" element={<Orders />} />
                       <Route path="/profile" element={<Profile />} />
+                      
+                      <Route path='*' element={<ErrorPage/>}/>
+                      </Route>
+
                     </Routes>
-                  </main>
-                </div>
+                  {/* </main> */}
+                {/* </div> */}
               </div>
             }
           />
+          <Route path='*' element={<ErrorPage/>}/>
+          
         </Routes>
       </div>
       

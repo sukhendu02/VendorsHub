@@ -81,22 +81,31 @@ export default function SOP() {
     const compliance = [
       {
         icon: CheckCircle,
-        type: 'Required',
+        type: 'Requirements',
         items: [
-          'Valid business registration',
-          'Product safety certifications',
+          'Valid documents and details at the time of registration.',
+          'Compliance with all applicable laws and regulations.',
+          "List only 100% genuine, original, and legal products",
+          "Ensure new, unused, and undamaged products",
+          "Include proper personalization options for customized products",
           'Accurate product information',
-          'Timely order processing',
-          'Professional customer service'
+          "High-quality product images without watermark",
+         "Comply with platform's policies and SOPs."
+          
         ]
       },
       {
         icon: AlertCircle,
         type: 'Prohibited',
         items: [
-          'Counterfeit products',
-          'Misleading product information',
-          'Unauthorized use of trademarks',
+          "	Banned, illegal, or restricted products",
+          "Weapons, explosives, or harmful objects",
+         
+         "Products with false, misleading, or exaggerated claims",
+"Images with offensive, misleading, or copyrighted content",
+"Religiously sensitive or culturally offensive products",
+"Celebrity images or trademarks without licensing",
+          
           'Manipulated reviews or ratings',
           'Delayed shipping without notification'
         ]
@@ -150,7 +159,7 @@ export default function SOP() {
           );
         })}
       </div>
-      <div className="mt-12 grid md:grid-cols-2 gap-6">
+      <div className="mt-12 grid md:grid-cols-2  gap-6">
         {compliance.map((section, index) => {
           const Icon = section.icon;
           return (
@@ -170,13 +179,13 @@ export default function SOP() {
                       : 'text-green-500'
                   }`}
                 />
-                <h3 className="text-lg font-semibold ml-3">{section.type}</h3>
+                <h3 className="font-semibold ml-3">{section.type}</h3>
               </div>
               <ul className="space-y-3">
                 {section.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
-                    className="flex items-center text-gray-700 dark:text-gray-300"
+                    className="flex items-center text-sm text-gray-700 dark:text-gray-300"
                   >
                     <span className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full mr-3"></span>
                     {item}

@@ -77,14 +77,14 @@ export default function Topbar() {
                 {/* <p className="font-medium text-sm p-1  text-slate-700">Hi {user.username}</p> */}
                 {/* <p className="text-slate-700/50">Measure actions your users take</p> */}
               </a>
-              <Link to="/profile" className="block rounded-lg py-2  hover:bg-slate-50 p-2  px-6 pr-12 transition " href="#">
+              <Link to="/vendor/profile" className="block rounded-lg py-2  hover:bg-slate-50 p-2  px-6 pr-12 transition " href="#">
                 <p className="font-medium text-sm p-1  text-slate-700">Profile</p>
                 {/* <p className="text-slate-700/50">Create your own targeted content</p> */}
               </Link>
-              <Link to="/logout" className="block rounded-lg py-2  hover:bg-slate-50 p-2 px-6 pr-12  transition " href="#">
+              <div to="/logout" className="block rounded-lg py-2  hover:bg-slate-50 p-2 px-6 pr-12  transition " href="#">
                 <p className="font-medium text-sm p-1  text-slate-700 flex">  <span className='pl-2 align-middle'><Logout/></span></p>
                 {/* <p className="text-slate-700/50">Keep track of your growth</p> */}
-              </Link>
+              </div>
             </div>
           
           </PopoverPanel>

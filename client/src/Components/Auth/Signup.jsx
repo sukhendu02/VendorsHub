@@ -80,7 +80,7 @@ export default function Signup() {
         
 
           // Redirect to login page with success message
-      navigate('/signin', { state: { message: 'Signup successful! Please log in.' } });
+      navigate('/vendor/auth/signin', { state: { message: 'Signup successful! Please log in.' } });
 
          
     
@@ -177,7 +177,7 @@ export default function Signup() {
           <p className="text-sm text-slate-600">
             Already have an account?
             <Link 
-            to="/signin"
+            to="/vendor/auth/signin"
               
               className="text-primary  font-bold cursor-pointer"
             >

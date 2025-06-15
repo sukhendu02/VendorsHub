@@ -5,6 +5,9 @@ import axios from "axios";
 import Logout from './Logout';
 import { CircularProgress } from "@mui/material";
 
+import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+
+
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [vendorApplication,setvendorApplication] = useState(null)
@@ -48,15 +51,21 @@ const Profile = () => {
       fetchVendorStatus();
     }, []);
 
+    let [isOpen, setIsOpen] = useState(false)
+
+    function open() {
+      setIsOpen(true)
+    }
+  
+    function close() {
+      setIsOpen(false)
+    }
+
   if (error) return <p className="text-red-500">{error}</p>;
   if (!user) return <CircularProgress className="text-center"/>;
 
   return (
     <main>
-
-
-    
-
 
       <div className=" mx-auto  bg-white shadow-lg rounded-lg p-4">
 
@@ -77,7 +86,39 @@ const Profile = () => {
 
               {/* <input type="email" name="email" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-slate-700" value={user.email} /> */}
               <h6 className="text-slate-600 text-sm">Forgot/Change your Password</h6>
-              <a href="" type="button" className="bg-complimentory rounded p-2 px-4 text-white text-sm" target="_blank" rel="noopener noreferrer">Change Password</a>
+              {/* <a href="" type="button" className="bg-complimentory rounded p-2 px-4 text-white text-sm" target="_blank" rel="noopener noreferrer">Change Password</a> */}
+              <Button
+        onClick={open}
+        className="rounded-md bg-complimentory py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-complimentory/70 cursor-pointer data-[focus]:outline-1 data-[focus]:outline-white"
+      >
+        Change Password
+      </Button>
+
+      <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4">
+            <DialogPanel
+              transition
+              className="w-full max-w-md rounded-xl bg-white shadow-2xl text-slate-600 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+            >
+              <DialogTitle as="h3" className="text-base/7 font-medium text-slate-600">
+                Change Password
+              </DialogTitle>
+              <p className="mt-2 text-sm/6 text-slate-600">
+                To change your password, You have to Signout and go to forgot password to reset your password.
+              </p>
+              <div className="mt-4">
+                <Button
+                  className="inline-flex items-center gap-2 rounded-md bg-complimentory py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-complimentory/70 cursor-pointer data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                  onClick={close}
+                >
+                  Got it, thanks!
+                </Button>
+              </div>
+            </DialogPanel>
+          </div>
+        </div>
+      </Dialog>
             </div>
           </div>
 

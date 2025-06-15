@@ -20,26 +20,26 @@ import { Link, NavLink } from 'react-router-dom';
 import Logout from './Auth/Logout';
 
 const menuItems = [
-  { icon: LayoutGrid, label: 'Getting Started', path: '/start' },
-  { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
-  { icon: ShoppingCart, label: 'Orders', path: '/orders' },
+  { icon: LayoutGrid, label: 'Getting Started', path: '/vendor/start' },
+  { icon: LayoutDashboard, label: 'Dashboard', path: '/vendor/dashboard' },
+  { icon: ShoppingCart, label: 'Orders', path: '/vendor/orders' },
   // { icon: Users, label: 'Users', path: '/users' },//products
-  { icon: Megaphone, label: 'Marketing', path: '/marketing' },
+  { icon: Megaphone, label: 'Marketing', path: '/vendor/marketing' },
   // { icon: Settings, label: 'Settings', path: '/settings' },
 ];
 const menuItems2 = [
   { icon: LayoutDashboard, label: 'Polices', 
-    path: '/Policies',
+    path: '/vendor/Policies',
   submenu: [
     { label: 'All Products', path: '/products' },
     { label: 'Categories', path: '/products/categories' },
     { label: 'Inventory', path: '/products/inventory' },
   ],
   },
-  { icon: ShieldPlus, label: 'SOPs', path: '/SOPs' },
-  { icon: MessageCircleQuestion, label: 'Support', path: '/Support' },
+  { icon: ShieldPlus, label: 'SOPs', path: '/vendor/SOPs' },
+  { icon: MessageCircleQuestion, label: 'Support', path: '/vendor/Support' },
   // { icon: Settings, label: 'Settings', path: '/settings' },
-  { icon: User , label: 'Profile', path: '/profile' },
+  { icon: User , label: 'Profile', path: '/vendor/profile' },
   // { icon: LogOut, label: <Logout/>, path: '/Logout' },
 ];
 export default function Sidebar() {
@@ -61,7 +61,7 @@ export default function Sidebar() {
         </h1>
       </div>
 
-      <nav className="m-2 mt-4 ">
+      <nav className="p-2 mt-4 w-auto">
         {menuItems.map((item) => (
             
           <NavLink
@@ -87,10 +87,10 @@ export default function Sidebar() {
             key={item.label}
             to={item.path}
             className={({ isActive }) =>`flex items-center px-4 py-3 my-0.5 text-slate-800
-            hover:bg-gray-800  hover:text-white 
+            hover:bg-slate-200  hover:text-slate-800 
             transition-colors rounded-xl
-           ${isActive?"bg-gray-800":""}
-           ${isActive?"text-white":""}
+           ${isActive?"bg-slate-200":""}
+           
            }`}
 
           >

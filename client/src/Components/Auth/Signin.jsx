@@ -7,12 +7,15 @@ import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 
 import CircularProgress from '@mui/material/CircularProgress';
+import { useAuth } from '../../Context/AuthContext';
 
 
 
 export default function Signin() {
 
     const [loading, setLoading] = useState(false);
+    const { login } = useAuth(); // ✅ Get login function from context
+
 
     const [fromData, setfromData]=useState({
       email:'',
@@ -69,10 +72,10 @@ export default function Signin() {
         // const res = await axios.get("http://localhost:3000/api/auth/profile", { withCredentials: true });
         // setUser(res.data);
 
-
+        login(response.data.user); // ✅ Update global user state
         toast.success(response.data.message || "Login Success")
         // redirect to dashboard
-      navigate("/")
+      navigate("/vendor/dashboard")
 
 
       } catch (error) {
@@ -143,7 +146,7 @@ export default function Signin() {
           <p className="text-sm text-slate-600">
             Don't have an account?
             <Link
-            to="/signup"
+            to="/vendor/auth/signup"
              
               className="text-primary  font-bold cursor-pointer"
             >
@@ -151,7 +154,7 @@ export default function Signin() {
             </Link>
           </p>
           
-          <p className='text-sm my-4 text-slate-500'>Can't Remember Password? <a href="" className='text-secondary font-semibold'>Forgot Password</a></p>
+          <p className='text-sm my-4 text-slate-500'>Can't Remember Password? <Link to="/vendor/auth/forgot-password" className='text-secondary font-semibold'>Forgot Password</Link></p>
         </div>
       </div>
     </div>

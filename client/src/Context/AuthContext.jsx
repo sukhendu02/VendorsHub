@@ -11,11 +11,16 @@ const AuthContext = createContext();
 
 // Provider Component
 export const AuthProvider=({children})=> {
+  const [authLoading, setauthLoading] = useState(true);
 
     const [user,setUser] =useState(null)
     const navigate = useNavigate()
-    const login = (userData) => setUser(userData);
+    // const login = (userData) => setUser(userData);
     
+      // 🔹 Login Function
+  const login = async (userData) => {
+    setUser(userData);
+  };
 
  
 
@@ -27,7 +32,7 @@ export const AuthProvider=({children})=> {
             setUser(null)
 
             toast.success("Logout Success")
-            navigate("/signin")
+            navigate("/vendor/auth/signin")
         } catch (error) {
           
             
@@ -37,20 +42,28 @@ export const AuthProvider=({children})=> {
 
     // ✅ Fetch user profile when the app loads
     useEffect(() => {
+      
       const fetchProfile = async () => {
         try {
           const res = await axios.get("http://localhost:3000/api/auth/profile", {
             withCredentials: true,
           });
           setUser(res.data);  // ✅ Store user data globally
+          
+        // navigate("/"); // ✅ Redirect to dashboard if logged in
         } catch (err) {
+          // navigate("/signin"); // ✅ Redirect to login if NOT logged in
           console.log("User not logged in or session expired");
         }
+        setauthLoading(false)
       };
-  
       fetchProfile();
     }, []);
+
+  
   return (
+
+    
     <AuthContext.Provider value={{ user, login, logout }}>
     {children}
 </AuthContext.Provider>

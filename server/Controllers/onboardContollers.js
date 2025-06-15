@@ -5,6 +5,8 @@ const NonRegisteredVen = require('../Modals/NonRegisteredVen')
 const registeredVen = require('../Modals/RegisteredVen')
 const User = require('../Modals/User')
 // const RegisteredVen = require('../Modals/RegisteredVen')
+const { v4: uuidv4 } = require('uuid');
+const s3 = require("../Config/s3")
 
 const onboardReg =async(req,res)=>{
 
@@ -16,18 +18,22 @@ const onboardReg =async(req,res)=>{
         
     const userEmail = UserData.email
         
-        const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc }=req.body
+        const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents }=req.body
         // console.log( {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc })
 
-        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!pan){
-            console.log("Hi i ran 2")
+        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!gstin){
+            // console.log("Hi i ran 2")
             
             return res.status(400).json({message:"Please fill all the details."})
         }
        
 
         
-    
+      // Optional: Validate documents
+    if (!Array.isArray(documents) || documents.length === 0) {
+      return res.status(400).json({ message: 'Please upload at least one document.' });
+    }
+
 
      
         //   Check exsisting form 
@@ -54,7 +60,7 @@ const onboardReg =async(req,res)=>{
         // Update the details if the already present!
         const updatedVendor = await registeredVen.findOneAndUpdate(VendorExist._id,
          { firstName, lastName, B_name, storeName, storeURL, phone, extLinks, add_line1, add_line2, city, pincode,
-                state,gstin, pan,bank_ac_number,ifsc,applicationStatus:"InReview",attempt:at+1 },
+                state,gstin, pan,bank_ac_number,ifsc,applicationStatus:"InReview",attempt:at+1,documents },
                 { new: true }  
         )
            
@@ -67,8 +73,14 @@ const onboardReg =async(req,res)=>{
     }
     // console.log(hi)
        
+
+
+
+    // 
+       
         const newVendor = new registeredVen({
-            email:userEmail, firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,
+            email:userEmail, firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents,
+
         })
         // console.log("Hi i ran 4")
           await newVendor.save();
@@ -84,6 +96,9 @@ const onboardReg =async(req,res)=>{
     
 }
 
+
+
+
 const onboardNonReg= async (req,res)=>{
   try {
     console.log("hii")
@@ -92,16 +107,16 @@ const onboardNonReg= async (req,res)=>{
      
         
     const userEmail = UserData.email
-    console.log(userEmail)
+    // console.log(userEmail)
 
     // console.log("Hi I ran")
     const {firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,
-        add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc }=req.body;
+        add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc,enrollmentID }=req.body;
         
         if(!firstname || !lastname  || !storeName || !storeURL ||!name_doc||
             !phone || !extLinks || !add_line1 || !add_line2 || !city
             || !pincode || !state || !bank_name || !pan || !bank_ac_number
-            || !ifsc){
+            || !ifsc || !enrollmentID){
                 return res.status(400).json({ message: "Please fill all the fields" });
         }
 
@@ -131,7 +146,7 @@ const onboardNonReg= async (req,res)=>{
          const updatedVendor = await NonRegisteredVen.findOneAndUpdate(VendorExist._id,
           { firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,
             add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc,
-                 applicationStatus:"InReview",attempt:at+1 },
+                 applicationStatus:"InReview",attempt:at+1,enrollmentID },
                  { new: true }  
          )
             
@@ -144,7 +159,7 @@ const onboardNonReg= async (req,res)=>{
         }
         // console.log("hi i ran 2")
         const newVendor = new NonRegisteredVen({
-            email:userEmail, firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc ,
+            email:userEmail, firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc ,enrollmentID
             
         })
        
