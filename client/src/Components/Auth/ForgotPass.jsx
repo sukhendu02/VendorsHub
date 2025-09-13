@@ -26,7 +26,7 @@ export default function ForgotPass() {
 
       toast(response.data.message || 'Check your email for reset link',
   {
-    // icon: '👏',
+    icon: '👏',
     style: {
       borderRadius: '10px',
       background: '#333',

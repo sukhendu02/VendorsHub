@@ -56,9 +56,11 @@ export default function Sidebar() {
       </button>
 
       <div className="p-4">
-        <h1 className={`text-2xl font-bold mb-8 ${collapsed ? 'hidden' : 'block'}`}>
+        {/* <h1 className={`text-2xl font-bold mb-8 ${collapsed ? 'hidden' : 'block'}`}>
           VendorHub
-        </h1>
+        </h1> */}
+                 <img src="/Logo/VendorHub (500 x 200 px).png" width="150px" alt="img" />
+
       </div>
 
       <nav className="p-2 mt-4 w-auto">

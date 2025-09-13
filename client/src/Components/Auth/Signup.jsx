@@ -80,7 +80,7 @@ export default function Signup() {
         
 
           // Redirect to login page with success message
-      navigate('/vendor/auth/signin', { state: { message: 'Signup successful! Please log in.' } });
+      navigate('/vendor/auth/signin', { state: { message: 'Signup successful! Please check your mail to verify your account.' } });
 
          
     
@@ -106,7 +106,10 @@ export default function Signup() {
     <>
      <div className="w-full  flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-lg p-14 bg-white shadow-md rounded-lg">
-        <h2 className="text-2xl font-bold text-center mb-6">
+        <Link to="/">
+        <img src="/Logo/aabhaar.png" alt="logo" width="180px" className='m-auto p-4' />
+        </Link>
+        <h2 className="text-3xl font-bold text-primary text-center mb-6">
           Sign Up
         </h2>
 

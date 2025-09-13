@@ -15,7 +15,8 @@ export default function Topbar() {
       <div className="bg-white h-16  w-full px-4 flex items-center justify-between ">
       <div className="flex items-center flex-1">
         <div className="relative md:w-96 ">
-         <h4 className='font-bold text-lg p-3 text-xl'>Vendors Hub</h4>
+         {/* <h4 className='font-bold text-lg p-3 text-xl'>Vendors Hub</h4> */}
+         <img src="/Logo/VendorHub (500 x 200 px).png" className="" width="150px" alt="img" />
         </div>
       </div>
 

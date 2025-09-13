@@ -85,8 +85,8 @@ const navigate = useNavigate();
 
   // FOR REGISTERED ONES
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     storeName: "",
     storeURL: "",
     phone: "",
@@ -109,8 +109,8 @@ const navigate = useNavigate();
 
   const validateform = () => {
     const {
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       B_name,
       storeName,
       storeURL,
@@ -129,7 +129,7 @@ const navigate = useNavigate();
     // console.log(formData)
 
     if (
-      !firstName ||
+      !firstname ||
       !storeName ||
       !storeURL ||
       !phone ||
@@ -138,7 +138,8 @@ const navigate = useNavigate();
       !add_line2 ||
       !city ||
       !pincode ||
-      !state ||
+      !state
+       ||
       !gstin
     ) {
       toast.error("Please fill all the required fields");
@@ -150,24 +151,6 @@ const navigate = useNavigate();
 
 
    // // FILE UPLOAD (DOCUMENTS)
-
-//   const handleFileChange = (e) => {
-//     const selectedFiles = Array.from(e.target.files);
-//     setFiles((prev) => [...prev, ...selectedFiles]);
-
-//     const previewUrls = selectedFiles.map((file) => ({
-//       name: file.name,
-//       url: URL.createObjectURL(file),
-//     }));
-//     setPreviews((prev) => [...prev, ...previewUrls]);
-//   };
-
-//   const handleRemove = (index) => {
-//     setFiles((prev) => prev.filter((_, i) => i !== index));
-//     setPreviews((prev) => prev.filter((_, i) => i !== index));
-//   };
-
-
 
  // File selection + preview + upload to S3 via presigned
   const handleFileChange = async (e) => {
@@ -351,8 +334,8 @@ console.log('hi')
       setDocuments([]);
 
       setFormData({
-         firstName: "",
-    lastName: "",
+         firstname: "",
+    lastname: "",
     storeName: "",
     storeURL: "",
     phone: "",
@@ -643,11 +626,11 @@ console.log('hi')
                                       <input
                                         className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                         type="text"
-                                        name="firstName"
-                                        id="firstName"
+                                        name="firstname"
+                                        id="firstname"
                                         placeholder="John"
                                         onChange={handleChange}
-                                        value={formData.firstName}
+                                        value={formData.firstname}
                                       />
                                     </div>
                                   </div>
@@ -661,10 +644,10 @@ console.log('hi')
                                         className="w-full p-3 m-1 border-b-2 rounded-lg border-slate-300 outline-none bg-slate-50 focus:border-slate-500"
                                         placeholder="Doe"
                                         type="text"
-                                        name="lastName"
-                                        id="lastName"
+                                        name="lastname"
+                                        id="lastname"
                                         onChange={handleChange}
-                                        value={formData.lastName}
+                                        value={formData.lastname}
                                       />
                                     </div>
                                   </div>

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 export default function ResetPass() {
   const [loading,setLoading]=useState(false)
@@ -161,9 +163,9 @@ export default function ResetPass() {
                 </p>
     
                 <p className="text-sm my-4 text-slate-500">
-                  Don't have account?{" "}
-                  <Link to="/vendor/auth/signup" className="text-secondary font-semibold">
-                    Sign Up
+                Get new password Reset Link{" "}
+                  <Link to="/vendor/auth/forgot-password" className="text-secondary font-semibold">
+                    Forgot Password
                   </Link>
                 </p>
               </div>

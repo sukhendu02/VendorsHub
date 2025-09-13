@@ -9,6 +9,7 @@ app.use(cookieParser())
 const userRoutes = require("./Routes/userRoutes")
 const onboardRoutes = require("./Routes/onboardRoutes")
 const uploadRoutes = require("./Routes/uploadRoutes")
+const commonRoutes = require("./Routes/commonRoutes")
 // app.use('/api/auth', );
 
 // const cors = require('cors');
@@ -34,6 +35,7 @@ app.use('/api/upload', uploadRoutes);
 
 app.use('/api/auth', userRoutes,onboardRoutes)
 
+app.use('/api/common', require('./Routes/commonRoutes'));
 const mongoose = require('mongoose')
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });

@@ -12,6 +12,50 @@
 
     /* font-family: "Lato", sans-serif; */
 }
+
+.landing-page-vh{
+  font-family: "Inter";
+
+}
+.section-2{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.what-we-are-section{
+  background-color: #FFF5EC;
+}
+.Social-section{
+  font-family: "Inter";
+}
+.custom-shape-divider-top-1752871242 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1752871242 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1752871242 .shape-fill {
+    fill: #FFFFFF;
+}
+
+#blob{
+  
+}
+.what-we-are-section
+{
+  /* background-color: #e5e5f7; */
+opacity: 0.8;
+background-image: radial-gradient(#444cf7 0.5px, #FFF5EC 0.5px);
+background-size: 10px 10px;
+}
 .badge {
     /* font-size: 3rem; */
     /* font-weight: bold; */
@@ -52,7 +96,7 @@
     left: 0;
     /* height: 70px; */
     width: 100%;
-    background-color: var(--nav-color);
+    /* background-color: var(--nav-color); */
     z-index: 100;
   }
   
@@ -65,7 +109,7 @@
     height: 100%;
     max-width: 1000px;
     width: 100%;
-    background-color: var(--nav-color);
+    /* background-color: var(--nav-color); */
     margin: 0 auto;
     padding: 0 30px;
     display: flex;
@@ -381,10 +425,11 @@ lottie-player {
 .action-btn {
   border-radius: 16px;
   border: 2px solid var(--primary-color);
-  background-color: #fff;
-  color: var(--primary-color);
+  background-color: #E47119;
+  color:"#ffff";
   padding: 12px;
   margin: 12px;
+  font-weight: 600;
 }
 .action-btn:hover,
 .action-btn:focus {
@@ -398,7 +443,7 @@ lottie-player {
   /* margin-bottom: 40px; */
   padding: 60px;
 }
-.what-we-do h3 {
+.what-we-do h2 {
   color: rgb(91, 91, 91);
 }
 
@@ -471,7 +516,7 @@ lottie-player {
 .some-body .div5 h6,
 .some-body .div6 h6 {
   /* font-size: 14px; */
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .some-body img {
@@ -486,15 +531,16 @@ lottie-player {
 
 .pitch-section {
   justify-content: space-evenly;
+
 }
 
 .parent {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(2, 1fr); */
   /* grid-template-rows: ; */
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  margin-left: 20px;
+  /* grid-column-gap: 0px; */
+  /* grid-row-gap: 0px; */
+  /* margin-left: 12px; */
 }
 
 .parent .div1,
@@ -504,7 +550,7 @@ lottie-player {
 .parent .div5,
 .parent .div6 {
   padding: 12px;
-  width: 80%;
+  width: 92%;
 }
 .parent .div1 h6,
 .parent .div2 h6,
@@ -512,7 +558,7 @@ lottie-player {
 .parent .div4 h6,
 .parent .div5 h6,
 .parent .div6 h6 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 .parent .div1 p,
 .parent .div2 p,
@@ -522,6 +568,14 @@ lottie-player {
 .parent .div6 p {
   font-size: 14px;
   color: #3e4963;
+}
+.parent .div1 img,
+.parent .div2 img,
+.parent .div3 img,
+.parent .div4 img,
+.parent .div5 img,
+.parent .div6 img {
+/* background-color: #CAD7D6; */
 }
 .pitch-section-1 h3 {
   /* color: #3e4963; */
@@ -640,10 +694,15 @@ lottie-player {
   grid-row: span 5 / span 5;
 }
 
+.bg-design{
+
+}
+
 .input-cta {
   width: 100%;
   /* max-width: 220px; */
   /* height: 45px; */
+  background-color: #fff;
   padding: 12px;
   border-radius: 12px;
   border: 1.5px solid lightgrey;
@@ -673,14 +732,14 @@ lottie-player {
 }
 
 .final-cta .item-container {
-  width: 40%;
+  /* width: 30%; */
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 .form-container {
-  padding: 30px;
+  /* padding: 30px; */
   margin: 12px;
   width: 100%;
   background-color: #fff;
@@ -1105,7 +1164,7 @@ label:last-child span {
 }
 
 .marquee-text p {
-  border: 1px solid white;
+  border: 1px solid var(--primary-color);
   background-color: #eeeeee;
   border-radius: 999px;
   padding: 1rem 2.5rem;
@@ -1338,4 +1397,15 @@ label:last-child span {
 
     width: 100%;
   }
+  .pitch-section-1 {
+    text-align: center;
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+  }
+}
+
+@media only screen and (max-width: 767px){
+
 }

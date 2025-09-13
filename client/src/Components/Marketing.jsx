@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-import { TrendingUp, IndianRupee, Users, Globe,Star,Coins,Megaphone,Mail } from 'lucide-react';
+import { TrendingUp, IndianRupee, Users, Globe,Star,Coins,Megaphone,Mail,Search } from 'lucide-react';
 
 export default function Marketing() {
  
@@ -42,7 +42,7 @@ export default function Marketing() {
       <h1 className="text-2xl font-bold mb-6 text-complimentory">Marketing & Advertising</h1>
       */}
         {/* Featured Products Banner */}
-      <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg shadow-lg overflow-hidden mb-6">
+      {/* <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg shadow-lg overflow-hidden mb-6">
         <div className="px-6 py-8">
           <div className="flex items-center justify-between">
             <div className="flex-1">
@@ -65,24 +65,25 @@ export default function Marketing() {
                 <div className="inline-flex items-center px-4 py-2 bg-teal-600/10 rounded-full">
                   <Coins className="h-5 w-5 text-teal-600" />
                   <span className="ml-2 text-teal-900 font-semibold">
-                    Starting at just $99/month
+                 
+                    Comming Soon
                   </span>
                 </div>
               </div>
             </div>
             <div className="hidden md:block">
               <div className="flex items-center justify-center h-24 w-24 rounded-full bg-emerald-600/20">
-                <span className="text-3xl font-bold text-emerald-700">$99</span>
+                <span className="text-3xl font-bold text-emerald-700">XX</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
 
       
       {/* Social Media Campaign Banner */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-lg overflow-hidden mb-6">
+      {/* <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-lg overflow-hidden mb-6">
         <div className="px-6 py-8">
           <div className="flex items-center justify-between">
             <div className="flex-1">
@@ -105,22 +106,23 @@ export default function Marketing() {
                 <div className="inline-flex items-center px-4 py-2 bg-indigo-600/10 rounded-full">
                   <Coins className="h-5 w-5 text-indigo-600" />
                   <span className="ml-2 text-indigo-900 font-semibold">
-                    Complete package for $199/month
+                   
+                    Comming Soon                     
                   </span>
                 </div>
               </div>
             </div>
             <div className="hidden md:block">
               <div className="flex items-center justify-center h-24 w-24 rounded-full bg-blue-600/20">
-                <span className="text-3xl font-bold text-blue-700">$199</span>
+                <span className="text-3xl font-bold text-blue-700">XX</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
   {/* Email Marketing Banner */}
-      <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg shadow-lg overflow-hidden mb-8">
+      {/* <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg shadow-lg overflow-hidden mb-8">
         <div className="px-6 py-8">
           <div className="flex items-center justify-between">
             <div className="flex-1">
@@ -143,19 +145,20 @@ export default function Marketing() {
                 <div className="inline-flex items-center px-4 py-2 bg-pink-600/10 rounded-full">
                   <Coins className="h-5 w-5 text-pink-600" />
                   <span className="ml-2 text-pink-900 font-semibold">
-                    Special offer: $149/campaign
+                  
+                    Comming Soon
                   </span>
                 </div>
               </div>
             </div>
             <div className="hidden md:block">
               <div className="flex items-center justify-center h-24 w-24 rounded-full bg-rose-600/20">
-                <span className="text-3xl font-bold text-rose-700">$149</span>
+                <span className="text-3xl font-bold text-rose-700">XX</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
 
       
@@ -201,7 +204,76 @@ export default function Marketing() {
       </div> */}
     </div>
 
+
+    {/* 
+     */}
+
+     <div className="max-w-5xl mx-auto px-6 py-12">
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">
+        Marketing Options for Vendors
+      </h2>
+      <p className="mt-3 text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Grow your store with our built-in marketing features. Choose the
+        strategies that fit your goals and maximize product visibility.
+      </p>
+
+      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+        {/* Card 1 */}
+        <MarketingCard
+          icon={<Megaphone className="size-6" />}
+          title="Featured Placements"
+          desc="Get highlighted on the homepage and category pages for higher visibility and engagement."
+        />
+
+        {/* Card 2 */}
+        <MarketingCard
+          icon={<Search className="size-6" />}
+          title="Search Boost"
+          desc="Rank higher in customer searches through optimized placements and priority listings."
+        />
+
+        {/* Card 3 */}
+        <MarketingCard
+          icon={<TrendingUp className="size-6" />}
+          title="Discount Campaigns"
+          desc="Run platform-wide sales, limited-time offers, and seasonal discounts to drive conversions."
+        />
+
+        {/* Card 4 */}
+        <MarketingCard
+          icon={<Users className="size-6" />}
+          title="Social Promotions"
+          desc="Leverage platform’s social channels and email newsletters to reach new customers."
+        />
+      </div>
+    </div>
+
     </main>
     </>
+    
   )
+}
+
+function MarketingCard({ icon, title, desc }) {
+  return (
+    <div className="group relative rounded-xl border-2 border-slate-200 bg-white dark:bg-neutral-900 p-6 shadow-sm hover:shadow-lg hover:border-orange-300 transition-all">
+      <div className="flex items-center gap-3">
+        <div className="size-11 flex items-center justify-center rounded-lg bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 shadow-sm">
+          {icon}
+        </div>
+        <h3 className="font-semibold text-gray-900 dark:text-white">
+          {title}
+        </h3>
+      </div>
+      <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        {desc}
+      </p>
+      <div className="mt-4">
+        <button className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary cursor-pointer transition-colors">
+          Get Started
+          <span className="text-xs font-medium">Comming Soon</span>
+        </button>
+        </div>
+    </div>
+  );
 }

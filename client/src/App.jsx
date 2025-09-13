@@ -28,6 +28,7 @@ import { useAuth } from './Context/AuthContext';
 import ErrorPage from './Components/ErrorPage';
 import ResetPass from './Components/Auth/ResetPass';
 import ForgotPass from './Components/Auth/ForgotPass';
+import VerifyEmailPage from './Components/Auth/VerifyEmailPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -62,7 +63,7 @@ function App() {
           </main>
         </div>
       </div> */}
-       <div className="flex h-screen bg-gray-100">
+       <div className="flex h-screen">
         <Routes>
         {/* <Route path="*" element={<ErrorPage />} /> */}
           
@@ -71,6 +72,7 @@ function App() {
         <Route path="/vendor/auth/signup" element={<Signup />} />
         <Route path="/vendor/auth/signin" element={<Signin />} />
         <Route path="/vendor/auth/forgot-password" element={<ForgotPass />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
         <Route path="/api/auth/reset-password/:token" element={<ResetPass />} />
         </Route>
        

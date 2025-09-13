@@ -2,7 +2,7 @@ import react from 'react'
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
    
-import { Info } from 'lucide-react'
+import { Info,ListRestart } from 'lucide-react'
 export default function Policies(){
 
      
@@ -15,6 +15,8 @@ export default function Policies(){
         
         <div className='bg-sky-100 text-complimentory border-l-6 text-xs p-2 w-fit m-4'>
         <Info className='inline' size={12} /> By completing the vendor onboarding process, the vendor automatically agrees to all marketplace terms and policies and be bound by any future updates. 
+       <br />
+       <p className='mt-3 font-bold'><ListRestart className='inline' size={15} /> Last Updated: 10 Sep 2025</p>
         </div>
        
        <TabGroup>
@@ -35,43 +37,78 @@ export default function Policies(){
 
             <div className='p-6 text-xs  text-slate-600'>
 
-                 <ul>
-    <li><strong>Eligibility:</strong> Vendors must be at least 18 years old and legally permitted to operate a business. By registering, vendors confirm compliance with all applicable local, national, and international laws.</li>
+  
+  <div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
 
-    <li><strong>Accurate Information:</strong> Vendors must provide complete, truthful, and up-to-date information during registration. Providing false or misleading information may result in immediate rejection or suspension.</li>
+  <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Registration, Account & Conduct Policy</h1>
 
-    <li><strong>Application Review:</strong> Submission of a vendor application does not guarantee approval. All applications are reviewed for business legitimacy and marketplace compliance.</li>
+  {/* <!-- Section 1 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">1. Eligibility & Registration</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+      <li>Vendors must be 18 years or older and legally capable of entering into binding agreements.</li>
+      <li>By registering, the vendor affirms that the information provided is accurate, up-to-date, and belongs to the registrant or their legal business entity.</li>
+      <li>Submission of identity, business, tax (GST, PAN), bank details, and relevant licenses is mandatory for account verification.</li>
+      <li>The platform reserves the right to reject any registration without stating a reason.</li>
+    </ul>
+  </section>
 
-    <li><strong>Account Security:</strong> Vendors are solely responsible for maintaining the confidentiality of their account credentials. All activity through the account is the vendor's responsibility.</li>
+  {/* <!-- Section 2 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">2. Vendor Account Responsibility</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+      <li>Each vendor is solely responsible for all activity conducted through their account.</li>
+      <li>Credentials such as email, password, OTPs, or API keys must be protected and not shared with unauthorized users.</li>
+      <li>If unauthorized access or misuse is suspected, the vendor must notify the platform immediately in writing.</li>
+      <li>All actions taken from the account—listings, communication, order fulfillment, messages—will be considered legally binding by the vendor.</li>
+    </ul>
+  </section>
 
-    <li><strong>Business Conduct:</strong> Vendors must conduct themselves professionally, ethically, and in compliance with the law during all interactions and transactions.</li>
+  {/* <!-- Section 3 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">3. Acceptable Use & Conduct</h2>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">Vendors are expected to uphold ethical, legal, and professional behavior. The following are strictly prohibited:</p>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+      <li>Listing counterfeit, stolen, prohibited, or misrepresented products.</li>
+      <li>Uploading false or manipulated information, documents, or bank details.</li>
+      <li>Spamming, harassment, abusive messages, or coercion of any buyer or platform member.</li>
+      <li>Sharing customer data externally or using it for personal gain beyond order fulfillment.</li>
+      <li>Attempting to divert buyers off-platform (including via links, QR codes, or contact numbers).</li>
+    </ul>
+  </section>
 
-    <li><strong>Prohibited Activities:</strong> Vendors must not:
-      <ul>
-        <li>List counterfeit, illegal, or restricted products</li>
-        <li>Misuse customer data</li>
-        <li>Manipulate reviews or ratings</li>
-        <li>Create duplicate/fake accounts</li>
-        <li>Use bots or malicious scripts</li>
-      </ul>
-    </li>
+  {/* <!-- Section 4 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">4. Platform Rights & Enforcement</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+      <li>The platform reserves the right to:
+        <ul className="list-disc ml-6 mt-1 space-y-1">
+          <li>Request additional verification or documentation at any time.</li>
+          <li>Audit vendor activity for suspicious behavior or rule violations.</li>
+          <li>Temporarily suspend, permanently ban, or delete any account in breach of this policy, with or without prior notice.</li>
+        </ul>
+      </li>
+      <li>In case of legal disputes, fraud, or customer complaints, full responsibility lies with the vendor, not the platform.</li>
+      <li>Platform’s role is strictly limited to technology facilitation and discovery; it does not act as guarantor, mediator, or co-seller.</li>
+    </ul>
+  </section>
 
-    <li><strong>Compliance Requirements:</strong> Vendors must have necessary business licenses, tax registrations, and adhere to product safety, e-commerce, and data privacy laws.</li>
+  {/* <!-- Section 5 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">5. Indemnification & Liability</h2>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+      The vendor agrees to indemnify, defend, and hold harmless the platform, its team, and partners against any loss, claim, damage, liability, or legal expense arising due to the vendor’s actions or inactions.
+    </p>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+      This includes, but is not limited to: customer claims, product-related disputes, data breaches, regulatory violations, or any third-party legal notices.
+    </p>
+  </section>
 
-    <li><strong>Audit & Inspection:</strong> The platform reserves the right to audit vendor activity and listings at any time. Full cooperation is expected.</li>
-
-    <li><strong>Liability Disclaimer:</strong> The platform is not responsible for:
-      <ul>
-        <li>Disputes between vendors and customers</li>
-        <li>Vendor-related damages, losses, or legal actions</li>
-        <li>The authenticity, legality, or safety of products sold by vendors</li>
-      </ul>
-    </li>
-
-    <li><strong>Account Suspension or Termination:</strong> We reserve the right to suspend or terminate vendor accounts found violating these policies, without prior notice.</li>
-
-    <li><strong>Ongoing Obligations:</strong> Vendors must stay updated with policy changes, uphold ethical standards, and take full responsibility for all operations and interactions.</li>
-  </ul>
+  {/* <!-- Final Note --> */}
+  <div className="text-sm text-gray-500 mt-6 border-t pt-4 dark:border-gray-600">
+    <strong className="text-orange-600 dark:text-orange-400">Disclaimer:</strong> By continuing to use the platform, the vendor confirms understanding and agreement to this policy and accepts full responsibility for their actions, listings, and interactions. The platform holds no legal or financial liability for any vendor behavior.
+  </div>
+</div>
 
             </div>
         </TabPanel>
@@ -82,41 +119,98 @@ export default function Policies(){
             </div>
              
               <div className='p-6 text-xs  text-slate-600'>
-                      <ul>
-    <li><strong>Accurate Product Details:</strong> Vendors must provide clear, accurate, and complete product information, including title, description, images, specifications, and applicable disclaimers.</li>
+  
+<div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
 
-    <li><strong>Ownership & Authenticity:</strong> Only products legally owned or authorized for sale may be listed. Counterfeit or pirated goods are strictly prohibited.</li>
+  {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Product Listing, Content & Pricing Policy</h1> */}
 
-    <li><strong>Prohibited Listings:</strong>
-      <ul>
-        <li>Illegal, stolen, or banned items</li>
-        <li>Hazardous materials or weapons</li>
-        <li>Adult or offensive content</li>
-        <li>Items violating copyrights or trademarks</li>
-      </ul>
-    </li>
+  {/* <!-- Section 1 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">1. Vendor Responsibility for Listings</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>All product listings, descriptions, specifications, and attributes are created and published solely by the vendor.</li>
+      <li>The vendor guarantees that products are genuine, legal, and safe for sale and use within the jurisdiction they operate.</li>
+      <li>Vendors must ensure accurate details (title, description, dimensions, materials, warranty, expiry dates, etc.) at all times.</li>
+      <li>Vendors accept that any claims, disputes, injuries, or damages arising from product quality, safety, or authenticity are their full responsibility.</li>
+    </ul>
+  </section>
 
-    <li><strong>Image and Media Usage:</strong> Vendors must use original or licensed product images. All images must accurately represent the product.</li>
+  {/* <!-- Section 2 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">2. Prohibited & Restricted Products</h2>
+    <p className="text-sm mt-2">Vendors are strictly prohibited from listing the following items:</p>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Counterfeit, fake, or replica goods.</li>
+      <li>Illegal, stolen, or smuggled products.</li>
+      <li>Products that infringe on trademarks, copyrights, or intellectual property rights.</li>
+      <li>Weapons, explosives, drugs, alcohol, tobacco, or controlled substances.</li>
+      <li>Perishable goods without proper storage/expiry details.</li>
+      <li>Any item restricted under local or international law.</li>
+    </ul>
+    <p className="text-sm text-gray-500 mt-2">Violation of this clause results in immediate account termination and legal liability borne solely by the vendor.</p>
+  </section>
 
-    <li><strong>Content Standards:</strong>
-      <ul>
-        <li>No misleading titles or false claims</li>
-        <li>No plagiarized or unauthorized brand use</li>
-      </ul>
-    </li>
+  {/* <!-- Section 3 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">3. Content Accuracy & Compliance</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Images must be clear, original, and representative of the product. Misleading or stolen images are prohibited.</li>
+      <li>Descriptions must be factually correct, not exaggerated, and free from deceptive claims.</li>
+      <li>All product claims (safety, durability, medical, organic, handmade, etc.) must be backed by valid certifications where applicable.</li>
+      <li>Any third-party IP (brand names, logos, images) may only be used with written authorization.</li>
+      <li>Product listings must comply with consumer protection and advertising laws.</li>
+    </ul>
+  </section>
 
-    <li><strong>Pricing Responsibility:</strong> Vendors must:
-      <ul>
-        <li>Price fairly and competitively</li>
-        <li>Include applicable taxes and charges</li>
-        <li>Avoid any form of price manipulation or deception</li>
-      </ul>
-    </li>
+  {/* <!-- Section 4 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">4. Pricing, Discounts & Taxes</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors have full control over product pricing but must ensure accuracy and fairness.</li>
+      <li>Prices must include all applicable taxes, duties, or charges where legally required.</li>
+      <li>Artificial inflation of prices followed by fake discounts is strictly prohibited.</li>
+      <li>All promotional pricing (sales, bundles, coupon discounts) is the vendor’s decision and liability.</li>
+      <li>Vendors are solely responsible for updating price changes in real time.</li>
+    </ul>
+  </section>
 
-    <li><strong>Inventory Accuracy:</strong> Vendors must keep stock status updated. Out-of-stock products must not be listed as available.</li>
+  {/* <!-- Section 5 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">5. Inventory Management</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must maintain accurate stock levels and avoid overselling.</li>
+      <li>Out-of-stock products must be updated or paused immediately.</li>
+      <li>Failure to deliver due to incorrect inventory is solely the vendor’s liability, including refunds or compensation.</li>
+    </ul>
+  </section>
 
-    <li><strong>Responsibility Disclaimer:</strong> The platform is not responsible for legal or financial issues caused by vendor listings or pricing. All responsibility lies with the vendor.</li>
-  </ul>
+  {/* <!-- Section 6 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">6. Content Moderation & Takedown</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The platform reserves the right to review, reject, or remove any listing that violates policies or laws, without prior notice.</li>
+      <li>The platform is not obligated to pre-screen content but may do so for compliance and customer trust.</li>
+      <li>Vendors shall not hold the platform liable for suspension or removal of any product listing.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 7 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">7. Liability & Indemnification</h2>
+    <p className="text-sm mt-2">By listing products, the vendor agrees to:</p>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Indemnify the platform from all legal, financial, or reputational claims arising out of product listings.</li>
+      <li>Bear sole responsibility for consumer complaints, regulatory action, warranty obligations, or injury caused by products.</li>
+      <li>Reimburse the platform for any losses, penalties, or costs incurred due to vendor product violations.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Final Note --> */}
+  <div className="text-sm text-gray-500 mt-6 border-t pt-4 dark:border-gray-600">
+    <strong className="text-orange-600 dark:text-orange-400">Disclaimer:</strong> The platform only provides a technological space for vendors to showcase products. All responsibility for listing accuracy, legality, pricing, and consumer claims rests entirely with the vendor.
+  </div>
+
+</div>
                 </div>
         </TabPanel>
         <TabPanel>
@@ -126,25 +220,100 @@ export default function Policies(){
             </div>
 
           <div className='p-6 text-xs  text-slate-600'> 
-  <ul>
-    <li><strong>Order Responsibility:</strong> Vendors are fully responsible for the processing, packaging, and timely dispatch of all customer orders placed through the marketplace.</li>
+ <div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
 
-    <li><strong>Timely Fulfillment:</strong> All confirmed orders must be fulfilled within the promised handling time. Any delays must be proactively communicated to customers and the platform.</li>
+  {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Order Fulfillment, Shipping & Delivery Policy</h1> */}
 
-    <li><strong>Shipping Accuracy:</strong> Vendors must ensure correct shipping addresses and accurate product dispatch. Wrong or incomplete shipments may result in penalties or refunds.</li>
+  {/* <!-- Section 1 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">1. Vendor Responsibility in Fulfillment</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors are solely responsible for preparing, packing, and dispatching all customer orders within the promised time frame.</li>
+      <li>All order details (items, quantities, customer addresses) must be carefully verified before dispatch.</li>
+      <li>Any delays, cancellations, or errors in fulfillment will be the vendor’s responsibility, including financial or reputational consequences.</li>
+      <li>The platform’s role is limited to forwarding order information; it does not participate in fulfillment.</li>
+    </ul>
+  </section>
 
-    <li><strong>Shipping Carriers & Tracking:</strong> Reliable courier services must be used with tracking details updated immediately after dispatch.</li>
+  {/* <!-- Section 2 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">2. Processing Timelines</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must process and confirm orders within the standard processing window (e.g., 24–48 hours).</li>
+      <li>Any changes in stock or product availability must be updated immediately to avoid failed orders.</li>
+      <li>Failure to confirm orders in time may result in automatic cancellation, with the vendor bearing any resulting penalties or losses.</li>
+    </ul>
+  </section>
 
-    <li><strong>Delivery Responsibility:</strong> Vendors must ensure on-time delivery of undamaged products. Vendors are also responsible for handling returns related to failed or delayed deliveries.</li>
+  {/* <!-- Section 3 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">3. Packaging Standards</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must ensure products are securely packed to prevent damage, leakage, or tampering.</li>
+      <li>Fragile items must include protective packaging and “Fragile” labeling.</li>
+      <li>Perishable products must follow industry-standard temperature control and shelf-life packaging practices.</li>
+      <li>Incorrect or negligent packaging leading to damage or injury is the vendor’s full liability.</li>
+    </ul>
+  </section>
 
-    <li><strong>Packaging Standards:</strong> Secure and appropriate packaging is required. Packaging must not include misleading branding or third-party advertisements.</li>
+  {/* <!-- Section 4 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">4. Shipping & Courier Responsibility</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors are responsible for selecting reliable courier/shipping partners and negotiating service terms.</li>
+      <li>All shipping fees, logistics coordination, and documentation (invoices, tax slips, etc.) are managed by the vendor.</li>
+      <li>Vendors must ensure compliance with courier regulations (weight, restricted items, labeling).</li>
+      <li>The platform is not liable for lost, delayed, or mishandled shipments.</li>
+    </ul>
+  </section>
 
-    <li><strong>Shipping Charges:</strong> All shipping fees must be transparent and listed at the time of product upload. No hidden or excessive charges are allowed.</li>
+  {/* <!-- Section 5 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">5. Delivery Timelines & Communication</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must ensure delivery within the promised timeframe mentioned in the product listing or checkout.</li>
+      <li>Tracking details must be shared promptly with the customer.</li>
+      <li>Vendors are solely responsible for communicating delays, reschedules, or exceptions to customers in a professional manner.</li>
+      <li>Repeated delays may result in penalties, order cancellation, or account suspension.</li>
+    </ul>
+  </section>
 
-    <li><strong>Non-Compliance Consequences:</strong> Failing to meet fulfillment responsibilities may result in cancellations, refunds, or account suspension.</li>
+  {/* <!-- Section 6 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">6. Failed Deliveries & Returns to Origin (RTO)</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>If delivery fails due to incorrect addresses, non-availability of the customer, or courier refusal, the vendor is responsible for handling RTO.</li>
+      <li>All costs of RTO, re-shipping, or customer compensation are borne by the vendor.</li>
+      <li>The platform holds no liability for unsuccessful delivery attempts.</li>
+    </ul>
+  </section>
 
-    <li><strong>Platform Disclaimer:</strong> The platform is not liable for any delivery failures, delays, or damages. Vendors hold full responsibility for logistics and shipping.</li>
-  </ul>
+  {/* <!-- Section 7 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">7. Customer Service Obligations</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must respond to customer queries related to shipping, order status, and delivery within 24 hours.</li>
+      <li>Unresolved issues will remain the vendor’s responsibility; the platform will not mediate disputes.</li>
+      <li>Any compensation, replacements, or refunds due to delivery mishaps are the vendor’s liability.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 8 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">8. Risk & Liability</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Ownership, risk, and liability of goods remain with the vendor until the order is successfully delivered to the customer.</li>
+      <li>The platform is not responsible for damage, theft, or legal issues arising during transit.</li>
+      <li>Vendors agree to indemnify and hold harmless the platform against claims, losses, or damages linked to order fulfillment and delivery.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Final Note --> */}
+  <div className="text-sm text-gray-500 mt-6 border-t pt-4 dark:border-gray-600">
+    <strong className="text-orange-600 dark:text-orange-400">Disclaimer:</strong> The platform serves only as a facilitator for order placement. All responsibility for order confirmation, packaging, courier management, and delivery rests exclusively with the vendor. The platform shall not be held accountable for any operational, financial, or legal disputes related to order fulfillment or shipping.
+  </div>
+
+</div>
 
   </div>  
         </TabPanel>
@@ -155,71 +324,91 @@ export default function Policies(){
 
 
   <div className='p-6 text-xs  text-slate-600'> 
-             <ul>
-    <li><strong>A. Return & Refund Eligibility:</strong>
-      <ul>
-        <li>Clearly mention returnable and non-returnable items in product listings.</li>
-        <li>Returns must be accepted if the product is:
-          <ul>
-            <li>Damaged or defective</li>
-            <li>Incorrect or incomplete</li>
-            <li>Expired or fake</li>
-            <li>Materially different from listing</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+   <div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
 
-    <li><strong>B. Return Process:</strong>
-      <ul>
-        <li>Buyers can request returns within 7–10 days of delivery.</li>
-        <li>Vendors must process pickup and inspect the return within 3 business days.</li>
-      </ul>
-    </li>
+  {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Return, Refund, Cancellation & Dispute Resolution Policy</h1> */}
 
-    <li><strong>C. Refund Processing:</strong>
-      <ul>
-        <li>Refunds must be issued to original payment method promptly.</li>
-        <li>Include full amount and taxes where vendor is at fault.</li>
-        <li>No hidden deductions unless clearly disclosed.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 1 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">1. General Principles</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The vendor is solely responsible for defining, publishing, and honoring return, refund, and cancellation policies for their products.</li>
+      <li>The platform does not provide guarantees, warranties, or commitments on behalf of vendors.</li>
+      <li>Customers shall directly engage with the vendor for all issues relating to returns, refunds, cancellations, or disputes.</li>
+    </ul>
+  </section>
 
-    <li><strong>D. Cancellation Policy:</strong>
-      <ul>
-        <li>Buyers may cancel before order is shipped.</li>
-        <li>Vendors must avoid arbitrary cancellations and must notify stock issues early.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 2 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">2. Return Policy</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must clearly state their return eligibility (window, conditions, exclusions) on each product listing.</li>
+      <li>Returns must be accepted if the product is defective, damaged, misrepresented, counterfeit, expired, or missing items.</li>
+      <li>Vendors must handle logistics, costs, and communication related to product returns.</li>
+      <li>Return pickup, packaging, and coordination with courier partners are the vendor’s responsibility.</li>
+      <li>The platform is not liable for return logistics failures, delays, or customer dissatisfaction.</li>
+    </ul>
+  </section>
 
-    <li><strong>E. Dispute Triggers and Prevention:</strong>
-      <ul>
-        <li>Disputes arise due to wrong items, delays, damage, poor communication, or authenticity issues.</li>
-        <li>All responsibility lies with the vendor unless otherwise proven.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 3 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">3. Refund Policy</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Refunds must be processed by the vendor within the legally mandated timeline (e.g., 7–10 working days, as applicable).</li>
+      <li>Refunds must cover the full product price and any taxes charged, unless otherwise agreed with the customer.</li>
+      <li>Refunds for shipping costs are at the vendor’s discretion but must be clearly communicated upfront.</li>
+      <li>The platform will only transfer funds back to the customer once released by the vendor; delays in vendor processing will not be the platform’s liability.</li>
+    </ul>
+  </section>
 
-    <li><strong>F. Dispute Resolution:</strong>
-      <ul>
-        <li>Vendors must respond within 48 hours.</li>
-        <li>The platform will mediate if needed, and its decision is final.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 4 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">4. Cancellation Policy</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Customers may request order cancellation before dispatch. Vendors must honor such requests promptly.</li>
+      <li>If cancellation is requested after dispatch, vendors may define terms (restocking fee, partial refund, etc.).</li>
+      <li>Vendors must immediately update order status in the system upon cancellation to avoid confusion.</li>
+      <li>Any financial loss, customer dissatisfaction, or legal claims arising from cancellation mishandling are solely the vendor’s responsibility.</li>
+    </ul>
+  </section>
 
-    <li><strong>G. Chargebacks & Fraud:</strong>
-      <ul>
-        <li>Vendors must maintain delivery proof and product authenticity records.</li>
-        <li>Unjustified chargebacks may lead to account penalties.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 5 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">5. Dispute Resolution</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Any dispute between vendor and customer (e.g., defective goods, delays, misrepresentation) must be resolved directly by the vendor.</li>
+      <li>The platform is not obligated to mediate but may facilitate communication at its discretion.</li>
+      <li>All legal or regulatory disputes, penalties, or claims arising from product sales are the vendor’s full liability.</li>
+      <li>Vendors agree to indemnify the platform against any claim, chargeback, or legal proceeding initiated by customers or authorities.</li>
+    </ul>
+  </section>
 
-    <li><strong>H. Platform Disclaimer:</strong>
-      <ul>
-        <li>The platform is not responsible for vendor product, refund, or customer service issues.</li>
-        <li>Vendors are solely liable for all transactions, refunds, and disputes.</li>
-      </ul>
-    </li>
-  </ul>
+  {/* <!-- Section 6 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">6. Fraudulent Claims & Abuse</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must have clear evidence (photos, videos, delivery confirmation) to defend against fraudulent return/refund claims.</li>
+      <li>The platform will not bear losses due to fraudulent or false claims made by customers.</li>
+      <li>It is the vendor’s responsibility to pursue remedies, insurance, or legal recourse for such claims.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 7 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">7. Liability & Indemnification</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors are solely liable for financial settlements, losses, or damages linked to returns, refunds, or cancellations.</li>
+      <li>The platform is not responsible for delays, failures, or disputes arising from the vendor’s refund or return processes.</li>
+      <li>Vendors shall indemnify the platform against all claims, penalties, or reputational harm caused by mishandling of returns, refunds, or cancellations.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Final Note --> */}
+  <div className="text-sm text-gray-500 mt-6 border-t pt-4 dark:border-gray-600">
+    <strong className="text-orange-600 dark:text-orange-400">Disclaimer:</strong> The platform only provides an interface for transactions. All obligations regarding returns, refunds, cancellations, and dispute resolution rest entirely with the vendor. Customers must hold the vendor accountable for issues; the platform assumes no liability whatsoever.
+  </div>
+
+</div>
    </div>
         </TabPanel>
         <TabPanel>
@@ -227,58 +416,91 @@ export default function Policies(){
                 <h2 className='text-lg font-bold '>Payment, Commission & Financial Policy</h2>
             </div>
               <div className='p-6 text-xs  text-slate-600'> 
- <ul>
-    <li><strong>A. Vendor Earnings & Commission Structure:</strong>
-      <ul>
-        <li>Commission is deducted per sale as per plan or category.</li>
-        <li>Details are transparent in the vendor dashboard.</li>
-        <li>Commission updates will be shared with 15 days' notice.</li>
-      </ul>
-    </li>
+<div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
 
-    <li><strong>B. Payment Schedule & Processing:</strong>
-      <ul>
-        <li>Payouts are weekly or as per vendor plan.</li>
-        <li>Hold period of 5–7 days may apply.</li>
-        <li>Payments via bank, UPI, or wallet as chosen by vendor.</li>
-      </ul>
-    </li>
+  {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Payment, Commission & Financial Policy</h1> */}
 
-    <li><strong>C. Transaction Fees & Charges:</strong>
-      <ul>
-        <li>Gateway and platform fees are applicable as per usage.</li>
-        <li>Charged automatically per order or per plan.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 1 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">1. Payment Collection</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The platform acts only as a technology facilitator for payment collection from customers and transfer to vendors.</li>
+      <li>All sales proceeds collected by the platform are held on behalf of the vendor, subject to commission and applicable charges.</li>
+      <li>The platform is not a financial institution, escrow service, or guarantor of payments.</li>
+      <li>Customers’ obligations are considered discharged once payment is successfully made to the platform’s designated gateway.</li>
+    </ul>
+  </section>
 
-    <li><strong>D. Refunds & Adjustments:</strong>
-      <ul>
-        <li>Refunds issued to customers are deducted from vendor earnings.</li>
-        <li>Chargeback amounts are final if no proof is provided.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 2 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">2. Commission & Fees</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The platform charges a commission on each successful order as per the vendor’s subscription plan.</li>
+      <li>Additional fees may include payment gateway charges, bank transaction charges, taxes, and any government levies.</li>
+      <li>All fees and commissions are non-refundable, even if an order is canceled, returned, or disputed.</li>
+      <li>The platform reserves the right to revise commission rates and fee structures with prior notice.</li>
+    </ul>
+  </section>
 
-    <li><strong>E. Taxes & Invoicing:</strong>
-      <ul>
-        <li>Vendors must comply with tax rules (e.g., GST).</li>
-        <li>TDS and other statutory deductions will be made if applicable.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 3 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">3. Payouts to Vendors</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Payouts are processed after deducting commission, fees, taxes, penalties (if any), and adjustments.</li>
+      <li>Standard payout cycles (e.g., weekly/bi-weekly/monthly) will be communicated to vendors at registration.</li>
+      <li>Delays due to banking networks, holidays, regulatory checks, or vendor verification are outside the platform’s liability.</li>
+      <li>Vendors must maintain accurate and active bank account details; the platform will not be responsible for failed or delayed transfers due to vendor errors.</li>
+    </ul>
+  </section>
 
-    <li><strong>F. Financial Disputes & Audits:</strong>
-      <ul>
-        <li>Disputes must be reported within 7 business days.</li>
-        <li>The platform may audit vendor accounts for compliance.</li>
-      </ul>
-    </li>
+  {/* <!-- Section 4 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">4. Taxes & Compliance</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors are solely responsible for charging, collecting, reporting, and remitting all applicable taxes (GST, VAT, TDS, customs, etc.).</li>
+      <li>The platform may deduct tax at source where required by law but will not be responsible for vendor’s tax compliance obligations.</li>
+      <li>Invoices and tax documentation must be issued by the vendor directly to customers.</li>
+      <li>The vendor indemnifies the platform from any liability arising from tax non-compliance, misreporting, or disputes with tax authorities.</li>
+    </ul>
+  </section>
 
-    <li><strong>G. Platform Disclaimer:</strong>
-      <ul>
-        <li>The platform is not liable for payout failures due to vendor error or gateway issues.</li>
-        <li>Vendors are responsible for accurate financial details and legal compliance.</li>
-      </ul>
-    </li>
-  </ul>
+  {/* <!-- Section 5 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">5. Refunds, Chargebacks & Deductions</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Any refund, return, or cancellation cost is borne entirely by the vendor.</li>
+      <li>If a customer initiates a chargeback or payment dispute, the amount will be deducted from the vendor’s future payouts until resolved.</li>
+      <li>Platform may withhold or claw back amounts already paid to the vendor in case of customer refunds, fraud, or misrepresentation.</li>
+      <li>Vendors are responsible for maintaining evidence (invoices, proof of delivery, communication logs) to defend chargeback claims.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 6 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">6. Penalties & Adjustments</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The platform reserves the right to impose financial penalties for violations such as late dispatch, poor service, fake listings, or fraudulent behavior.</li>
+      <li>Such penalties will be directly deducted from the vendor’s payable balance or withheld payouts.</li>
+      <li>In case of legal orders, government notices, or compliance breaches, the platform may freeze vendor payouts until resolution.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 7 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">7. Vendor Liabilities & Indemnification</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors are liable for all financial obligations linked to their sales, including refunds, taxes, penalties, and regulatory costs.</li>
+      <li>The platform will not bear any responsibility for vendor debts, financial losses, or disputes with customers, banks, or regulators.</li>
+      <li>Vendors agree to indemnify and hold harmless the platform against all monetary claims, losses, or damages arising from their business activities.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Final Note --> */}
+  <div className="text-sm text-gray-500 mt-6 border-t pt-4 dark:border-gray-600">
+    <strong className="text-orange-600 dark:text-orange-400">Disclaimer:</strong> The platform only facilitates payments through integrated gateways. Vendors retain complete financial responsibility for commissions, refunds, taxes, and customer disputes. Under no circumstances will the platform act as guarantor, insurer, or co-seller for vendor transactions.
+  </div>
+
+</div>
               </div>
         </TabPanel>
         <TabPanel>
@@ -287,251 +509,73 @@ export default function Policies(){
             </div>
 
               <div className='p-6  text-sm text-slate-600'> 
-  <h3 className='font-bold mt-2'>
-    A. Data Privacy &amp; Customer Information
-</h3>
-<ul>
-    <li>
-        <p>
-            Confidentiality Obligation: <br/>
-            Vendors must treat all customer data (name, contact, address,
-            payment info) as strictly confidential and use it only for order
-            fulfillment.
-        </p>
-    </li>
-    <li>
-        <p>
-            No Data Misuse:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Vendors must not store, share, sell, or reuse any customer
-                    information for personal marketing, third-party sharing, or
-                    off-platform use.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Sending promotional material, spam emails, or cold calls
-                    without buyer consent is strictly prohibited.
-                </p>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Compliance: <br/>
-            Vendors must comply with applicable laws and data protection acts
-            such as:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    India’s IT Act 2000 / Data Protection Bill
-                </p>
-            </li>
-            <li>
-                <p>
-                    GDPR (if serving international buyers)
-                </p>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Data Breach Liability: <br/>
-            Any data breach due to vendor negligence may result in:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Legal action.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Suspension or termination of vendor account.
-                </p>
-            </li>
-        </ul>
-    </li>
-</ul>
-<hr/>
-<h3 className='font-bold mt-2'>
-    B. Promotions, Marketing &amp; Discount Policy
-</h3>
-<ul>
-    <li>
-        <p>
-            Platform-Wide Promotions: <br/>
-            Vendors may participate in platform-organized events like flash
-            sales, seasonal discounts, and coupon campaigns. Participation is
-            optional unless otherwise agreed in a subscription or agreement.
-        </p>
-    </li>
-    <li>
-        <p>
-            Independent Offers: <br/>
-            Vendors may run their own discounts or offers only through the
-            platform dashboard. External coupons, affiliate links, or misleading
-            discounts are not allowed.
-        </p>
-    </li>
-    <li>
-        <p>
-            Fair Marketing:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Vendors must not use misleading price cuts, fake MRP, or
-                    deceptive urgency tactics (e.g., “Only 1 left!” if untrue).
-                </p>
-            </li>
-            <li>
-                <p>
-                    All offers must have clear start and end dates, eligibility
-                    conditions, and be reflected in invoices properly.
-                </p>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Product Ads &amp; Banners:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Use of promotional banners or featured product listings must
-                    comply with marketplace branding guidelines and fee
-                    structure.
-                </p>
-            </li>
-        </ul>
-    </li>
-</ul>
-<hr/>
-<h3 className='font-bold mt-2' >
-    C. General Platform Usage Terms
-</h3>
-<ul>
-    <li>
-        <p>
-            Account Access:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Vendors are responsible for maintaining the security of
-                    their login credentials.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Sharing of accounts or using bots/scripts to manipulate
-                    listings or reviews is strictly prohibited.
-                </p>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Listing Integrity:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Vendors must ensure listings have original content, real
-                    photos, accurate specs, and no keyword stuffing or IP
-                    violations.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Duplicate listings, irrelevant tags, or fake reviews may
-                    result in account penalties.
-                </p>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Platform Integrity:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Vendors must not attempt to:
-                </p>
-                <ul>
-                    <li>
-                        <p>
-                            Circumvent platform commissions (e.g., asking buyers
-                            to transact outside).
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Redirect buyers to external websites or
-                            WhatsApp/Telegram groups.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Post any content that is offensive, defamatory, or
-                            violates public morality.
-                        </p>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Right to Moderate or Remove:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    The platform reserves the right to edit, delist, or suspend
-                    any product, promotion, or account that violates these terms
-                    without prior notice.
-                </p>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <p>
-            Termination Clause:
-        </p>
-        <ul>
-            <li>
-                <p>
-                    Vendors found in repeated breach of policies may face:
-                </p>
-                <ul>
-                    <li>
-                        <p>
-                            Immediate suspension or blacklisting.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Legal action in case of fraud or data misuse.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Forfeiture of pending payouts.
-                        </p>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
+<div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+
+  {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Data Privacy, Promotions & General Terms Policy</h1> */}
+
+  {/* <!-- Section 1 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">1. Data Privacy & Customer Information</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>All customer data (including names, addresses, phone numbers, and payment information) shared with vendors is strictly for order fulfillment purposes only.</li>
+      <li>Vendors are prohibited from storing, selling, renting, or misusing customer data for personal gain, marketing outside the platform, or unauthorized purposes.</li>
+      <li>Any data breach, leak, or misuse by the vendor is the sole responsibility of the vendor. The platform bears no liability for damages caused by vendor negligence.</li>
+      <li>Vendors must comply with applicable data protection laws (e.g., GDPR, IT Act, Indian DPDP Act, or any local equivalent).</li>
+      <li>Upon request, vendors must immediately delete or anonymize customer data once an order is completed and there is no legal retention requirement.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 2 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">2. Promotions, Marketing & Advertising</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The platform may, at its discretion, feature vendor products in marketing campaigns, advertisements, newsletters, or promotions.</li>
+      <li>Such promotion does not imply endorsement, guarantee, or liability by the platform.</li>
+      <li>Vendors are solely responsible for the accuracy of promotional content, product claims, discounts, or offers they provide.</li>
+      <li>All promotional costs (discounts, coupons, sponsored placements, campaigns) are the vendor’s responsibility unless explicitly agreed in writing with the platform.</li>
+      <li>False claims, misleading advertising, or unapproved promotions are strictly prohibited and may result in penalties or suspension.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 3 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">3. Intellectual Property & Content Rights</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>Vendors must ensure that all product images, descriptions, logos, trademarks, and branding used in listings or promotions are legally owned or licensed to them.</li>
+      <li>The platform shall not be held liable for copyright/trademark infringement claims arising from vendor-submitted content.</li>
+      <li>Vendors grant the platform a royalty-free, worldwide license to use their content for marketing, display, and promotional purposes strictly within the platform ecosystem.</li>
+      <li>Any third-party IP disputes must be resolved solely by the vendor, including legal costs, penalties, and settlements.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 4 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">4. General Terms of Use</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The platform operates strictly as a technology service provider, connecting vendors and customers. It is neither a buyer, seller, guarantor, nor insurer of products.</li>
+      <li>Vendors are solely responsible for compliance with all applicable laws, licenses, product standards, and consumer rights regulations in their region.</li>
+      <li>Any fines, penalties, or claims arising from vendor misconduct, product quality, or misrepresentation shall be borne exclusively by the vendor.</li>
+      <li>The platform reserves the right to suspend or terminate accounts violating these policies, with or without notice.</li>
+      <li>Force majeure events (natural disasters, pandemics, strikes, system outages) release the platform from obligations; vendors remain responsible for their own commitments.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Section 5 --> */}
+  <section>
+    <h2 className="text-lg font-semibold">5. Liability & Indemnification</h2>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+      <li>The vendor agrees to indemnify, defend, and hold harmless the platform from any claims, losses, legal proceedings, or reputational damages caused by vendor actions or inactions.</li>
+      <li>This includes, but is not limited to: product disputes, regulatory violations, tax misreporting, intellectual property claims, data privacy breaches, or fraudulent activities.</li>
+      <li>Under no circumstance shall the platform be held financially or legally responsible for vendor obligations, damages, or liabilities.</li>
+    </ul>
+  </section>
+
+  {/* <!-- Final Note --> */}
+  <div className="text-sm text-gray-500 mt-6 border-t pt-4 dark:border-gray-600">
+    <strong className="text-orange-600 dark:text-orange-400">Disclaimer:</strong> Vendors assume full ownership of data handling, promotions, product claims, and legal compliance. The platform functions solely as a digital marketplace provider and bears no liability for any disputes, breaches, or losses arising from vendor operations.
+  </div>
+
+</div>
               </div>
         </TabPanel>
       </TabPanels>

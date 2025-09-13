@@ -18,10 +18,11 @@ const onboardReg =async(req,res)=>{
         
     const userEmail = UserData.email
         
-        const {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents }=req.body
-        // console.log( {firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc })
+        const {firstname,lastname,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents }=req.body
+        // console.log( {firstname,lastname,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc })
+        console.log(firstname,lastname);
 
-        if(!firstName||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!gstin){
+        if(!firstname||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!gstin){
             // console.log("Hi i ran 2")
             
             return res.status(400).json({message:"Please fill all the details."})
@@ -59,7 +60,7 @@ const onboardReg =async(req,res)=>{
 
         // Update the details if the already present!
         const updatedVendor = await registeredVen.findOneAndUpdate(VendorExist._id,
-         { firstName, lastName, B_name, storeName, storeURL, phone, extLinks, add_line1, add_line2, city, pincode,
+         { firstname, lastname, B_name, storeName, storeURL, phone, extLinks, add_line1, add_line2, city, pincode,
                 state,gstin, pan,bank_ac_number,ifsc,applicationStatus:"InReview",attempt:at+1,documents },
                 { new: true }  
         )
@@ -79,7 +80,7 @@ const onboardReg =async(req,res)=>{
     // 
        
         const newVendor = new registeredVen({
-            email:userEmail, firstName,lastName,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents,
+            email:userEmail, firstname,lastname,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents,
 
         })
         // console.log("Hi i ran 4")
@@ -112,7 +113,9 @@ const onboardNonReg= async (req,res)=>{
     // console.log("Hi I ran")
     const {firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,
         add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc,enrollmentID }=req.body;
-        
+         
+        console.log(firstname,lastname)
+
         if(!firstname || !lastname  || !storeName || !storeURL ||!name_doc||
             !phone || !extLinks || !add_line1 || !add_line2 || !city
             || !pincode || !state || !bank_name || !pan || !bank_ac_number

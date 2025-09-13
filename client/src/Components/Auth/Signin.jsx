@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
+import { useSearchParams } from "react-router-dom";
 
 import CircularProgress from '@mui/material/CircularProgress';
 import { useAuth } from '../../Context/AuthContext';
@@ -15,7 +16,10 @@ export default function Signin() {
 
     const [loading, setLoading] = useState(false);
     const { login } = useAuth(); // ✅ Get login function from context
+  const [showResend,setShowResend]=useState(false)
+  const [resendEmail,setResendEmail]=useState('')
 
+const [alert, setAlert] = useState(null); // { type: "success" | "error", message: string }
 
     const [fromData, setfromData]=useState({
       email:'',
@@ -36,7 +40,9 @@ export default function Signin() {
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
+ const [searchParams] = useSearchParams();
 
+ 
 
  
     const handleChange = (e) => {
@@ -68,21 +74,26 @@ export default function Signin() {
 
         const response = await axios.post('http://localhost:3000/api/auth/signin',fromData,{withCredentials:true})
         // console.log('Login Successful:', token);
-
-        // const res = await axios.get("http://localhost:3000/api/auth/profile", { withCredentials: true });
-        // setUser(res.data);
-
         login(response.data.user); // ✅ Update global user state
         toast.success(response.data.message || "Login Success")
+
         // redirect to dashboard
       navigate("/vendor/dashboard")
 
 
       } catch (error) {
+        // console.error('Login Failed:', error);
         // console.error(error.response?.data||error.message)
+         if (error.response?.status === 403) {
+      toast.error("Email not verified. Please check your inbox.");
+       setResendEmail(fromData.email);
+      setShowResend(true); // state for resend button
+    }else{
+      
+   
+      toast.error(error.response?.data?.message ||'Failed to Login! Please try again later.')
+    }
         
-        // Add toast for backend error
-        toast.error(error.response?.data?.message ||'Failed to Login! Please try again later.')
       }
       finally{
         setfromData({
@@ -95,11 +106,43 @@ export default function Signin() {
 
     }
 
+      const handleResend = async (e) => {
+    try {
+      e.preventDefault();
+      // console.log(resendEmail)
+      const resp=await axios.post("http://localhost:3000/api/auth/resend-verification", { email:resendEmail });
+      console.log(resp)
+      toast.success("Verification email sent again ✅");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response?.data?.message || "Failed to resend verification email.");
+    }
+  }
+
   return (
     <>
      <div className="w-full  flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-lg p-14 bg-white shadow-md rounded-lg">
-        <h2 className="text-2xl font-bold text-center mb-6">
+     
+     <Link to="/">
+        <img src="/Logo/aabhaar.png" alt="logo" width="180px" className='m-auto p-4' />
+        </Link>
+
+    {showResend && (
+          <div className="my-3 p-3 w-full text-center rounded flex items-center justify-between text-sm bg-amber-50 text-amber-500">
+            <p className="text-yellow-500 mb-2">Resend Verification Email</p>
+            <button
+              onClick={handleResend}
+              className="px-2 py-2 rounded-md text-white cursor-pointer shadow-2xl bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-600 font-semibold"
+            >
+              Resend 
+            </button>
+          </div>
+         )} 
+
+
+        
+        <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Sign In
         </h2>
 
