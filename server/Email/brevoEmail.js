@@ -4,7 +4,7 @@ require('dotenv').config();
 const sendEmail = async (toEmail, resetLink) => {
   try {
     await axios.post(
-      'https://api.brevo.com/v3/smtp/email',
+      `${process.env.BREVO_API_URL}`,
       {
         sender: {
           name: 'Team Aabhaar',
@@ -13,18 +13,12 @@ const sendEmail = async (toEmail, resetLink) => {
         to: [
           {
             email: toEmail,
-            // name: name,
+           
           },
         ],
          'templateId':1,
          'params': { 'resetLink': resetLink, }
-        // subject: 'Thank you for contacting us!',
-        // htmlContent: `
-         
-        //   <p>${resetLink}</p>
-        //   <p>Thank you for submitting your details. We’ll be in touch shortly.</p>
-        //   <p>- Your Company</p>
-        // `,
+
       },
       {
         headers: {

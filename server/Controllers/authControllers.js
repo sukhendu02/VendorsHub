@@ -38,7 +38,8 @@ const signup = async (req, res) => {
          .is().max(100)                                  // Maximum length 100
          .has().uppercase()                              // Must have uppercase letters
          .has().lowercase()                              // Must have lowercase letters
-         .has().digits(1)                                // Must have at least 2 digits
+         .has().digits(1)     
+          .has().symbols()                           // Must have at least 2 digits
          .has().not().spaces()                           // Should not have spaces
          .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
          // console.log(schema.validate(password));
@@ -72,15 +73,15 @@ const signup = async (req, res) => {
         newUser.emailVerificationToken = hashToken(rawToken);
         newUser.emailVerificationExpires = Date.now() + 30 * 60 * 1000; // 30 minutes
         
-        console.log(newUser);
+        // console.log(newUser);
         await newUser.save();
     const verifyEmail = await sendVerificationEmail(newUser, rawToken, false);
-    console.log("Sending verification email...");
+    // console.log("Sending verification email...");
     const verifyUrl = `${process.env.CLIENT_URL}/verify-email?token=${rawToken}&id=${newUser._id}`;
   
-    console.log(verifyUrl)
+    // console.log(verifyUrl)
     
-    console.log("email sent");
+    // console.log("email sent");
         
  
 
@@ -193,11 +194,11 @@ const verifyEmail = async (req, res) => {
 
 const resendVerification = async (req, res) => {
   try {
-    console.log("Resend verification requested");
+    // console.log("Resend verification requested");
     const { email } = req.body;
     if (!email) return res.status(400).json({ message: "Email is required" });
 
-    console.log(email)
+    // console.log(email)
     const user = await User.findOne({ email: email.toLowerCase().trim() });
     if (!user) return res.status(400).json({ message: "User not found" });
 
@@ -212,11 +213,14 @@ const resendVerification = async (req, res) => {
     await user.save();
 
     // Send as 'resend' (isResend=true)
+    
+    const verifyEmail = `${process.env.FRONTEND_DOMAIN}/verify-email?token=${rawToken}&id=${user._id}`;
+   console.log(verifyEmail)
     await sendVerificationEmail(user, rawToken, true);
-
+    
     return res.json({ message: "Verification email resent" });
   } catch (err) {
-    console.error("resendVerification error:", err);
+    // console.error("resendVerification error:", err);
     return res.status(500).json({ message: "Server error" });
   }
 };
@@ -301,7 +305,7 @@ res.status(200).json({ message: 'Password Reset Link has been sent to Email. (ex
 
 
     } catch (error) {
-console.log(error)
+// console.log(error)
          res.status(500).json({message:"Internal Server Error"})
         
     }
@@ -334,7 +338,8 @@ try {
          .is().max(100)                                  // Maximum length 100
          .has().uppercase()                              // Must have uppercase letters
          .has().lowercase()                              // Must have lowercase letters
-         .has().digits(1)                                // Must have at least 2 digits
+         .has().digits(1)        
+         .has().symbols()                        // Must have at least 2 digits
          .has().not().spaces()                           // Should not have spaces
          .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
          // console.log(schema.validate(password));

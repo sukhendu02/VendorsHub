@@ -48,6 +48,10 @@ const registeredVenSchema = new mongoose.Schema({
     ifsc:String,
     documents: [documentSchema], // Embedded subdocs array
 
+    storeType:{
+        type: String,
+        default: "Registered"
+    },
     
     Date:{ type:Date,
         default:Date.now},

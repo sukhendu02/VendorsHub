@@ -242,7 +242,8 @@ export default function Support() {
           <h5 className="text-2xl font-bold text-slate-700">
             Still have Conern?
           </h5>
-            <Link>
+            {/* <Link to='/vendor/support/tickets'> */}
+            <Link target="_blank" to='https://aabhaar.freshdesk.com/support/home'>
           <button className="bg-primary text-white p-2 font-semibold px-5 m-4 rounded-lg">
             Create a Ticket <MoveRight className="inline mx-2" />
           </button>

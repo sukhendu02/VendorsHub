@@ -26,7 +26,7 @@ export default function Signup() {
       };
       const validateSignup =()=>{
         const { username, email, password, confirmPassword } = formData;
-        console.log(formData)
+        // console.log(formData)
         if (!username || !email || !password || !confirmPassword) {
           toast.error('Please fill in all fields'); 
           return false;
@@ -76,7 +76,7 @@ export default function Signup() {
 
         
           
-          const response = await axios.post('http://localhost:3000/api/auth/signup', formData);
+          const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, formData);
         
 
           // Redirect to login page with success message
@@ -85,7 +85,7 @@ export default function Signup() {
          
     
         } catch (error) {
-          console.error(error.response?.data || error.message);
+          // console.error(error.response?.data || error.message);
           // console.log(error)
           
           // Add toast to backend error

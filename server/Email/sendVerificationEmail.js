@@ -4,10 +4,10 @@ require('dotenv').config();
 const sendVerificationEmail = async (newUser, rawToken,isResend=false) => {
   try {
 
-     const verifyEmail = `http://localhost:5173/verify-email?token=${rawToken}&id=${newUser._id}`;
+     const verifyEmail = `${process.env.FRONTEND_DOMAIN}/verify-email?token=${rawToken}&id=${newUser._id}`;
     
     await axios.post(
-      'https://api.brevo.com/v3/smtp/email',
+    `${process.env.BREVO_API_URL}`,
       {
         sender: {
           name: 'Team Aabhaar',
@@ -21,13 +21,7 @@ const sendVerificationEmail = async (newUser, rawToken,isResend=false) => {
         ],
          'templateId':8,
          'params': { 'verifyEmail': verifyEmail, }
-        // subject: 'Thank you for contacting us!',
-        // htmlContent: `
-         
-        //   <p>${resetLink}</p>
-        //   <p>Thank you for submitting your details. We’ll be in touch shortly.</p>
-        //   <p>- Your Company</p>
-        // `,
+      
       },
       {
         headers: {

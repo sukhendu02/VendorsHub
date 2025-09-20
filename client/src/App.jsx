@@ -29,6 +29,8 @@ import ErrorPage from './Components/ErrorPage';
 import ResetPass from './Components/Auth/ResetPass';
 import ForgotPass from './Components/Auth/ForgotPass';
 import VerifyEmailPage from './Components/Auth/VerifyEmailPage';
+// import TicketsPage from './Components/TicketsPage';
+import TicketsPage from './Components/TicketsPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -116,7 +118,8 @@ function App() {
                       <Route path="/marketing" element={<Marketing />} />
                       <Route path="/start" element={<GettingStart />} />
                       <Route path="/policies" element={<Policies />} />
-                      <Route path="/Support" element={<Support />} />
+                      <Route path="/support" element={<Support />} />
+                      <Route path="/support/tickets" element={<TicketsPage />} />
                       <Route path="/SOPs" element={<SOP />} />
                       <Route path="/orders" element={<Orders />} />
                       <Route path="/profile" element={<Profile />} />

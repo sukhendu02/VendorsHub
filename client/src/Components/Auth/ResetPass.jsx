@@ -44,7 +44,7 @@ export default function ResetPass() {
 
   
   const res = await axios.post(
-        `http://localhost:3000/api/auth/reset-password/${token}`,
+        `${import.meta.env.VITE_BACKEND_URL}/reset-password/${token}`,
         { newPassword }
       );
       toast.success(res.data.message || 'Password reset successful');
@@ -54,7 +54,7 @@ export default function ResetPass() {
   
  } catch (error) {
   toast.error(error.response?.data?.message || 'Reset failed');
-  console.log(error)
+  // console.log(error)
   
  }finally{
   setLoading(false)

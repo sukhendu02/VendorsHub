@@ -32,13 +32,13 @@ const navigate = useNavigate();
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/auth/profile",
+          `${import.meta.env.VITE_BACKEND_URL}/profile`,
           { withCredentials: true }
         );
         //  console.log(response.data)
         setUser(response.data);
         //       // console.log(user)
-        // const vendorResponse = await axios.get("http://localhost:3000/api/auth/vendor/applicationstatus", { withCredentials: true });
+        // const vendorResponse = await axios.get("${import.meta.env.VITE_BACKEND_URL}/vendor/applicationstatus", { withCredentials: true });
         // // console.log(vendorResponse.data)
         //               setVendorStatus(vendorResponse.data.applicationStatus);
       } catch (err) {
@@ -54,7 +54,7 @@ const navigate = useNavigate();
       setload(true);
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/auth/vendor/applicationstatus",
+          `${import.meta.env.VITE_BACKEND_URL}/vendor/applicationstatus`,
           { withCredentials: true }
         );
         // console.log("Vendor API Response:", response.data.status);  // Debugging
@@ -62,9 +62,9 @@ const navigate = useNavigate();
         if (response.data && response.data.status) {
           setVendorStatus(response.data.status);
         }
-        console.log(vendorStatus);
+        // console.log(vendorStatus);
       } catch (error) {
-        console.error("Error fetching vendor status:", error);
+        // console.error("Error fetching vendor status:", error);
         // toast.error("Failed to fetch vendor status");
       } finally {
         setload(false);
@@ -246,7 +246,7 @@ const navigate = useNavigate();
   // const keyToDelete = extractKeyFromUrl(documents[index].fileUrl);
   
   // const key = extractKeyFromUrl(fileToDelete.fileUrl);
-console.log('hi')
+// console.log('hi')
   try {
     // Call backend to delete from S3
     await axios.delete("http://localhost:3000/api/upload/delete-file", {
@@ -292,7 +292,7 @@ console.log('hi')
       return;
     }
     // console.log("hi")
-    console.log(formData)
+    // console.log(formData)
     try {
 
         const payload = {
@@ -304,7 +304,7 @@ console.log('hi')
   
 
       const resp = await axios.post(
-        `http://localhost:3000/api/auth/onboard/registered`,
+        `${import.meta.env.VITE_BACKEND_URL}/onboard/registered`,
         // formData,
         payload,
         { withCredentials: true,
@@ -325,7 +325,7 @@ console.log('hi')
       }
 
     } catch (error) {
-      console.error(error.resp?.data || error.message);
+      // console.error(error.resp?.data || error.message);
       toast.error(error.response?.data?.message || "Something went wrong!");
     } finally {
       setLoading(false);
@@ -400,7 +400,7 @@ console.log('hi')
       ifsc,
       enrollmentID,
     } = nrformData;
-    console.log(nrformData);
+    // console.log(nrformData);
 
     if (
       !firstname ||
@@ -439,11 +439,11 @@ console.log('hi')
     try {
       // console.log("I ran");
       const resp = await axios.post(
-        `http://localhost:3000/api/auth/onboard/non-registered`,
+        `${import.meta.env.VITE_BACKEND_URL}/onboard/non-registered`,
         nrformData,
         { withCredentials: true }
       );
-      console.log(resp);
+      // console.log(resp);
       // console.log("hey")
       // toast.success("Wohoo! You are one step ahed!")
       if (resp.status === 202) {
@@ -454,7 +454,7 @@ console.log('hi')
         
       }
     } catch (error) {
-      console.error(error.resp?.data || error.message);
+      // console.error(error.resp?.data || error.message);
       toast.error(error.response?.data?.message || "Something went wrong!");
     } finally {
       setLoading(false);

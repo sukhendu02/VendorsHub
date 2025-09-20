@@ -16,7 +16,7 @@ export default function Logout() {
     <>
     <button
       onClick={logout}
-      className="w-full justify-center bg-complimentory cursor-pointer text-slate-50 flex p-2 rounded-lg align-baseline" 
+      className="w-full items-center justify-center bg-complimentory cursor-pointer text-slate-50 flex p-2 rounded-lg align-baseline" 
     >
  <LogOut size={16} /> <span className='pl-2 align-middle'>Sign Out</span>
     </button>

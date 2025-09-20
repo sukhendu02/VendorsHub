@@ -39,7 +39,7 @@ export default function Landing() {
 
         const response = await axios.post(`http://localhost:3000/api/common/queryform`,queryForm ,{withCredentials: true});
 
-        console.log("Response:", response);
+        // console.log("Response:", response);
         if (response.status === 200) {
           toast.success("Query submitted successfully!");
           // alert("Query submitted successfully!");
@@ -54,7 +54,7 @@ export default function Landing() {
           // alert("Failed to submit query. Please try again.");
         }
       } catch (error) {
-        console.error("Error submitting query:", error);
+        // console.error("Error submitting query:", error);
         // alert("An error occurred. Please try again later.");
         toast.error("An error occurred. Please try again later.");
       }

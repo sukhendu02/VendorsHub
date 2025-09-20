@@ -72,7 +72,7 @@ const [alert, setAlert] = useState(null); // { type: "success" | "error", messag
       }
       try {
 
-        const response = await axios.post('http://localhost:3000/api/auth/signin',fromData,{withCredentials:true})
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signin`,fromData,{withCredentials:true})
         // console.log('Login Successful:', token);
         login(response.data.user); // ✅ Update global user state
         toast.success(response.data.message || "Login Success")
@@ -110,11 +110,11 @@ const [alert, setAlert] = useState(null); // { type: "success" | "error", messag
     try {
       e.preventDefault();
       // console.log(resendEmail)
-      const resp=await axios.post("http://localhost:3000/api/auth/resend-verification", { email:resendEmail });
-      console.log(resp)
+      const resp=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/resend-verification`, { email:resendEmail });
+      // console.log(resp)
       toast.success("Verification email sent again ✅");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error(err.response?.data?.message || "Failed to resend verification email.");
     }
   }

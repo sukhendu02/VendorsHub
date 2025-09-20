@@ -19,31 +19,19 @@ const onboardReg =async(req,res)=>{
     const userEmail = UserData.email
         
         const {firstname,lastname,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents }=req.body
-        // console.log( {firstname,lastname,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc })
-        console.log(firstname,lastname);
-
         if(!firstname||!storeName||!storeURL||!phone||!B_name|| !add_line1||!add_line2||!city||!pincode||!state||!gstin){
-            // console.log("Hi i ran 2")
-            
+                  
             return res.status(400).json({message:"Please fill all the details."})
         }
        
-
-        
       // Optional: Validate documents
     if (!Array.isArray(documents) || documents.length === 0) {
       return res.status(400).json({ message: 'Please upload at least one document.' });
     }
-
-
      
         //   Check exsisting form 
         const VendorExist = await registeredVen.findOne({email:userEmail})
-        
-      
-        if(VendorExist){
-
-        
+                if(VendorExist){
         if(VendorExist.applicationStatus=="Approved"){
 
             return res.status(200).json({ message: 'Your application is already approved.' });
@@ -72,24 +60,18 @@ const onboardReg =async(req,res)=>{
                     
         
     }
-    // console.log(hi)
-       
-
-
-
-    // 
-       
-        const newVendor = new registeredVen({
+  
+   // REGISTER NEW VENDOR
+           const newVendor = new registeredVen({
             email:userEmail, firstname,lastname,B_name,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,gstin,pan,bank_ac_number,ifsc,documents,
 
         })
-        // console.log("Hi i ran 4")
           await newVendor.save();
           return res.status(201).json({ message: 'Form Sumbitted' });
 
         
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         return res.status(500).json({ message: "Server error" });
         
     }
@@ -102,19 +84,14 @@ const onboardReg =async(req,res)=>{
 
 const onboardNonReg= async (req,res)=>{
   try {
-    console.log("hii")
-
-    const UserData = await User.findById(req.user.id).select("-password");
-     
+       const UserData = await User.findById(req.user.id).select("-password");
         
     const userEmail = UserData.email
-    // console.log(userEmail)
 
-    // console.log("Hi I ran")
     const {firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,
         add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc,enrollmentID }=req.body;
          
-        console.log(firstname,lastname)
+       
 
         if(!firstname || !lastname  || !storeName || !storeURL ||!name_doc||
             !phone || !extLinks || !add_line1 || !add_line2 || !city
@@ -122,15 +99,9 @@ const onboardNonReg= async (req,res)=>{
             || !ifsc || !enrollmentID){
                 return res.status(400).json({ message: "Please fill all the fields" });
         }
-
-        
          //   Check exsisting form 
          const VendorExist = await NonRegisteredVen.findOne({email:userEmail})
-        
-      
          if(VendorExist){
- 
-         
          if(VendorExist.applicationStatus=="Approved"){
  
              return res.status(200).json({ message: 'Your application is already approved.' });
@@ -160,7 +131,7 @@ const onboardNonReg= async (req,res)=>{
                      
          
         }
-        // console.log("hi i ran 2")
+    // REGISTER NEW VENDOR
         const newVendor = new NonRegisteredVen({
             email:userEmail, firstname,lastname,name_doc,storeName, storeURL,phone,extLinks,add_line1,add_line2,city,pincode,state,bank_name,pan,bank_ac_number,ifsc ,enrollmentID
             
@@ -181,11 +152,10 @@ const getVendorStatus = async (req, res) => {
         // console.log(req.user.email)
         const UserData = await User.findById(req.user.id).select("-password");
         const userEmail = UserData.email
-        // console.log(userEmail)
+        
         
         let vendor = await registeredVen.findOne({ email: userEmail });
-        // console.log(vendor)
-        // console.log(vendor)
+   
         if (!vendor) {
              vendor = await NonRegisteredVen.findOne({email:userEmail})
         }
@@ -200,7 +170,7 @@ const getVendorStatus = async (req, res) => {
 };
 const getVendorappData = async (req, res) => {
     try {
-        // console.log(req.user.email)
+      
         const UserData = await User.findById(req.user.id).select("-password");
         const userEmail = UserData.email
         
@@ -209,6 +179,7 @@ const getVendorappData = async (req, res) => {
             vendor = await NonRegisteredVen.findOne({email:userEmail})
           }
         if (!vendor) {
+            
             // If vendor not found, assume pending status
             return res.status(404).json({ status: "Pending", vendor: null });
           }

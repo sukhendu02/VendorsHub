@@ -36,7 +36,7 @@ const queryForm = async (req, res) => {
         // For now, we'll just return a success message
         res.status(200).json({ message: "Query submitted successfully" });
     } catch (error) {
-        console.error("Error submitting query:", error);
+        // console.error("Error submitting query:", error);
         res.status(500).json({ message: "Internal Server Error" });
     }
 };

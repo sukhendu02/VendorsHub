@@ -25,7 +25,7 @@ export default function VerifyEmailPage() {
 
       try {
         const res = await axios.post(
-          `http://localhost:3000/api/auth/verify-email`,
+          `${import.meta.env.VITE_BACKEND_URL}/verify-email`,
           { token, id }
         );
         // console.log(res);

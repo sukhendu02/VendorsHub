@@ -26,7 +26,7 @@ const getPresignedUrl = async (req, res, next) => {
     res.status(200).json({ url, key });
     // console.log("added :",key)
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     next(err);
   }
 };
@@ -52,7 +52,7 @@ const deleteFromS3 = async (req, res) => {
     await s3.send(new DeleteObjectCommand(params));
     return res.status(200).json({ message: 'Document deleted successfully' });
   } catch (error) {
-    console.error('S3 Delete Error:', error);
+    // console.error('S3 Delete Error:', error);
     return res.status(500).json({ error: 'Failed to delete document from S3' });
   }
 };
