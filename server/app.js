@@ -62,7 +62,15 @@ mongoose
 app.get('/', (req, res) => {
     res.send('Hello World!');
   });
-
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'VendorHub API is running',
+    timestamp: new Date().toISOString(),
+    port: port
+  });
+});
 
   app.get('/check-cookies', (req, res) => {
     console.log(req.cookies); // Check received cookies

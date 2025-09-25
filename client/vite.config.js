@@ -8,8 +8,8 @@ export default defineConfig({
   plugins: [react(),
      tailwindcss()
   ],
-  server: {
-    historyApiFallback: true, // <--- important for SPA routes
-  },
+  // server: {
+  //   historyApiFallback: true, // <--- important for SPA routes
+  // },
 
 })
