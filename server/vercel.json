@@ -2,9 +2,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "backend/app.cjs", "use": "@vercel/node" }
+    { "src": "server/app.cjs", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "backend/app.cjs" }
+    { "src": "/(.*)", "dest": "server/app.cjs" }
   ]
 }
