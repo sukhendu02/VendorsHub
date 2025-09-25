@@ -5,6 +5,10 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser"); 
 app.use(cookieParser())
 
+
+const port = process.env.PORT || 3000;
+
+
 // const router = require("./Routes/userRoutes")
 const userRoutes = require("./Routes/userRoutes")
 const onboardRoutes = require("./Routes/onboardRoutes")
@@ -68,5 +72,5 @@ app.get('/', (req, res) => {
 
   // Start the server
 app.listen(process.env.PORT, () => {
-    console.log(`Server started on port ${process.env.PORT}`);
+    console.log(`Server started on port ${port}`);
   });
