@@ -44,7 +44,10 @@ const mongoose = require('mongoose')
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
+
+// const { MongoClient } = require("mongodb"); ❌ don't use unless you need low-level driver
+
+// const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = process.env.MONGODBURL;
 
 const { EFAULT } = require("constants");
