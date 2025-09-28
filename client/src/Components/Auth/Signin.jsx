@@ -122,14 +122,14 @@ const [alert, setAlert] = useState(null); // { type: "success" | "error", messag
   return (
     <>
      <div className="w-full  flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-lg p-14 bg-white shadow-md rounded-lg">
+      <div className="w-full h-full md:h-auto max-w-lg p-14 bg-white shadow-md rounded-lg">
      
      <Link to="/">
         <img src="/Logo/aabhaar.png" alt="logo" width="180px" className='m-auto p-4' />
         </Link>
 
     {showResend && (
-          <div className="my-3 p-3 w-full text-center rounded flex items-center justify-between text-sm bg-amber-50 text-amber-500">
+          <div className="my-3 p-3  w-full text-center rounded flex items-center justify-between text-sm bg-amber-50 text-amber-500">
             <p className="text-yellow-500 mb-2">Resend Verification Email</p>
             <button
               onClick={handleResend}
