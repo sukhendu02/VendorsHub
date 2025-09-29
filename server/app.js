@@ -81,6 +81,17 @@ app.get('/api/health', (req, res) => {
 });
 
 
+
+import path from "path";
+
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
   // Start the server
 app.listen(process.env.PORT, () => {
     console.log(`Server started on port ${port}`);
