@@ -193,10 +193,11 @@ export default function Landing() {
           </div>
         </div>
 
-        <div className="section-2 grid grid-cols-3 w-9/10 sm:w-7/8  gap-10 m-auto py-4 px-2 sm:p-6 rounded bg-secondary bg-gradient-to-br from-[#E47119] to-bg-secondary items-center mb-10">
+        {/* <div className="section-2 grid grid-cols-3 w-19/20 sm:w-7/8  gap-10 m-auto py-4 px-2 sm:p-6 rounded bg-secondary bg-gradient-to-br from-[#E47119] to-bg-secondary items-center mb-10">
           <div className="feature text-center  border-r-2 border-white">
-            <h3 className="text-lg sm:text-2xl font-bold text-slate-50 p-2  pb-0 ">0% Commission* <br />
-            
+            <h3 className="text-lg sm:text-2xl font-bold text-slate-50 p-2  pb-0 ">
+              0% Commission* 
+              <br />
             </h3>
            
           </div>
@@ -211,16 +212,32 @@ export default function Landing() {
             <h3 className="text-lg sm:text-2xl font-bold text-slate-50 p-2 ">
               Support for all Businesses
             </h3>
-            {/* <p className="text-slate-600">
-              Whether you’re just starting or are an established business we are
-              here for you!
-            </p> */}
+          
           </div>
-          {/* <div className="feature">
-     <h3 className="text-2xl font-bold text-primary">Support at Every Step</h3>
-    <p  className="text-slate-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, nemo itaque aut nam iste modi atque harum architecto sequi repellendus quod, pariatur adipisci. At quasi voluptatum alias amet? Eligendi, nam?</p>
-  </div> */}
-        </div>
+          
+        </div> */}
+        <div className="section-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-[95%] sm:w-[88%] gap-6 sm:gap-10 m-auto py-4 px-2 sm:p-6 rounded bg-secondary bg-gradient-to-br from-[#E47119] to-bg-secondary items-center mb-10">
+  
+  <div className="feature text-center border-b-2 sm:border-b-0 sm:border-r-2 border-white pb-4 sm:pb-0">
+    <h3 className="text-lg sm:text-2xl font-bold text-slate-50 p-2 pb-0">
+      0% Commission* 
+    </h3>
+  </div>
+  
+  <div className="feature text-center border-b-2 sm:border-b-0 sm:border-r-2 border-white pb-4 sm:pb-0">
+    <h3 className="text-lg sm:text-2xl font-bold text-slate-50 p-2">
+      Boost Your Visibility
+    </h3>
+  </div>
+  
+  <div className="feature text-center">
+    <h3 className="text-lg sm:text-2xl font-bold text-slate-50 p-2">
+      Support for all Businesses
+    </h3>
+  </div>
+  
+</div>
+
 
         <div className="what-we-are-section my-4 p-4 sm:p-5 sm:py-15">
           <p className="text-center text  text-slate-700 font-medium mb-3 ">
@@ -695,7 +712,7 @@ export default function Landing() {
 </div>
 
         <section></section>
-        <section className=" bg-gradient-to-br from-[#E47119] to-[#c85e15] text-white">
+        <section className=" bg-gradient-to-br bg-secondary bg-gradient-to-br from-[#E47119] text-white">
           <div className="custom-shape-divider-top-1731587920 mb-10">
             <svg
               data-name="Layer 1"
