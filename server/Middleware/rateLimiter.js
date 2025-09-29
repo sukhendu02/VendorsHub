@@ -1,5 +1,5 @@
-import rateLimit from "express-rate-limit";
-
+// import rateLimit from "express-rate-limit";
+const rateLimit = require("express-rate-limit");
 /**
  * Custom rate limiter for sensitive endpoints like resend-verification
  */
