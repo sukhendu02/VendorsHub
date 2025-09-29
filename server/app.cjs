@@ -9,6 +9,13 @@ app.use(cookieParser())
 const port = process.env.PORT || 3000;
 
 
+const path = require("path");
+
+
+// Serve React frontend
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+
 // const router = require("./Routes/userRoutes")
 const userRoutes = require("./Routes/userRoutes")
 const onboardRoutes = require("./Routes/onboardRoutes")
@@ -62,9 +69,9 @@ mongoose
 
 
 //routing path
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-  });
+// app.get('/', (req, res) => {
+//     res.send('Hello World!');
+//   });
 // Health check route
 app.get('/api/health', (req, res) => {
   res.json({ 
@@ -81,11 +88,6 @@ app.get('/api/health', (req, res) => {
 });
 
 
-const path = require("path");
-
-
-// Serve React frontend
-app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Catch-all route
 app.get('*', (req, res) => {
