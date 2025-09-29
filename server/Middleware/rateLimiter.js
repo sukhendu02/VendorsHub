@@ -3,7 +3,7 @@ const rateLimit = require("express-rate-limit");
 /**
  * Custom rate limiter for sensitive endpoints like resend-verification
  */
-export const createRateLimiter = ({
+ const createRateLimiter = ({
   windowMs = 15 * 60 * 1000, // ⏳ 15 minutes
   max = 3,                   // ✅ max 3 attempts
   message
@@ -21,3 +21,4 @@ export const createRateLimiter = ({
     }
   });
 };
+module.exports = { createRateLimiter };
