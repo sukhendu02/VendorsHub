@@ -25,7 +25,7 @@ const commonRoutes = require("./Routes/commonRoutes")
 
 // const cors = require('cors');
 // app.use(cors())
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5000']; // Add all allowed frontend URLs
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:5000', 'https://vendor.aabhaarindia.com',  'http://vendor.aabhaarindia.com','https://.aabhaarindia.com']; // Add all allowed frontend URLs
 
 app.use(cors({
     origin: function (origin, callback) {
