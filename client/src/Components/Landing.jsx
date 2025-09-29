@@ -66,7 +66,7 @@ export default function Landing() {
   return (
     <>
       <div className="landing-page-vh w-full">
-        <nav className="flex items-center w-full flex-row justify-evenly p-2 mt-3">
+        <nav className="flex items-center w-full flex-row justify-evenly p-2 mt-0 md:mt-3">
          <div className="hidden md:flex w-9/10 justify-between items-center">
 
         
@@ -132,7 +132,7 @@ export default function Landing() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-slate-100 shadow-md flex flex-col items-center py-4 z-50">
+        <div className="absolute top-16 left-0 w-full bg-white shadow-md flex flex-col items-center py-4 z-50">
           <a
             className="nav-links px-2 py-2 text-slate-600 font-semibold"
             href="#steps"
@@ -172,7 +172,7 @@ export default function Landing() {
 
         </nav>
 
-        <div className="hero-section h-screen text-center w-full">
+        <div className="hero-section h-screen text-center w-full p-3">
           <div>
             <h1 className="font-bold text-4xl ">
               Start Selling and Growing with Us!
