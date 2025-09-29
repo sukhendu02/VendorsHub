@@ -83,8 +83,15 @@ app.get('/api/health', (req, res) => {
 
 const path = require("path");
 
-// Serve static files from React
-app.use(express.static(path.join(__dirname, "../client/dist")));
+
+// Serve frontend static files
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Catch-all: return index.html for frontend routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 
   // Start the server
