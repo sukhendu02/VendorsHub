@@ -81,16 +81,11 @@ app.get('/api/health', (req, res) => {
 });
 
 
+const path = require("path");
 
-import path from "path";
+// Serve static files from React
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
-const __dirname = path.resolve();
-
-app.use(express.static(path.join(__dirname, "../client/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
 
   // Start the server
 app.listen(process.env.PORT, () => {
