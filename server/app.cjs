@@ -84,16 +84,13 @@ app.get('/api/health', (req, res) => {
 const path = require("path");
 
 
-// Serve frontend static files
-const __dirname = path.resolve();
+// Serve React frontend
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// Catch-all: return index.html for frontend routing
+// Catch-all route
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
-
-
   // Start the server
 app.listen(process.env.PORT, () => {
     console.log(`Server started on port ${port}`);
