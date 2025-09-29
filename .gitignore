@@ -28,5 +28,6 @@ dist-ssr
 .env
 /.env
 client/.env
+server/.env
 server/config.env
 client/config.env
