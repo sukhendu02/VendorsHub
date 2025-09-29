@@ -13,11 +13,13 @@ import {
   Youtube,
 } from "lucide-react";
 import "../Landing.css";
+import { Menu, X } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 export default function Landing() {
 
 
+  const [isOpen, setIsOpen] = useState(false);
     const [queryForm, setqueryForm] = useState({
       fullname: "",
       email: "",
@@ -65,6 +67,9 @@ export default function Landing() {
     <>
       <div className="landing-page-vh w-full">
         <nav className="flex items-center w-full flex-row justify-evenly p-2 mt-3">
+         <div className="hidden md:flex w-9/10 justify-between items-center">
+
+        
           <div>
             <Link className="text-2xl font-bold" to="/">
               <img src="/Logo/aabhaar.png" alt="logo" width="150px" />
@@ -110,6 +115,61 @@ export default function Landing() {
               </button>
             </Link>
           </div>
+ </div>
+
+          {/*  */}
+            {/* Mobile Hamburger */}
+      <div className="md:hidden   w-full items-right flex justify-between px-4">
+        <div>
+            <Link className="text-2xl font-bold" to="/">
+              <img src="/Logo/aabhaar.png" alt="logo" width="150px" />
+            </Link>
+          </div>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="absolute top-16 left-0 w-full bg-slate-100 shadow-md flex flex-col items-center py-4 z-50">
+          <a
+            className="nav-links px-2 py-2 text-slate-600 font-semibold"
+            href="#steps"
+            onClick={() => setIsOpen(false)}
+          >
+            How to Sell
+          </a>
+          <Link
+            className="nav-links px-2 py-2 text-slate-600 font-semibold"
+            to="/documentation"
+            onClick={() => setIsOpen(false)}
+          >
+            Docs
+          </Link>
+          <Link
+            className="nav-links px-2 py-2 text-slate-600 font-semibold"
+            to="#"
+            onClick={() => setIsOpen(false)}
+          >
+            Don't have GST?
+          </Link>
+          <Link
+            className="nav-links px-2 py-2 text-slate-600 font-semibold"
+            to="/vendor/auth/signin"
+            onClick={() => setIsOpen(false)}
+          >
+            Login
+          </Link>
+          <Link to="/vendor/auth/signup" onClick={() => setIsOpen(false)}>
+            <button className="mt-2 p-2 px-4 rounded-xl bg-acent text-white">
+              Start Selling
+            </button>
+          </Link>
+        </div>
+      )}
+
+
         </nav>
 
         <div className="hero-section h-screen text-center w-full">
