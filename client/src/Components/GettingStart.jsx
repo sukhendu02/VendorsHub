@@ -555,7 +555,7 @@ const navigate = useNavigate();
                   <></>
                 )}
 
-                <h4 className="text-center font-medium text-lg text-slate-600 my-2">
+                <h4 className="text-center font-medium text-lg text-slate-600 my-5">
                   Register your business and Start Earing{" "}
                 </h4>
 
@@ -617,7 +617,7 @@ const navigate = useNavigate();
                             {step === 1 && (
                               <>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         First Name*
@@ -634,7 +634,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Last Name
@@ -654,7 +654,7 @@ const navigate = useNavigate();
                                 </div>
 
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Email
@@ -673,7 +673,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Phone*
@@ -693,7 +693,7 @@ const navigate = useNavigate();
                                 </div>
 
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Store Name*
@@ -710,7 +710,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Store Url*
@@ -746,7 +746,7 @@ const navigate = useNavigate();
                             {step === 2 && (
                               <>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Business Name*
@@ -763,7 +763,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  {/* <div className="relative my-4  w-1/2 m-3">
+                                  {/* <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                             <div>
                               <label className="text-slate-700">
                                 Business Name 2
@@ -780,7 +780,7 @@ const navigate = useNavigate();
                               />
                             </div>
                           </div> */}
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Social Media Link/ Any Product Link
@@ -799,7 +799,7 @@ const navigate = useNavigate();
                                   </div>
                                 </div>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Address*
@@ -816,7 +816,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700"></label>
                                       <br />
@@ -953,7 +953,7 @@ const navigate = useNavigate();
                             {step === 3 && (
                               <>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         GST Number*
@@ -970,7 +970,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         PAN Number
@@ -990,7 +990,7 @@ const navigate = useNavigate();
                                 </div>
 
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Bank Account Number
@@ -1008,7 +1008,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         IFSC Code
@@ -1285,7 +1285,7 @@ const navigate = useNavigate();
                             {step2 === 1 && (
                               <>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         First Name*
@@ -1302,7 +1302,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Last Name
@@ -1321,7 +1321,7 @@ const navigate = useNavigate();
                                   </div>
                                 </div>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Email
@@ -1339,7 +1339,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Phone*
@@ -1358,7 +1358,7 @@ const navigate = useNavigate();
                                   </div>
                                 </div>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Store Name*
@@ -1375,7 +1375,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Store Url*
@@ -1408,7 +1408,7 @@ const navigate = useNavigate();
                             {step2 === 2 && (
                               <>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Name as per PAN*
@@ -1425,7 +1425,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         PAN Number (Individaul)*
@@ -1444,7 +1444,7 @@ const navigate = useNavigate();
                                   </div>
                                 </div>
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Address*
@@ -1461,7 +1461,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700"></label>
                                       <br />
@@ -1598,7 +1598,7 @@ const navigate = useNavigate();
                             {step2 === 3 && (
                               <>
                                 <div className="flex justify-between">
-                                  {/* <div className="relative my-4  w-1/2 m-3">
+                                  {/* <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                             <div>
                               <label className="text-slate-700">
                                 Monthly Revenue 
@@ -1614,7 +1614,7 @@ const navigate = useNavigate();
                               />
                             </div>
                           </div> */}
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Social Media Link/bestseller product
@@ -1631,7 +1631,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Bank Name*
@@ -1651,7 +1651,7 @@ const navigate = useNavigate();
                                 </div>
 
                                 <div className="flex justify-between">
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         Bank Account Number*
@@ -1669,7 +1669,7 @@ const navigate = useNavigate();
                                       />
                                     </div>
                                   </div>
-                                  <div className="relative my-4  w-1/2 m-3">
+                                  <div className="relative my-4  w-1/2 m-1 sm:m-3 ">
                                     <div>
                                       <label className="text-slate-700">
                                         IFSC Code*

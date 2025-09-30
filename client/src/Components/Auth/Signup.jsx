@@ -105,7 +105,7 @@ export default function Signup() {
   return (
     <>
      <div className="w-full  flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full h-full md:h-auto max-w-lg p-14 bg-white shadow-md rounded-lg">
+      <div className="w-full h-full md:h-auto max-w-lg p-5 sm:p-14 bg-white shadow-md rounded-lg">
         <Link to="/">
         <img src="/Logo/aabhaar.png" alt="logo" width="180px" className='m-auto p-4' />
         </Link>

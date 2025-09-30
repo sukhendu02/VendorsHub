@@ -38,7 +38,7 @@ export default function Policies(){
             <div className='p-6 text-xs  text-slate-600'>
 
   
-  <div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+  <div className="max-w-3xl space-y-8 text-gray-800 ">
 
   <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Registration, Account & Conduct Policy</h1>
 
@@ -120,7 +120,7 @@ export default function Policies(){
              
               <div className='p-6 text-xs  text-slate-600'>
   
-<div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+<div className="max-w-3xl space-y-8 text-gray-800 ">
 
   {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Product Listing, Content & Pricing Policy</h1> */}
 
@@ -220,7 +220,7 @@ export default function Policies(){
             </div>
 
           <div className='p-6 text-xs  text-slate-600'> 
- <div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+ <div className="max-w-3xl space-y-8 text-gray-800 ">
 
   {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Order Fulfillment, Shipping & Delivery Policy</h1> */}
 
@@ -324,7 +324,7 @@ export default function Policies(){
 
 
   <div className='p-6 text-xs  text-slate-600'> 
-   <div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+   <div className="max-w-3xl space-y-8 text-gray-800 ">
 
   {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Return, Refund, Cancellation & Dispute Resolution Policy</h1> */}
 
@@ -416,7 +416,7 @@ export default function Policies(){
                 <h2 className='text-lg font-bold '>Payment, Commission & Financial Policy</h2>
             </div>
               <div className='p-6 text-xs  text-slate-600'> 
-<div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+<div className="max-w-3xl space-y-8 text-gray-800 ">
 
   {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Payment, Commission & Financial Policy</h1> */}
 
@@ -509,7 +509,7 @@ export default function Policies(){
             </div>
 
               <div className='p-6  text-sm text-slate-600'> 
-<div className="max-w-3xl space-y-8 text-gray-800 dark:text-gray-200">
+<div className="max-w-3xl space-y-8 text-gray-800 ">
 
   {/* <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Data Privacy, Promotions & General Terms Policy</h1> */}
 

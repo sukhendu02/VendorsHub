@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search,NotepadText,BadgeIndianRupee,FileSearch2  , ChevronRight,Sparkles ,Gift,Star,Target, Book, Code, Lightbulb, Settings, ShoppingBag, Truck, FileCheck, AlertCircle,Rocket } from 'lucide-react';
+import { Search,NotepadText,BadgeIndianRupee,FileSearch2  , ChevronRight,Sparkles ,Gift,Star,Target, Book, Code, Lightbulb, Settings, ShoppingBag, Truck, FileCheck, AlertCircle,Rocket , Menu} from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ReactMarkdown from "react-markdown";
 
@@ -19,6 +19,8 @@ export default function Documentation() {
     }
   }, [location]);
 
+const [mobileMenuOpen, setMobileMenuOpen]= useState(false);
+const [openSubmenu, setOpenSubmenu] =useState(null)
   const sections = [
     {
       title: 'Getting Started',
@@ -1243,87 +1245,67 @@ export default function Documentation() {
   const currentContent = getContent();
 
   return (
+  <>
+  <div className="sidemenu h-fit w-full border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 lg:hidden">
+    
+
+
+  <div className="relative lg:hidden ">
+      {/* Hamburger Button */}
+      <button
+        className="p-2 text-gray-700 dark:text-gray-200 "
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <Menu size={24} />
+      </button>
+
+      {/* Mobile Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="absolute top-full left-0 w-full text-sm bg-white dark:bg-gray-900 shadow-md z-50">
+          <ul className="flex  divide-y divide-gray-200 dark:divide-gray-700">
+            {sections.map((section, index) => (
+              <li key={index}>
+                {/* Main Menu */}
+                <button
+                  className="w-full flex justify-between items-center px-4 py-3 text-left text-gray-800 dark:text-gray-100 font-medium"
+                  onClick={() =>
+                    setOpenSubmenu(openSubmenu === index ? null : index)
+                  }
+                >
+                  {section.title}
+                  <span>{openSubmenu === index ? "▲" : "▼"}</span>
+                </button>
+
+                {/* Submenu */}
+                {openSubmenu === index && (
+                  <ul className="bg-gray-50 dark:bg-gray-800 flex flex-col">
+                    {section.items.map((item) => (
+                      <li key={item.id}>
+                        <Link
+                          to={`#${item.id}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block px-6 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          {item.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+
+      </div>
+ 
     <div className="min-h-screen flex">
  
 
 
-{/*   <div className="w-64 fixed  border-gray-700 p-3">
-        <div className="">
-          <div className="sticky top-0 z-10 backdrop-blur-lg  dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 py-4">
-        <div className="max-w-8xl mx-auto">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search documentation..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700"
-            />
-          </div>
-        </div>
-      </div>
-          <nav>
-            {sections.map((section, index) => {
-              const Icon = section.icon;
-              return (
-                <div key={index} className="mb-6">
-                  <div className="flex items-center mb-3">
-                    <Icon className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-                    <h2 className="text-sm font-semibold ml-2 text-gray-900 dark:text-gray-100">
-                      {section.title}
-                    </h2>
-                  </div>
-                  <ul className="space-y-2">
-                    {section.items.map((item) => (
-                      <li key={item.id}>
-                        <Link
-                          to={`#${item.id}`}
-                          onClick={() => setActiveSection(item.id)}
-                          className={`block py-2 px-3 text-sm rounded-md transition-colors ${
-                            activeSection === item.id
-                              ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                              : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                          }`}
-                        >
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </nav>
-        </div>
-      </div> */}
-
-      {/* Main Content */}
-{/*       <div className="flex-1 px-8">
-        <article className="prose dark:prose-invert max-w-none">
-          <h1 className="text-3xl font-bold mb-8">{currentContent.title}</h1>
-          <div className="space-y-4">
-            {currentContent.content.split('\n').map((line, index) => {
-              if (line.startsWith('# ')) {
-                return <h1 key={index} className="text-3xl font-bold mt-8 mb-4">{line.replace('# ', '')}</h1>;
-              }
-              if (line.startsWith('## ')) {
-                return <h2 key={index} className="text-2xl font-semibold mt-6 mb-3">{line.replace('## ', '')}</h2>;
-              }
-              if (line.startsWith('- ')) {
-                return <li key={index} className="ml-4">{line.replace('- ', '')}</li>;
-              }
-              if (line.match(/^\d+\./)) {
-                return <li key={index} className="ml-4">{line.replace(/^\d+\./, '')}</li>;
-              }
-              if (line.trim() === '') {
-                return <br key={index} />;
-              }
-              return <p key={index} className="text-gray-600 dark:text-gray-400">{line}</p>;
-            })}
-          </div>
-        </article>
-      </div> */}
 
 
 <div className="min-h-screen w-full flex bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -1378,6 +1360,7 @@ export default function Documentation() {
           })}
         </nav>
       </aside>
+      
 
             {/* Main Content */}
       
@@ -1419,7 +1402,7 @@ export default function Documentation() {
 
 
 
-
+ </>
 
 
   );

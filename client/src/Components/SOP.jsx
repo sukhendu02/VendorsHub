@@ -143,7 +143,7 @@ export default function SOP() {
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
                   <Icon className="w-5 h-5 text-complimentory dark:text-complimentory" />
                 </div>
-                <h2 className="text-lg font-semibold ml-4">{procedure.title}</h2>
+                <h2 className="text-lg font-semibold ml-4 dark:text-white">{procedure.title}</h2>
               </div>
               <ul className="space-y-3 text-sm">
                 {procedure.steps.map((step, stepIndex) => (
@@ -179,7 +179,7 @@ export default function SOP() {
                       : 'text-green-500'
                   }`}
                 />
-                <h3 className="font-semibold ml-3">{section.type}</h3>
+                <h3 className="font-semibold ml-3 dark:text-white">{section.type}</h3>
               </div>
               <ul className="space-y-3">
                 {section.items.map((item, itemIndex) => (
