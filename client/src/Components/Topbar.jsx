@@ -20,7 +20,7 @@ export default function Topbar() {
         </div>
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-2">
         <Link className='text-sm text-slate-600 font-semibold sm:block hidden'>Blogs <span className='text-xs bg-slate-200 p-1 px-2 text-slate-500 rounded-xl'>Coming Soon</span></Link>
         <Link className='text-sm text-slate-600 font-semibold sm:block hidden' to="/documentation" target='_blank'>Docs</Link>
         <Link className='text-sm text-slate-600 font-semibold sm:block hidden'>Plans <span className='badge text-xs'>Free</span> </Link>

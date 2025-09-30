@@ -85,7 +85,7 @@ function App() {
             element={
               <div className="flex w-full flex-col h-screen">
                 <Topbar />
-                <main className="flex-1 w-full h-screen overflow-x-hidden overflow-y-auto p-2">
+                <main className="flex-1 w-full h-screen overflow-x-hidden overflow-y-auto p-2 mb-20 md:mb-20">
                   {/* <div className="p-6">Documentation Page</div> */}
                   <Documentation/>
                 </main>
@@ -103,11 +103,11 @@ function App() {
           <Route
             path="/vendor/*"
             element={
-              <div className="flex w-full h-screen bg-gray-100">
+              <div className="flex w-full h-screen bg-gray-100 ">
                 {/* <Sidebar /> */}
                 {/* <div className="flex-1 flex flex-col overflow-hidden"> */}
                   {/* <Topbar /> */}
-                  {/* <main className="flex-1 overflow-x-hidden overflow-y-auto m-1 p-2"> */}
+                  {/* <main className="flex-1 overflow-x-hidden overflow-y-auto m-1 p-2 mb-20 "> */}
                     <Routes>
                       {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>

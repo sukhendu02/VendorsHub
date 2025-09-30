@@ -196,7 +196,7 @@ const Profile = () => {
 
 
     
-    <div className="min-h-screen bg-gray-50 p-5 ">
+    <div className="min-h-screen bg-gray-50 p-2 sm:p-5 ">
    
 
       {/* Profile Header */}

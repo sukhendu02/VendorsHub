@@ -109,7 +109,7 @@ export default function Sidebar() {
 
 
      {/* Mobile Bottom Nav */}
-  <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md flex justify-around items-center py-2 px-1 md:hidden z-50">
+  {/* <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md flex justify-around items-center py-2 px-1 md:hidden z-50">
     {[...menuItems, ...menuItems2].map((item) => (
       <NavLink
         key={item.label}
@@ -123,11 +123,11 @@ export default function Sidebar() {
         <span className="text-[10px] mt-1">{item.label}</span>
       </NavLink>
     ))}
-  </div>
+  </div> */}
 
 
   {/* Mobile Bottom Nav (Scrollable) */}
-{/* <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md overflow-x-auto md:hidden z-50">
+<div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md overflow-x-auto md:hidden z-50">
   <div className="flex justify-start items-center px-2 py-2 space-x-6 min-w-max">
     {[...menuItems, ...menuItems2].map((item) => (
       <NavLink
@@ -143,7 +143,9 @@ export default function Sidebar() {
       </NavLink>
     ))}
   </div>
-</div> */}
+</div>
+
+
 
 
 

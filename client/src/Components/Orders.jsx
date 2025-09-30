@@ -128,7 +128,7 @@ const Orders = () => {
                 {/* Status Tabs */}
                 <div className="mb-6">
                     <div className="border-b border-gray-200 dark:border-gray-700">
-                        <nav className="-mb-px flex space-x-8">
+                        <nav className="-mb-px flex space-x-8 overflow-x-scroll">
                             {statusTabs.map((tab) => (
                                 <button
                                     key={tab.id}
@@ -163,7 +163,7 @@ const Orders = () => {
                                 className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700"
                             />
 
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-4 overflow-x-scroll my-2">
                                 <select
                                     value={selectedStatus}
                                     onChange={(e) => setSelectedStatus(e.target.value)}

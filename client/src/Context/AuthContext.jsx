@@ -27,7 +27,7 @@ export const AuthProvider=({children})=> {
 
     const logout= async()=>{
         try {
-              await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`,{},{withCredentials:true})
+              await axios.post(`${import.meta.env.VITE_BACKEND_URL}/logout`,{},{withCredentials:true})
             
             setUser(null)
 
@@ -45,7 +45,7 @@ export const AuthProvider=({children})=> {
       
       const fetchProfile = async () => {
         try {
-          const res = await axios.get("http://localhost:3000/api/auth/profile", {
+          const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/profile`, {
             withCredentials: true,
           });
           setUser(res.data);  // ✅ Store user data globally

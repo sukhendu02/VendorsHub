@@ -543,7 +543,7 @@ const navigate = useNavigate();
         <>
           {vendorStatus === "Pending" || vendorStatus === null ? (
             <>
-              <div className="bg-white rounded mt-2 p-3 text-sm shadow-sm">
+              <div className="bg-white rounded mt-2 md:p-3 text-sm shadow-sm">
                 {vendorStatus === "Pending" ? (
                   <>
                     <div className="text-sm bg-orange-300 p-3 my-4 text-slate-700 border-l-6 border-orange-400 rounded">
@@ -577,8 +577,8 @@ const navigate = useNavigate();
                           <form
                             // action=""
                             onSubmit={registerdForm}
-                            methond="post"
-                            className="p-3 m-2 sm:p-5 w-5/6 m-auto text-left"
+                            method="post"
+                            className="p-1  sm:p-5  w-full m-auto text-left"
                           >
                             <div className="mb-8">
                               <div className="flex justify-between items-center">
@@ -1246,7 +1246,7 @@ const navigate = useNavigate();
                             action=""
                             method="post"
                             onSubmit={nonregForm}
-                            className="p-3 m-2 sm:p-5 w-5/6 m-auto text-left"
+                            className="p-1  sm:p-5  w-full m-auto text-left"
                           >
                             <div className="mb-8">
                               <div className="flex justify-between items-center">
