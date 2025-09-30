@@ -45,7 +45,7 @@ export default function Policies(){
   {/* <!-- Section 1 --> */}
   <section>
     <h2 className="text-lg font-semibold">1. Eligibility & Registration</h2>
-    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 ">
       <li>Vendors must be 18 years or older and legally capable of entering into binding agreements.</li>
       <li>By registering, the vendor affirms that the information provided is accurate, up-to-date, and belongs to the registrant or their legal business entity.</li>
       <li>Submission of identity, business, tax (GST, PAN), bank details, and relevant licenses is mandatory for account verification.</li>
@@ -56,7 +56,7 @@ export default function Policies(){
   {/* <!-- Section 2 --> */}
   <section>
     <h2 className="text-lg font-semibold">2. Vendor Account Responsibility</h2>
-    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 ">
       <li>Each vendor is solely responsible for all activity conducted through their account.</li>
       <li>Credentials such as email, password, OTPs, or API keys must be protected and not shared with unauthorized users.</li>
       <li>If unauthorized access or misuse is suspected, the vendor must notify the platform immediately in writing.</li>
@@ -67,8 +67,8 @@ export default function Policies(){
   {/* <!-- Section 3 --> */}
   <section>
     <h2 className="text-lg font-semibold">3. Acceptable Use & Conduct</h2>
-    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">Vendors are expected to uphold ethical, legal, and professional behavior. The following are strictly prohibited:</p>
-    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+    <p className="text-sm text-gray-700  mt-2">Vendors are expected to uphold ethical, legal, and professional behavior. The following are strictly prohibited:</p>
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 ">
       <li>Listing counterfeit, stolen, prohibited, or misrepresented products.</li>
       <li>Uploading false or manipulated information, documents, or bank details.</li>
       <li>Spamming, harassment, abusive messages, or coercion of any buyer or platform member.</li>
@@ -80,7 +80,7 @@ export default function Policies(){
   {/* <!-- Section 4 --> */}
   <section>
     <h2 className="text-lg font-semibold">4. Platform Rights & Enforcement</h2>
-    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+    <ul className="list-disc ml-6 mt-2 space-y-1 text-sm text-gray-700 ">
       <li>The platform reserves the right to:
         <ul className="list-disc ml-6 mt-1 space-y-1">
           <li>Request additional verification or documentation at any time.</li>
@@ -96,10 +96,10 @@ export default function Policies(){
   {/* <!-- Section 5 --> */}
   <section>
     <h2 className="text-lg font-semibold">5. Indemnification & Liability</h2>
-    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+    <p className="text-sm text-gray-700  mt-2">
       The vendor agrees to indemnify, defend, and hold harmless the platform, its team, and partners against any loss, claim, damage, liability, or legal expense arising due to the vendor’s actions or inactions.
     </p>
-    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+    <p className="text-sm text-gray-700  mt-2">
       This includes, but is not limited to: customer claims, product-related disputes, data breaches, regulatory violations, or any third-party legal notices.
     </p>
   </section>

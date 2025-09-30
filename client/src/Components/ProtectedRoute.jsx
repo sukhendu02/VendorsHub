@@ -48,7 +48,7 @@ const ProtectedRoute = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Topbar />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto  sm:m-1  sm:p-2 mb-14 sm:mb-0">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto  sm:m-1 p-1  sm:p-2 mb-14 sm:mb-0">
           <Outlet /> {/* ✅ This makes sure child routes are rendered properly */}
         </main>
       </div>

@@ -555,8 +555,8 @@ const navigate = useNavigate();
                   <></>
                 )}
 
-                <h4 className="text-center font-medium text-lg text-slate-600 my-5">
-                  Register your business and Start Earing{" "}
+                <h4 className="text-center font-medium text-xl text-slate-600 py-5">
+                  Register your business and Start Earning{" "}
                 </h4>
 
                 <div className="text-center ">
