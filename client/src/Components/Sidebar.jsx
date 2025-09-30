@@ -47,7 +47,7 @@ export default function Sidebar() {
     
   return (
     <>
-        <div className={`h-screen bg-white  transition-all duration-300 ${collapsed ? 'w-20' : 'w-64'} relative`}>
+        <div className={`h-screen bg-white hidden md:block  transition-all duration-300 ${collapsed ? 'w-20' : 'w-64'} relative`}>
       <button 
         onClick={() => setCollapsed(!collapsed)}
         className="absolute -right-3 top-10 bg-primary cursor-pointer p-1 rounded-full text-white md:block hidden"
@@ -106,6 +106,47 @@ export default function Sidebar() {
         
       </nav>
     </div>
+
+
+     {/* Mobile Bottom Nav */}
+  <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md flex justify-around items-center py-2 px-1 md:hidden z-50">
+    {[...menuItems, ...menuItems2].map((item) => (
+      <NavLink
+        key={item.label}
+        to={item.path}
+        className={({ isActive }) => `
+          flex flex-col items-center text-xs
+          ${isActive ? "text-primary" : "text-slate-600"}
+        `}
+      >
+        <item.icon size={22} />
+        <span className="text-[10px] mt-1">{item.label}</span>
+      </NavLink>
+    ))}
+  </div>
+
+
+  {/* Mobile Bottom Nav (Scrollable) */}
+{/* <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md overflow-x-auto md:hidden z-50">
+  <div className="flex justify-start items-center px-2 py-2 space-x-6 min-w-max">
+    {[...menuItems, ...menuItems2].map((item) => (
+      <NavLink
+        key={item.label}
+        to={item.path}
+        className={({ isActive }) => `
+          flex flex-col items-center text-xs min-w-[60px]
+          ${isActive ? "text-primary" : "text-slate-600"}
+        `}
+      >
+        <item.icon size={22} />
+        <span className="text-[10px] mt-1">{item.label}</span>
+      </NavLink>
+    ))}
+  </div>
+</div> */}
+
+
+
     </>
   )
 }

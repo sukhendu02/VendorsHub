@@ -27,7 +27,7 @@ export const AuthProvider=({children})=> {
 
     const logout= async()=>{
         try {
-              await axios.post("http://localhost:3000/api/auth/logout",{},{withCredentials:true})
+              await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`,{},{withCredentials:true})
             
             setUser(null)
 
