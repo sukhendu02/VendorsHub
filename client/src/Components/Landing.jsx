@@ -39,7 +39,7 @@ export default function Landing() {
           return;
         }
 
-        const response = await axios.post(`http://localhost:3000/api/common/queryform`,queryForm ,{withCredentials: true});
+        const response = await axios.post(`${import.meta.env.VITE_DOMAIN}/api/common/queryform`,queryForm ,{withCredentials: true});
 
         // console.log("Response:", response);
         if (response.status === 200) {
@@ -798,7 +798,7 @@ export default function Landing() {
             </div>
           </div>
                <div className="border-t text-sm  border-gray-800 mt-8 pt-8 text-center text-white">
-            <p>&copy; 2025 Aabhaar India. All rights reserved. Built with ❤️ for <img src="/src/assets/flag.png" alt="flag" width="20px" className="inline" />.</p>
+            <p>&copy; 2025 Aabhaar India. All rights reserved. Built with ❤️ for <span>India &#127470;&#127475;</span>.</p>
           </div>
         </footer>
       </div>
